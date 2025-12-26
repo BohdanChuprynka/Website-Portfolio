@@ -22,7 +22,7 @@ function Contact() {
             >
               <strong>bohdan.chuprynka@gmail.com</strong> 
             </a>
-
+ 
             <Button
               variant="contained"
               endIcon={<SendIcon />}
