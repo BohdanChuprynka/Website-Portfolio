@@ -43,19 +43,32 @@
     }
 
     h1 {
-        font-size: 5em;
+        font-size: 4em;
         margin-block-start: 0px;
         margin-block-end: 0px;
     }
 }
 
 .about-section .image-wrapper {
-    z-index: 2;
-    img {
-        width: 150px;
-        border-radius: 50%;
-    }
-}
+    width: 200px;
+    aspect-ratio: 1 / 1;  
+    border-radius: 50%;
+    overflow: hidden;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    flex-shrink: 0;      
+  }
+  
+  .about-section .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 35%; /* try 30–45% for vertical */
+    display: block;
+  }
 
 .about p {
     text-align: center;

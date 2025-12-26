@@ -1,7 +1,7 @@
 import React from "react";
 import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
@@ -10,56 +10,71 @@ function Timeline() {
   return (
     <div id="history">
       <div className="items-container">
-        <h1>Career History</h1>
+        <h1>Project Timeline</h1>
         <VerticalTimeline>
+        <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
+            contentArrowStyle={{ borderRight: '7px solid  white' }}
+            date="June 2025 - August 2025"
+            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
+            icon={<FontAwesomeIcon icon={faGear} />}
+          >
+            <h3 className="vertical-timeline-element-title">Vertebrae Image Segmentation</h3>
+            <h4 className="vertical-timeline-element-subtitle">Internship Project</h4>
+            <p>
+              X-ray Segmentation, Statistical Analysis, Model Architecture, Accuracy Evaluation, Automation & Deployment
+            </p>
+          </VerticalTimelineElement>
+
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="2022 - present"
+            date="June 2025 - August 2025"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Technology Consultant</h3>
-            <h4 className="vertical-timeline-element-subtitle">Dallas, TX</h4>
+            <h3 className="vertical-timeline-element-title">AI Engineer</h3>
+            <h4 className="vertical-timeline-element-subtitle">Cleveland Clinic</h4>
             <p>
-              Full-stack Web Development, GenAI/LLM, Project Management, Business Development
+              Medical Imaging AI, Image Segmentation, Processing & Model Development, Clinical Workflow Automation, Research Fellow
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2022"
+            date="August 2024 - December 2024"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
+            icon={<FontAwesomeIcon icon={faGear} />}
           >
-            <h3 className="vertical-timeline-element-title">Full Stack Engineer</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">PersonaGPT</h3>
+            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
             <p>
-              Frontend Development, Backend Development, User Experience, Team Leading
+              LLM Personalization, Conversation Intelligence, Data Integration & Preparation, Model Fine‑Tuning, Context‑Aware Writing, Behavioral Style Adaptation
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2021 - 2021"
+            date="July 2024 - August 2024"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
+            icon={<FontAwesomeIcon icon={faGear} />}
           >
-            <h3 className="vertical-timeline-element-title">Staff Engineer Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Laie, HI</h4>
+            <h3 className="vertical-timeline-element-title">Stock Sales Prediction</h3>
+            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
             <p>
-              Full-stack Development, API Development, User Experience
+              Time‑series forecasting, End‑to‑End Model Development, Kaggle Competition, Production‑Ready Data Pipeline
             </p>
           </VerticalTimelineElement>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            date="2020 - 2020"
+            date="March 2024 - April 2024"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
+            icon={<FontAwesomeIcon icon={faGear} />}
           >
-            <h3 className="vertical-timeline-element-title">Data Analyst Intern</h3>
-            <h4 className="vertical-timeline-element-subtitle">Tokyo, Japan</h4>
+            <h3 className="vertical-timeline-element-title">Sentiment Analysis</h3>
+            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
             <p>
-              Automation, Data Governance, Statistical Analysis
+              Data Processing, Model Training, Emotion Detection
             </p>
           </VerticalTimelineElement>
         </VerticalTimeline>
