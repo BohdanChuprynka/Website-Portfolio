@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/BohdanChuprynka.github.io/Website-Portfolio/static/css/main.b2384676.css",
+    "main.js": "/BohdanChuprynka.github.io/Website-Portfolio/static/js/main.9446fee2.js",
+    "static/js/453.efc6d0dd.chunk.js": "/BohdanChuprynka.github.io/Website-Portfolio/static/js/453.efc6d0dd.chunk.js",
+    "static/media/bg-dark.png": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/bg-dark.0273f4bb9c39c389d6d5.png",
+    "static/media/bg-light.png": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/bg-light.bac0efb485244a522981.png",
+    "static/media/stock_sales.jpg": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/stock_sales.469fb2eed9cbf6b9d585.jpg",
+    "static/media/PersonaGPT.jpg": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/PersonaGPT.5e12ecbbe8af621f91a3.jpg",
+    "static/media/sentiment_project.png": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/sentiment_project.afeeef09397ba7b19eef.png",
+    "static/media/tableau_vis.png": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/tableau_vis.f5df268f0385ff5c8c47.png",
+    "static/media/avatar.jpg": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/avatar.ca5d2c68da9e7de2e96b.jpg",
+    "static/media/vertebrae_proj.jpg": "/BohdanChuprynka.github.io/Website-Portfolio/static/media/vertebrae_proj.696d2bf03eda781e8ad0.jpg",
+    "index.html": "/BohdanChuprynka.github.io/Website-Portfolio/index.html",
+    "main.b2384676.css.map": "/BohdanChuprynka.github.io/Website-Portfolio/static/css/main.b2384676.css.map",
+    "main.9446fee2.js.map": "/BohdanChuprynka.github.io/Website-Portfolio/static/js/main.9446fee2.js.map",
+    "453.efc6d0dd.chunk.js.map": "/BohdanChuprynka.github.io/Website-Portfolio/static/js/453.efc6d0dd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2384676.css",
+    "static/js/main.9446fee2.js"
+  ]
+}
