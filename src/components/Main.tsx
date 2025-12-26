@@ -5,7 +5,7 @@ import '../assets/styles/Main.scss';
 import avatar from "../assets/images/avatar.jpg";
 
 function Main() {
-
+  
   return (
     <div className="container">
       <div className="about-section">
