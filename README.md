@@ -38,3 +38,9 @@ The website presents my projects, technical skills, experience, and background i
 Install dependencies:
 ```bash
 npm install
+```
+
+Start the development server:
+```bash
+npm start
+```
