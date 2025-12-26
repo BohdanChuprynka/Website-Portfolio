@@ -4,7 +4,7 @@ This repository contains the source code for my personal portfolio website.
 
 The website presents my projects, technical skills, experience, and background in a clean and modern format. It is designed to be fast, responsive, and easy to maintain, serving as a central place to showcase my work and share contact information.
 
-🌐 Live site: https://yourusername.github.io/your-repo-name
+🌐 Live site: https://bohdanchuprynka.github.io/Website-Portfolio/
 
 ---
 
