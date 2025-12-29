@@ -36,7 +36,7 @@ function Project() {
             <div className="project">
                 <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noreferrer"><img src={stock_sales} className="zoom" alt="thumbnail" width="100%"/></a>
                 <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noreferrer"><h2>Stock Sales Prediction</h2></a>
-                <p>Developed movie finder app with semantic search and sentiment analysis using OpenAI GPT-3.5 Turbo, Qdrant, React, and Flask.</p>
+                <p>Developed a machine learning pipeline on a stock sales dataset, covering data cleaning, feature engineering, model training, and performance evaluation.</p>
             </div>
 
             <div className="project">
