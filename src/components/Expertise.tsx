@@ -55,7 +55,7 @@ function Expertise() {
           {/* DATA SCIENCE / ANALYTICS / AUTOMATION */}
           <div className="skill">
             <FontAwesomeIcon icon={faPython} size="3x" />
-            <h3>Data Science, Analytics & Automation</h3>
+            <h3>Machine Learning Engineer</h3>
             <p>
               I design full-cycle data solutions — from parsing and cleaning data to analyzing,
               visualizing, and transforming it into actionable insights. My work focuses on
