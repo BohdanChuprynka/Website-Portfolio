@@ -17,43 +17,47 @@ import { faPython } from "@fortawesome/free-brands-svg-icons";
 
 
 const labelsCoreML = [
-  "Python",
   "PyTorch",
   "TensorFlow",
-  "scikit-learn",
-  "nnU-Net",
-  "Computer Vision",
+  "HuggingFace Transformers",
+  "LangChain",
+  "LangGraph",
+  "LlamaIndex",
+  "Embeddings",
+  "Vector Search (Qdrant, Pinecone)",
   "Image Segmentation",
-  "Medical AI",
+  "Object Detection",
+  "Feature Extraction",
+  "Time-Series Forecasting",
   "Feature Engineering",
-  "Model Evaluation",
   "Cross-Validation",
-  "Experimentation",
+  "Hyperparameter Tuning",
+  "A/B Testing",
 ];
 
 const labelsMLEngineering = [
-  "FastAPI",
   "Docker",
-  "MLflow / Experiment Tracking",
-  "Git & GitHub",
-  "CI/CD",
-  "Model Versioning",
-  "Inference APIs",
-  "Research-to-Production",
-  "LLM Orchestration (LangChain / LlamaIndex)",
+  "FastAPI",
+  "AWS",
+  "MLflow",
+  "Weights & Biases",
+  "DVC",
+  "GitHub Actions",
+  "Reproducible ML Pipelines",
 ];
 
 const labelsDataSystems = [
+  "Python (OOP, Packaging)",
+  "SQL (CTEs, Window Functions)",
+  "ETL/ELT Pipelines",
+  "Vector Database Management",
+  "Bash",
   "Pandas",
   "NumPy",
-  "SQL",
-  "Vector Databases",
-  "Data Parsing & Cleaning",
-  "Data Validation",
-  "Automation Pipelines",
-  "Workflow Orchestration (N8N / Zapier)",
-  "Data Visualization (Tableau)",
-  "Retrieval Augmented Generation",
+  "Scikit-learn",
+  "Matplotlib",
+  "Seaborn",
+  "Experimental Design & Model Evaluation",
 ];
 
 function Expertise() {
@@ -65,13 +69,13 @@ function Expertise() {
         <div className="skills-grid">
           <div className="skill">
             <FontAwesomeIcon icon={faMicrochip} size="3x" />
-            <h3>Machine Learning & Deep Learning</h3>
+            <h3>Core ML & AI Engineering</h3>
             <p>
-              I design, train, and evaluate machine learning and deep learning
-              models with a focus on robustness, generalization, and real-world
-              applicability. My experience includes medical imaging, computer
-              vision, and predictive modeling—working with complex, high-stakes
-              datasets where correctness and reliability matter.
+              I build and deploy deep learning models, generative AI systems, and
+              retrieval-augmented generation pipelines. Experience spans medical
+              image segmentation at Cleveland Clinic, adaptive AI tutoring at
+              Aximon.ai, and computer vision — with a focus on robust evaluation,
+              cross-validation, and models that generalize beyond the training set.
             </p>
 
             <div className="flex-chips">
@@ -84,13 +88,14 @@ function Expertise() {
 
           <div className="skill">
             <FontAwesomeIcon icon={faServer} size="3x" />
-            <h3>ML Engineering & Deployment</h3>
+            <h3>Deployment & MLOps</h3>
             <p>
-              I bridge the gap between research and production by engineering
-              deployable ML systems. This includes experiment tracking, model
-              versioning, API-based inference, and containerized workflows. I
-              prioritize reproducibility, maintainability, and clean software
-              engineering practices in ML codebases.
+              I take models from research to production — containerizing with
+              Docker, serving via FastAPI, and deploying on AWS. I build
+              reproducible ML pipelines with experiment tracking (MLflow,
+              Weights & Biases), data versioning (DVC), and CI/CD via
+              GitHub Actions to ensure every model is auditable and
+              deployable.
             </p>
 
             <div className="flex-chips">
@@ -103,13 +108,13 @@ function Expertise() {
 
           <div className="skill">
             <FontAwesomeIcon icon={faDatabase} size="3x" />
-            <h3>Data Systems & Automation</h3>
+            <h3>Backend & Data Engineering</h3>
             <p>
-              I build reliable data pipelines that support ML systems end-to-end
-              — from ingestion and cleaning to validation and automation. My
-              approach emphasizes data quality, scalability, and workflow
-              efficiency to ensure models are trained and served on trustworthy
-              inputs.
+              I build the data infrastructure behind ML systems — advanced
+              Python backends, SQL-driven analytics, ETL/ELT pipelines,
+              and vector database management. I use Pandas, NumPy, and
+              Scikit-learn for analysis and evaluation, with Matplotlib
+              and Seaborn for visualization and experimental design.
             </p>
 
             <div className="flex-chips">
