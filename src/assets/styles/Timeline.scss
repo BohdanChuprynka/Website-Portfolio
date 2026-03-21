@@ -31,6 +31,10 @@
     color: white;
 }
 
+.vertical-timeline-element-icon {
+    box-shadow: none;
+}
+
 @media screen and (max-width: 1170px) {
     .vertical-timeline-element .vertical-timeline-element-date {
         color: rgb(39, 40, 34);

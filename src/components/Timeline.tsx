@@ -1,29 +1,32 @@
 import React from "react";
-import '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import '../assets/styles/Timeline.scss'
+import aximonLogo from '../assets/images/aximon_logo.svg';
+import clevelandClinicLogo from '../assets/images/cc-icon.png';
 
 function Timeline() {
   return (
     <div id="history">
       <div className="items-container">
-        <h1>Project Timeline</h1>
+        <h1>Professional History</h1>
         <VerticalTimeline>
+
         <VerticalTimelineElement
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="June 2025 - August 2025"
+            date="January 2026 - Present"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faGear} />}
+            icon={<img src={aximonLogo} alt="Aximon" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }} />}
           >
-            <h3 className="vertical-timeline-element-title">Vertebrae Image Segmentation</h3>
-            <h4 className="vertical-timeline-element-subtitle">Internship Project</h4>
+            <h3 className="vertical-timeline-element-title">ML Engineer Intern</h3>
+            <h4 className="vertical-timeline-element-subtitle">Aximon</h4>
             <p>
-              X-ray Segmentation, Statistical Analysis, Model Architecture, Accuracy Evaluation, Automation & Deployment
+              Owned the full AI stack for Aximon.ai, an adaptive Python tutoring platform serving active users — spanning RAG, real-time inference, and personalized content generation. Engineered multi-modal AI tutoring pipelines and built custom prompt management with structured context injection.
+            </p>
+            <p style={{ fontSize: '0.85em', color: '#555', marginTop: '8px' }}>
+              <strong>Tech:</strong> Python, GPT-4o-mini, Whisper, TTS, RAG, FastAPI, Prompt Engineering
             </p>
           </VerticalTimelineElement>
 
@@ -32,51 +35,19 @@ function Timeline() {
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
             date="June 2025 - August 2025"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faBriefcase} />}
+            iconStyle={{ background: 'white', color: 'white' }}
+            icon={<img src={clevelandClinicLogo} alt="Cleveland Clinic" style={{ width: '65%', height: '65%', objectFit: 'contain', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} />}
           >
-            <h3 className="vertical-timeline-element-title">AI Engineer</h3>
+            <h3 className="vertical-timeline-element-title">ML Engineer Intern</h3>
             <h4 className="vertical-timeline-element-subtitle">Cleveland Clinic</h4>
             <p>
-              Medical Imaging AI, Image Segmentation, Processing & Model Development, Clinical Workflow Automation, Research Fellow
+              Developed an nnU-Net-based vertebral segmentation system to automate spinal X-ray analysis, collaborating with radiologists and neurosurgeons.
+            </p>
+            <p style={{ fontSize: '0.85em', color: '#555', marginTop: '8px' }}>
+              <strong>Tech:</strong> PyTorch, nnU-Net, Medical Imaging, Image Segmentation, Python
             </p>
           </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="August 2024 - December 2024"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faGear} />}
-          >
-            <h3 className="vertical-timeline-element-title">PersonaGPT</h3>
-            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
-            <p>
-              LLM Personalization, Conversation Intelligence, Data Integration & Preparation, Model Fine‑Tuning, Context‑Aware Writing, Behavioral Style Adaptation
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="July 2024 - August 2024"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faGear} />}
-          >
-            <h3 className="vertical-timeline-element-title">Stock Sales Prediction</h3>
-            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
-            <p>
-              Time‑series forecasting, End‑to‑End Model Development, Kaggle Competition, Production‑Ready Data Pipeline
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="March 2024 - April 2024"
-            iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
-            icon={<FontAwesomeIcon icon={faGear} />}
-          >
-            <h3 className="vertical-timeline-element-title">Sentiment Analysis</h3>
-            <h4 className="vertical-timeline-element-subtitle">Personal Project</h4>
-            <p>
-              Data Processing, Model Training, Emotion Detection
-            </p>
-          </VerticalTimelineElement>
+
         </VerticalTimeline>
       </div>
     </div>
