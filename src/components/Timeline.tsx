@@ -16,7 +16,7 @@ function Timeline() {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'white', color: 'rgb(39, 40, 34)' }}
             contentArrowStyle={{ borderRight: '7px solid  white' }}
-            date="January 2026 - Present"
+            date="March 2026 - Present"
             iconStyle={{ background: '#5000ca', color: 'rgb(39, 40, 34)' }}
             icon={<img src={aximonLogo} alt="Aximon" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '6px' }} />}
           >
