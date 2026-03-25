@@ -1,7 +1,7 @@
 import React from "react";
 
 import vertebrae_proj from '../assets/images/vertebrae_proj.jpg';
-import stock_sales from '../assets/images/stock_sales.jpg';
+import stock_sales from '../assets/images/stock_sales.png';
 import persona_gpt from '../assets/images/PersonaGPT.jpg';
 import sentiment_project from '../assets/images/sentiment_project.png';
 import tableau_project from '../assets/images/tableau_vis.png';
@@ -17,8 +17,8 @@ function Project() {
         <div className="projects-grid">
 
         <div className="project">
-                <a href="https://github.com/BohdanChuprynka/Sentiment-Analysis-Model" target="_blank" rel="noreferrer"><img src={rag_project} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://github.com/BohdanChuprynka/Sentiment-Analysis-Model" target="_blank" rel="noreferrer"><h2>Policy Retrieval Augmented Generation (RAG) System</h2></a>
+                <a href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noreferrer"><img src={rag_project} className="zoom" alt="thumbnail" width="100%"/></a>
+                <a href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noreferrer"><h2>Policy Retrieval Augmented Generation (RAG) System</h2></a>
                 <p>Built a RAG-based Q&A system that ingests policy documents (TXT/PDF) and returns citation-grounded answers using hybrid dense + lexical retrieval. Implemented the retrieval pipeline from scratch using Python + NumPy — without orchestration frameworks like LangChain or LlamaIndex. Containerized with Docker, CI via GitHub Actions, and deployed an interactive Streamlit demo.</p>
             </div>
 
