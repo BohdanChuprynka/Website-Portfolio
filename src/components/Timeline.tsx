@@ -23,7 +23,7 @@ function Timeline() {
             <h3 className="vertical-timeline-element-title">ML Engineer Intern</h3>
             <h4 className="vertical-timeline-element-subtitle">Aximon</h4>
             <p>
-              Owned the full AI stack for Aximon.ai, an adaptive Python tutoring platform serving active users — spanning RAG, real-time inference, and personalized content generation. Engineered multi-modal AI tutoring pipelines and built custom prompt management with structured context injection.
+              Owned the full AI stack for Aximon.ai, an adaptive Python tutoring platform — spanning RAG pipelines, real-time inference, and personalized content generation. Engineered multi-modal tutoring workflows integrating speech-to-text, text-to-speech, and LLM reasoning. Built custom prompt management with structured context injection for adaptive difficulty scaling.
             </p>
             <p style={{ fontSize: '0.85em', color: '#555', marginTop: '8px' }}>
               <strong>Tech:</strong> Python, GPT-4o-mini, Whisper, TTS, RAG, FastAPI, Prompt Engineering
@@ -41,7 +41,7 @@ function Timeline() {
             <h3 className="vertical-timeline-element-title">ML Engineer Intern</h3>
             <h4 className="vertical-timeline-element-subtitle">Cleveland Clinic</h4>
             <p>
-              Developed an nnU-Net-based vertebral segmentation system to automate spinal X-ray analysis, collaborating with radiologists and neurosurgeons.
+              Developed an nnU-Net-based vertebral segmentation system for automated spinal X-ray analysis. Built preprocessing and augmentation pipelines for clinical imaging datasets. Collaborated directly with radiologists and neurosurgeons to validate model outputs against clinical ground truth.
             </p>
             <p style={{ fontSize: '0.85em', color: '#555', marginTop: '8px' }}>
               <strong>Tech:</strong> PyTorch, nnU-Net, Medical Imaging, Image Segmentation, Python
