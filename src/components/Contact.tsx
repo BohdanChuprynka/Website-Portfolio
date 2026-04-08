@@ -11,8 +11,8 @@ function Contact() {
         <div className="contact_wrapper">
           <h1>Contact</h1>
           <p>
-            If you&apos;d like to discuss a project, collaboration, or opportunity,
-            you can reach me directly at:
+            Open to ML engineering roles, research collaborations, and interesting
+            problems. Reach me at:
           </p>
 
           <Box className="contact-static">
