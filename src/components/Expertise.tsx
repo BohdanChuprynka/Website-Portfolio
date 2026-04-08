@@ -19,31 +19,29 @@ import { faPython } from "@fortawesome/free-brands-svg-icons";
 const labelsCoreML = [
   "PyTorch",
   "TensorFlow",
+  "Scikit-learn",
   "HuggingFace Transformers",
   "LangChain",
   "LangGraph",
   "LlamaIndex",
+  "OpenAI API",
   "Embeddings",
   "Vector Search (Qdrant, Pinecone)",
   "Image Segmentation",
   "Object Detection",
-  "Feature Extraction",
-  "Time-Series Forecasting",
-  "Feature Engineering",
-  "Cross-Validation",
-  "Hyperparameter Tuning",
-  "A/B Testing",
 ];
 
 const labelsMLEngineering = [
   "Docker",
   "FastAPI",
   "AWS",
+  "Railway",
   "MLflow",
   "Weights & Biases",
   "DVC",
   "GitHub Actions",
-  "Reproducible ML Pipelines",
+  "pytest",
+  "Redis",
 ];
 
 const labelsDataSystems = [
@@ -51,13 +49,12 @@ const labelsDataSystems = [
   "SQL (CTEs, Window Functions)",
   "ETL/ELT Pipelines",
   "Vector Database Management",
+  "SQLite",
   "Bash",
   "Pandas",
   "NumPy",
-  "Scikit-learn",
   "Matplotlib",
   "Seaborn",
-  "Experimental Design & Model Evaluation",
 ];
 
 function Expertise() {
@@ -90,11 +87,11 @@ function Expertise() {
             <FontAwesomeIcon icon={faServer} size="3x" />
             <h3>Deployment & MLOps</h3>
             <p>
-              I take models from research to production — containerizing with
-              Docker, serving via FastAPI, and deploying on AWS. I build
-              reproducible ML pipelines with experiment tracking (MLflow,
-              Weights & Biases), data versioning (DVC), and CI/CD via
-              GitHub Actions to ensure every model is auditable and
+              End-to-end model deployment from research to production —
+              containerizing with Docker, serving via FastAPI, and deploying
+              on AWS. Reproducible ML pipelines with experiment tracking
+              (MLflow, Weights & Biases), data versioning (DVC), and CI/CD
+              via GitHub Actions ensure every model is auditable and
               deployable.
             </p>
 
@@ -110,11 +107,10 @@ function Expertise() {
             <FontAwesomeIcon icon={faDatabase} size="3x" />
             <h3>Backend & Data Engineering</h3>
             <p>
-              I build the data infrastructure behind ML systems — advanced
-              Python backends, SQL-driven analytics, ETL/ELT pipelines,
-              and vector database management. I use Pandas, NumPy, and
-              Scikit-learn for analysis and evaluation, with Matplotlib
-              and Seaborn for visualization and experimental design.
+              Data infrastructure powering ML systems — Python backends,
+              SQL-driven analytics, ETL/ELT pipelines, and vector database
+              management. Pandas, NumPy, and Scikit-learn for analysis and
+              evaluation, with Matplotlib and Seaborn for visualization.
             </p>
 
             <div className="flex-chips">
