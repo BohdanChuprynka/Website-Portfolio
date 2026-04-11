@@ -2,7 +2,6 @@ import React from "react";
 
 import vertebrae_proj from '../assets/images/vertebrae_proj.jpg';
 import stock_sales from '../assets/images/stock_sales.png';
-import persona_gpt from '../assets/images/PersonaGPT.jpg';
 import sentiment_project from '../assets/images/sentiment_project.png';
 import tableau_project from '../assets/images/tableau_vis.png';
 import rag_project from "../assets/images/rag_architecture.png";
@@ -34,11 +33,6 @@ function Project() {
                 <p>Interactive Tableau dashboard analyzing sales, profit margins, and regional performance across multiple business units. Surfaces actionable trends and KPIs for data-driven decision making.</p>
         </div>
 
-        <div className="project">
-                <a href="https://github.com/BohdanChuprynka/PersonaGPT" target="_blank" rel="noreferrer"><img src={persona_gpt} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://github.com/BohdanChuprynka/PersonaGPT" target="_blank" rel="noreferrer"><h2>PersonaGPT</h2></a>
-                <p>Fine-tunes open-source LLMs (Mistral-7B, DeepSeek-R1) with LoRA to replicate a person's conversational style from Telegram and Instagram chat history. Includes data extraction, augmentation via back-translation and synonym replacement, 8-bit quantization, and evaluation across BLEU, ROUGE, and METEOR metrics.</p>
-        </div>
             <div className="project">
                 <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noreferrer"><img src={stock_sales} className="zoom" alt="thumbnail" width="100%"/></a>
                 <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noreferrer"><h2>Stock Sales Prediction</h2></a>
