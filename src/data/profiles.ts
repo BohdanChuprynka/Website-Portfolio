@@ -3,6 +3,7 @@ export type Profile = 'ml' | 'se';
 export interface ProfileData {
   title: string;
   description: string;
+  contactMessage: string;
   expertise: {
     category: string;
     icon: string;
@@ -29,6 +30,7 @@ export const profiles: Record<Profile, ProfileData> = {
   ml: {
     title: 'Machine Learning Engineer',
     description: 'ML engineer building production AI systems — from research to deployment. Specialized in deep learning, RAG pipelines, and MLOps infrastructure.',
+    contactMessage: 'Open to ML engineering roles, research collaborations, and interesting problems.',
     expertise: [
       {
         category: 'Core ML & AI Engineering',
@@ -149,6 +151,7 @@ export const profiles: Record<Profile, ProfileData> = {
   se: {
     title: 'Software Engineer',
     description: 'Full-stack engineer experienced in backend systems, APIs, and production deployments. Building scalable software solutions with Python, FastAPI, React, and JavaScript.',
+    contactMessage: 'Open to software engineering internships, full-stack roles, and challenging technical problems.',
     expertise: [
       {
         category: 'Backend & APIs',
@@ -233,7 +236,7 @@ export const profiles: Record<Profile, ProfileData> = {
       {
         title: 'Vertebrae Image Segmentation',
         description:
-          'Automated medical image analysis system for clinical workflows. Data Pipeline: Engineered preprocessing and augmentation pipeline for clinical images (normalization, resizing, standardized splits). Model Integration: Implemented inference service with custom postprocessing and evaluation metrics. Tooling: Developed visualization and comparison tools for validation. Impact: Estimated 80% reduction in manual annotation time. Validated by radiologists and surgeons.',
+          'Automated medical image analysis system for clinical workflows. Data Pipeline: Built robust data preprocessing pipeline handling image normalization, augmentation, and standardized train/test splits. Service Architecture: Implemented inference service with custom postprocessing filters and evaluation metrics. Tooling: Developed visualization and validation tools enabling collaboration with radiologists and surgeons. Impact: System validation reduced manual annotation time by ~80%.',
         image: 'vertebrae_proj.jpg',
       },
       {
@@ -246,14 +249,14 @@ export const profiles: Record<Profile, ProfileData> = {
       {
         title: 'Stock Sales Prediction',
         description:
-          'End-to-end data engineering and ML pipeline for retail sales forecasting at scale (3M+ rows, 54 stores). Implemented feature engineering with temporal encoding, external data integration (oil prices), and preprocessing. Comparative model evaluation framework testing multiple algorithms. Best model achieves R² of 0.83. Demonstrates algorithmic thinking and data structure optimization.',
+          'End-to-end data pipeline for retail sales forecasting at scale (3M+ rows across 54 stores). Built feature engineering system with temporal encoding and external data integration (oil prices). Designed comparative evaluation framework for algorithm selection and validation. Demonstrates data structure design, query optimization, and system architecture for production pipelines.',
         link: 'https://github.com/BohdanChuprynka/Stock-Sales-Prediction',
         image: 'stock_sales.png',
       },
       {
-        title: 'Sentiment Analysis Model',
+        title: 'Sentiment Analysis Pipeline',
         description:
-          'Large-scale NLP pipeline on 1.6M tweets comparing classical and deep learning approaches. Implemented dual preprocessing strategies optimized per algorithm type. Evaluation and comparison framework for model selection. Demonstrates data structure knowledge (TF-IDF vectorization, embeddings) and algorithm design. Best model reaches 80.6% accuracy.',
+          'Large-scale data processing system for sentiment classification on 1.6M tweets. Designed dual preprocessing strategies optimized per algorithm type (TF-IDF vectorization vs embeddings). Built comparative evaluation framework enabling data-driven algorithm selection. Demonstrates data structure optimization, algorithm analysis, and systematic evaluation methodology.',
         link: 'https://github.com/BohdanChuprynka/Sentiment-Analysis-Model',
         image: 'sentiment_project.png',
       },

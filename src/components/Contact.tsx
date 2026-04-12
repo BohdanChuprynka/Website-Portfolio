@@ -3,16 +3,18 @@ import '../assets/styles/Contact.scss';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import { useProfile } from '../context/ProfileContext';
 
 function Contact() {
+  const { profile } = useProfile();
+
   return (
     <div id="contact">
       <div className="items-container">
         <div className="contact_wrapper">
           <h1>Contact</h1>
           <p>
-            Open to ML engineering roles, research collaborations, and interesting
-            problems. Reach me at:
+            {profile.contactMessage} Reach me at:
           </p>
 
           <Box className="contact-static">
