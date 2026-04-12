@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { ProfileData, getProfile, Profile } from '../data/profiles';
+import { ACTIVE_PROFILE } from '../config';
 
 interface ProfileContextType {
   profile: ProfileData;
@@ -9,8 +10,7 @@ interface ProfileContextType {
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
 export function ProfileProvider({ children }: { children: React.ReactNode }) {
-  // Read from REACT_APP_PROFILE env var, default to 'ml'
-  const profileType: Profile = (process.env.REACT_APP_PROFILE as Profile) || 'ml';
+  const profileType: Profile = ACTIVE_PROFILE;
   const profile = getProfile(profileType);
 
   return (
