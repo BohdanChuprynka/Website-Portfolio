@@ -9,9 +9,10 @@ import {
   Footer,
 } from "./components";
 import FadeIn from './components/FadeIn';
+import { ProfileProvider } from './context/ProfileContext';
 import './index.scss';
 
-function App() {
+function AppContent() {
     const [mode, setMode] = useState<string>('dark');
 
     const handleModeChange = () => {
@@ -38,6 +39,14 @@ function App() {
         </FadeIn>
         <Footer />
     </div>
+    );
+}
+
+function App() {
+    return (
+        <ProfileProvider>
+            <AppContent />
+        </ProfileProvider>
     );
 }
 
