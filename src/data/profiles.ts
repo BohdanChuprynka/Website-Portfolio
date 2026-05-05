@@ -15,6 +15,7 @@ export interface ProfileData {
     date: string;
     position: string;
     company: string;
+    companyUrl?: string;
     description: string;
     tech: string;
   }[];
@@ -37,7 +38,7 @@ export const profiles: Record<Profile, ProfileData> = {
         icon: 'faMicrochip',
         title: 'Core ML & AI Engineering',
         description:
-          'I build and deploy deep learning models, generative AI systems, and retrieval-augmented generation pipelines. Experience spans medical image segmentation at Cleveland Clinic, adaptive AI tutoring at Aximon.ai, and computer vision — with a focus on robust evaluation, cross-validation, and models that generalize beyond the training set.',
+          'I build and deploy deep learning models, generative AI systems, and retrieval-augmented generation pipelines. Experience spans medical image segmentation at Cleveland Clinic, adaptive AI tutoring at Protege, and computer vision — with a focus on robust evaluation, cross-validation, and models that generalize beyond the training set.',
         skills: [
           'PyTorch',
           'TensorFlow',
@@ -96,9 +97,10 @@ export const profiles: Record<Profile, ProfileData> = {
       {
         date: 'March 2026 - Present',
         position: 'ML Engineer Intern',
-        company: 'Aximon',
+        company: 'Protege',
+        companyUrl: 'https://www.protege.studio/',
         description:
-          'Owned the full AI stack for Aximon.ai, an adaptive Python tutoring platform — spanning RAG pipelines, real-time inference, and personalized content generation. Engineered multi-modal tutoring workflows integrating speech-to-text, text-to-speech, and LLM reasoning. Built custom prompt management with structured context injection for adaptive difficulty scaling.',
+          'Owned the full AI stack for Protege, an adaptive Python tutoring platform — spanning RAG pipelines, real-time inference, and personalized content generation. Engineered multi-modal tutoring workflows integrating speech-to-text, text-to-speech, and LLM reasoning. Built custom prompt management with structured context injection for adaptive difficulty scaling.',
         tech: 'Python, GPT-4o-mini, Whisper, TTS, RAG, FastAPI, Prompt Engineering',
       },
       {
@@ -211,7 +213,8 @@ export const profiles: Record<Profile, ProfileData> = {
       {
         date: 'March 2026 - Present',
         position: 'Founding Software Engineer',
-        company: 'Aximon',
+        company: 'Protege',
+        companyUrl: 'https://www.protege.studio/',
         description:
           'Built full-stack backend system for adaptive learning platform. Designed and implemented FastAPI microservices for user management, content delivery, and inference orchestration. Integrated multi-modal LLM APIs (GPT-4o-mini, Whisper, TTS) with structured error handling. Architected state management system tracking user proficiency and lesson progress. Implemented content sequencing algorithm personalizing lessons based on user performance data.',
         tech: 'Python, FastAPI, PostgreSQL, Redis, GPT-4o-mini, GitHub Actions, Docker',
