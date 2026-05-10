@@ -24,6 +24,7 @@ export interface ProfileData {
     description: string;
     link?: string;
     image: string;
+    slug?: string;
   }[];
 }
 
@@ -113,6 +114,13 @@ export const profiles: Record<Profile, ProfileData> = {
       },
     ],
     projects: [
+      {
+        title: 'Aximon — AI Tutor Agent + RAG',
+        description:
+          'Founding AI engineer on a closed-beta adaptive Python tutor. Multi-step agent with pgvector RAG, intent-routed inference (GPT-4o-mini + Claude Sonnet), an eval harness, and an async multi-model course generator. Closed beta, 2-person team, roughly 2 months from zero.',
+        slug: 'aximon',
+        image: 'aximon_thumbnail.png',
+      },
       {
         title: 'Policy Retrieval Augmented Generation (RAG) System',
         description:
@@ -229,6 +237,13 @@ export const profiles: Record<Profile, ProfileData> = {
       },
     ],
     projects: [
+      {
+        title: 'Aximon — AI Tutor Agent + RAG',
+        description:
+          'Founding AI engineer on a closed-beta adaptive Python tutor. Multi-step agent with pgvector RAG, intent-routed inference (GPT-4o-mini + Claude Sonnet), an eval harness, and an async multi-model course generator. Closed beta, 2-person team, roughly 2 months from zero.',
+        slug: 'aximon',
+        image: 'aximon_thumbnail.png',
+      },
       {
         title: 'Policy Retrieval Augmented Generation (RAG) System',
         description:

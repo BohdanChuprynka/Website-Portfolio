@@ -1,0 +1,49 @@
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d1116;
+  color: #e8e4dc;
+  font-family: 'Lato', -apple-system, sans-serif;
+  padding: 32px;
+  text-align: center;
+
+  .not-found-inner {
+    max-width: 480px;
+  }
+
+  .nf-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.16em;
+    color: rgba(232, 228, 220, 0.42);
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 40px;
+    letter-spacing: -0.022em;
+    margin: 0 0 12px 0;
+    color: inherit;
+  }
+
+  p {
+    color: rgba(232, 228, 220, 0.7);
+    font-size: 17px;
+    margin: 0 0 32px 0;
+  }
+
+  .nf-back {
+    color: #b48cff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 14px;
+    transition: color 150ms ease;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

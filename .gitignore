@@ -10,6 +10,13 @@
 
 # production
 /build
+/aximon-thumbnail
+
+# GSD planning / sketches (working dir)
+/.planning/
+
+# Local architecture docs
+/PROJECT_PAGES_ARCHITECTURE.md
 
 # misc
 .DS_Store
