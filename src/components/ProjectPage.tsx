@@ -27,6 +27,25 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
   const page: ProjectPageContent | undefined = slug ? projectPages[slug] : undefined;
 
   const [activeSection, setActiveSection] = useState<string>(SECTION_IDS[0].id);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightbox(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    if (lightbox) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [lightbox]);
+
+  const openLightbox = (src: string, alt: string) => setLightbox({ src, alt });
 
   const sections = useMemo(() => {
     if (!page) return [];
@@ -154,7 +173,12 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
             <figure className="pp-fig">
               <div className="pp-fig-frame">
                 <div className="pp-fig-label">Fig. 01</div>
-                <img className="pp-fig-image" src={page.architecture.image} alt="System architecture" />
+                <img
+                  className="pp-fig-image"
+                  src={page.architecture.image}
+                  alt="System architecture"
+                  onClick={() => openLightbox(page.architecture.image!, 'System architecture')}
+                />
                 {page.architecture.filename && (
                   <div className="pp-fig-file">{page.architecture.filename}</div>
                 )}
@@ -221,7 +245,12 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
                 <div className="pp-fig-frame">
                   <div className="pp-fig-label">{plate.label}</div>
                   {plate.image ? (
-                    <img className="pp-fig-image" src={plate.image} alt={plate.caption} />
+                    <img
+                      className="pp-fig-image"
+                      src={plate.image}
+                      alt={plate.caption}
+                      onClick={() => openLightbox(plate.image!, plate.caption)}
+                    />
                   ) : (
                     <div className="pp-fig-body">[ {plate.filename ?? 'screenshot.png'} ]</div>
                   )}
@@ -251,7 +280,11 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
                       <div className="pp-quad-cell-lab">{c.label}</div>
                       <div className="pp-quad-cell-body">
                         {c.image ? (
-                          <img src={c.image} alt={c.label} />
+                          <img
+                            src={c.image}
+                            alt={c.label}
+                            onClick={() => openLightbox(c.image!, c.label)}
+                          />
                         ) : (
                           c.body
                         )}
@@ -289,6 +322,31 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
           <span className="meta">Bohdan Chuprynka · 2026</span>
         </footer>
       </div>
+
+      {lightbox && (
+        <div
+          className="pp-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.alt}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            className="pp-lightbox-close"
+            aria-label="Close image"
+            onClick={() => setLightbox(null)}
+          >
+            ×
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="pp-lightbox-caption">{lightbox.alt}</div>
+        </div>
+      )}
     </div>
   );
 }
