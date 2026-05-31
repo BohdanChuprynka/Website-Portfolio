@@ -8,14 +8,14 @@ import treeAlt from '../../assets/images/aximon/tree.png';
 
 export const aximon: ProjectPageContent = {
   slug: 'aximon',
-  badge: 'Closed Beta · Founding AI Engineer',
+  badge: 'Closed Beta · Co-Founder & CTO',
   title: 'AI Tutor Agent and RAG for an Adaptive Python Platform',
   dek: 'Multi-step tutor agent with pgvector RAG and intent-routed inference, plus an async multi-model course generator. Closed beta, 2-person team, roughly 2 months from zero.',
 
   info: [
-    { label: 'Status', value: 'Closed Beta', sub: 'private repo' },
-    { label: 'Role', value: 'Founding AI Engineer', sub: 'agent, RAG, evals, course gen' },
-    { label: 'Period', value: 'Mar 2026', sub: '→ present' },
+    { label: 'Status', value: 'Closed Beta', sub: 'predecessor to Protege' },
+    { label: 'Role', value: 'Co-Founder & CTO', sub: 'agent, RAG, evals, course gen' },
+    { label: 'Period', value: 'Mar - May 2026', sub: '3 months' },
     {
       label: 'Team',
       value: '2 people',
@@ -87,6 +87,9 @@ export const aximon: ProjectPageContent = {
   ],
 
   results: [
+    { big: '1,000+', label: 'Beta testers in the closed program' },
+    { big: '30k+', label: 'Users across all partnerships' },
+    { big: '100k+', label: 'Views across all social platforms' },
     { big: '$0.30', label: 'Runtime tutor cost per user per month' },
     { big: '~2 mo', label: 'Zero to closed beta on the founding stack' },
     { big: '2', label: 'LLM providers routed by intent (GPT-4o-mini, Claude Sonnet)' },
