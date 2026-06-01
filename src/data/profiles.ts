@@ -99,7 +99,7 @@ export const profiles: Record<Profile, ProfileData> = {
         position: 'Co-Founder & CTO',
         company: 'Protege',
         companyUrl: 'https://www.protege.studio/',
-        description: 'Owned Backend + AI Infrastructure. Scaled to 1000+ beta testers and 6 partnerships.',
+        description: 'Owned Backend + AI Infrastructure. Scaled to 1000+ beta testers and 30k+ users across 6 partnerships.',
         tech: 'Python, FastAPI, TypeScript, React, VS Code Extension, GPT-4o-mini, RAG, PostgreSQL, Docker',
       },
       {
