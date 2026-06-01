@@ -1,3 +1,3 @@
-// Switch profile by changing this value: 'ml' or 'se'
-// Then run: npm run build && npm run deploy
-export const ACTIVE_PROFILE = 'ml' as const;
+// Active profile for the portfolio. Single profile: AI Engineer.
+// Type kept for forward compatibility if multiple profiles return later.
+export const ACTIVE_PROFILE = 'ai' as const;
