@@ -15,8 +15,8 @@ export interface ProfileData {
     position: string;
     company: string;
     companyUrl?: string;
-    description: string;
-    tech: string;
+    description?: string;
+    tech?: string;
   }[];
   projects: {
     title: string;
@@ -95,6 +95,16 @@ export const profiles: Record<Profile, ProfileData> = {
     ],
     timeline: [
       {
+        date: 'June 2026 - Present',
+        position: 'Cybersecurity Intern',
+        company: 'Cleveland Clinic',
+      },
+      {
+        date: 'June 2026 - Present',
+        position: 'Founding AI Engineer',
+        company: 'Remly',
+      },
+      {
         date: 'March 2026 - May 2026',
         position: 'Co-Founder & CTO',
         company: 'Protege',
@@ -112,6 +122,13 @@ export const profiles: Record<Profile, ProfileData> = {
       },
     ],
     projects: [
+      {
+        title: 'Persona-RAG: Replicating a Texting Voice',
+        description:
+          'A Telegram bot that texts in my voice, plus the leak-audited evaluation that proves it. A free, local Qwen2.5-3B LoRA against a gpt-4o-mini RAG product. I caught a ~90% train/test leak in my own eval, rebuilt it leak-free with a pre-registered acceptance rule and paired bootstrap CIs, and found the local fine-tune matches the $0.37/1k production stack on voice register, at $0 and offline. Written up as a research report.',
+        slug: 'persona-rag',
+        image: 'persona_rag_thumbnail.png',
+      },
       {
         title: 'Aximon - AI Tutor Agent + RAG',
         description:

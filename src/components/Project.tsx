@@ -7,6 +7,7 @@ import sentiment_project from '../assets/images/sentiment_project.png';
 import tableau_project from '../assets/images/tableau_vis.png';
 import rag_project from "../assets/images/rag_architecture.png";
 import aximon_thumbnail from "../assets/images/aximon/aximon-thumbnail.png";
+import persona_rag_thumbnail from "../assets/images/persona_rag_thumbnail.png";
 
 import '../assets/styles/Project.scss';
 import { useProfile } from "../context/ProfileContext";
@@ -18,6 +19,7 @@ const imageMap: Record<string, string> = {
   'tableau_vis.png': tableau_project,
   'rag_architecture.png': rag_project,
   'aximon_thumbnail.png': aximon_thumbnail,
+  'persona_rag_thumbnail.png': persona_rag_thumbnail,
 };
 
 interface ProjectItem {
