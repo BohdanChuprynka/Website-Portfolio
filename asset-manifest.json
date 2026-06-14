@@ -1,11 +1,13 @@
 {
   "files": {
     "main.css": "/Website-Portfolio/static/css/main.9475dff2.css",
-    "main.js": "/Website-Portfolio/static/js/main.b56f0b30.js",
+    "main.js": "/Website-Portfolio/static/js/main.75c09013.js",
     "static/js/453.efc6d0dd.chunk.js": "/Website-Portfolio/static/js/453.efc6d0dd.chunk.js",
+    "static/media/demo.gif": "/Website-Portfolio/static/media/demo.21ca3e55048a7386997e.gif",
     "static/media/bg-dark.png": "/Website-Portfolio/static/media/bg-dark.0273f4bb9c39c389d6d5.png",
     "static/media/bg-light.png": "/Website-Portfolio/static/media/bg-light.bac0efb485244a522981.png",
     "static/media/python-tree.png": "/Website-Portfolio/static/media/python-tree.0aa0b322f00bdc57a75a.png",
+    "static/media/persona_rag_thumbnail.png": "/Website-Portfolio/static/media/persona_rag_thumbnail.28ab664f23ec51bfa18f.png",
     "static/media/tableau_vis.png": "/Website-Portfolio/static/media/tableau_vis.f5df268f0385ff5c8c47.png",
     "static/media/theory-lesson.png": "/Website-Portfolio/static/media/theory-lesson.64820032a29fc0e2b5e8.png",
     "static/media/rag_architecture.png": "/Website-Portfolio/static/media/rag_architecture.6cf44be096c0711ea7b7.png",
@@ -18,15 +20,21 @@
     "static/media/practice-lesson-fail.png": "/Website-Portfolio/static/media/practice-lesson-fail.32a1be6d59b3adb0aa00.png",
     "static/media/stock_sales.png": "/Website-Portfolio/static/media/stock_sales.57487db6075ee1d6834e.png",
     "static/media/vertebrae_proj.jpg": "/Website-Portfolio/static/media/vertebrae_proj.696d2bf03eda781e8ad0.jpg",
+    "static/media/grounding.png": "/Website-Portfolio/static/media/grounding.4a454f2d70575af44acf.png",
+    "static/media/headline.png": "/Website-Portfolio/static/media/headline.2b092a4a2ae2e5fca9a7.png",
+    "static/media/leak_guard.png": "/Website-Portfolio/static/media/leak_guard.8a8963379e782cbcd75b.png",
+    "static/media/voice_tics.png": "/Website-Portfolio/static/media/voice_tics.e460581b62aacb185a14.png",
+    "static/media/length_dist.png": "/Website-Portfolio/static/media/length_dist.95114ad69f0cb433ba4c.png",
     "static/media/protege_logo.svg": "/Website-Portfolio/static/media/protege_logo.07c560c32158514590ffdb9df2ffe663.svg",
     "static/media/cc-icon.png": "/Website-Portfolio/static/media/cc-icon.7854741925ce9283355a.png",
     "index.html": "/Website-Portfolio/index.html",
+    "static/media/remly_mark.svg": "/Website-Portfolio/static/media/remly_mark.ff91514ed6e8722c2e6aa671068e39f6.svg",
     "main.9475dff2.css.map": "/Website-Portfolio/static/css/main.9475dff2.css.map",
-    "main.b56f0b30.js.map": "/Website-Portfolio/static/js/main.b56f0b30.js.map",
+    "main.75c09013.js.map": "/Website-Portfolio/static/js/main.75c09013.js.map",
     "453.efc6d0dd.chunk.js.map": "/Website-Portfolio/static/js/453.efc6d0dd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9475dff2.css",
-    "static/js/main.b56f0b30.js"
+    "static/js/main.75c09013.js"
   ]
 }
