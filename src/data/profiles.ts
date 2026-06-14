@@ -123,9 +123,9 @@ export const profiles: Record<Profile, ProfileData> = {
     ],
     projects: [
       {
-        title: 'Persona-RAG: Replicating a Texting Voice',
+        title: 'Persona-RAG: Replicating a Texting Voice + Paper',
         description:
-          'A Telegram bot that texts in my voice, plus the leak-audited evaluation that proves it. A free, local Qwen2.5-3B LoRA against a gpt-4o-mini RAG product. I caught a ~90% train/test leak in my own eval, rebuilt it leak-free with a pre-registered acceptance rule and paired bootstrap CIs, and found the local fine-tune matches the $0.37/1k production stack on voice register, at $0 and offline. Written up as a research report.',
+          'A Telegram bot that texts in my voice, plus the leak-audited research paper that puts it to the test. A free, local Qwen2.5-3B LoRA against a gpt-4o-mini RAG product. I caught a ~90% train/test leak in my own eval, rebuilt it leak-free with a pre-registered acceptance rule and paired bootstrap CIs, and found the local fine-tune matches the $0.37/1k production stack on voice register, at $0 and offline.',
         slug: 'persona-rag',
         image: 'persona_rag_thumbnail.png',
       },

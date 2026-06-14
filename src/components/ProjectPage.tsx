@@ -119,6 +119,21 @@ function ProjectPage({ mode, modeChange }: ProjectPageProps) {
           <span className="pp-badge">{page.badge}</span>
           <h1>{page.title}</h1>
           <p className="pp-dek">{page.dek}</p>
+          {page.externalLinks && page.externalLinks.length > 0 && (
+            <div className="pp-links">
+              {page.externalLinks.map((link, i) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`pp-link${i === 0 ? ' primary' : ''}`}
+                >
+                  {link.label} ↗
+                </a>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* Info card */}

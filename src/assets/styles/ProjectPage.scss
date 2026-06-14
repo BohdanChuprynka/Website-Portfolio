@@ -169,6 +169,45 @@
     max-width: 720px;
     margin: 0;
   }
+
+  .pp-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .pp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--fg-fa);
+    color: var(--fg);
+    text-decoration: none;
+    transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
+
+    &:hover {
+      border-color: var(--acc);
+      color: var(--acc);
+    }
+
+    &.primary {
+      background: var(--acc);
+      border-color: var(--acc);
+      color: var(--bg);
+
+      &:hover {
+        color: var(--bg);
+        opacity: 0.9;
+      }
+    }
+  }
 }
 
 .pp-badge {

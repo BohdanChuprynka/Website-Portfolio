@@ -9,7 +9,7 @@ import grounding from '../../assets/images/persona-rag/grounding.png';
 export const personaRag: ProjectPageContent = {
   slug: 'persona-rag',
   badge: 'Personal Project · Research Report',
-  title: 'Persona-RAG: Replicating a Texting Voice',
+  title: 'Persona-RAG: Replicating a Texting Voice + Paper',
   dek: 'Can a small, free, local model learn to text like one specific person, and how would you prove it did? I built a Telegram bot that answers in my voice, then built the evaluation to test it. My first version of that eval was lying to me: a ~90% train/test leak. So I rebuilt it leak-free and asked whether a fine-tuned Qwen2.5-3B LoRA texts more like me than the gpt-4o-mini product it was built to replace. Written up as a research report.',
 
   info: [
