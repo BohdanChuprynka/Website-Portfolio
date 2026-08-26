@@ -1,46 +1,31 @@
-# Bohdan Chuprynka – Personal Portfolio
+# Bohdan Chuprynka - Personal Portfolio
 
-This repository contains the source code for my personal portfolio website.
+This repository contains the production files for my personal portfolio website.
 
-The website presents my projects, technical skills, experience, and background in a clean and modern format. It is designed to be fast, responsive, and easy to maintain, serving as a central place to showcase my work and share contact information.
+The website presents my experience, projects, and skills through a responsive, scroll-driven single page with dark and light themes.
 
-🌐 Live site: https://bohdanchuprynka.github.io/Website-Portfolio/
+Live site: <https://bohdanchuprynka.github.io/Website-Portfolio/>
 
----
+## Production structure
 
-## Tech Stack
+- `site/` is the exact static site published to GitHub Pages.
+- `scripts/check-site.mjs` validates production metadata, local assets, external-link safety, accessibility basics, and blocked sensitive-content patterns.
+- `.github/workflows/deploy.yml` verifies and deploys `site/` after a push to `main`.
 
-- React
-- TypeScript
-- JavaScript (ES6+)
-- SCSS
-- npm
+The previous React portfolio remains recoverable from the `archive/legacy-portfolio-2026-08-26` branch and the `legacy-portfolio-2026-08-26` tag.
 
----
+## Local preview
 
-## Features
+From the repository root:
 
-- Fully responsive and mobile-friendly design
-- Dark and light theme support
-- Component-based architecture for easy customization
-- Clean and modern UI focused on readability and clarity
-
----
-
-## Local Development
-
-### Prerequisites
-- Node.js (v16 or later recommended)
-- npm
-
-### Setup
-
-Install dependencies:
 ```bash
-npm install
+python3 -m http.server 8000 --directory site
 ```
 
-Start the development server:
+Then open <http://localhost:8000/>.
+
+## Verification
+
 ```bash
-npm start
+node scripts/check-site.mjs
 ```

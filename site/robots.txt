@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bohdanchuprynka.github.io/Website-Portfolio/sitemap.xml

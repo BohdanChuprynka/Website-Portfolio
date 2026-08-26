@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bohdan Chuprynka is an AI Engineer building retrieval, evaluation, machine learning, and production AI products." />
+  <meta name="author" content="Bohdan Chuprynka" />
+  <meta name="robots" content="index, follow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#090908" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; media-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <link rel="canonical" href="https://bohdanchuprynka.github.io/Website-Portfolio/" />
+  <link rel="icon" href="./favicon.ico" sizes="any" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://bohdanchuprynka.github.io/Website-Portfolio/" />
+  <meta property="og:title" content="Bohdan Chuprynka | AI Engineer" />
+  <meta property="og:description" content="AI products, retrieval, evaluation, machine learning, and the proof behind the work." />
+  <meta property="og:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/portrait.jpg" />
+  <meta property="og:image:alt" content="Portrait of Bohdan Chuprynka" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bohdan Chuprynka | AI Engineer" />
+  <meta name="twitter:description" content="AI products, retrieval, evaluation, machine learning, and the proof behind the work." />
+  <meta name="twitter:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/portrait.jpg" />
+
+  <title>Bohdan Chuprynka | AI Engineer</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --accent: #ff5935;
+      --max: 1440px;
+      --pad: clamp(22px, 4.2vw, 68px);
+      --ease: cubic-bezier(.22,.8,.22,1);
+      --ease-snap: cubic-bezier(.18,.88,.24,1);
+      --proof-progress: 0;
+      --proof-dot-y: 0px;
+      --proof-length: min(52vh, 560px);
+      --proof-wash-x: 78vw;
+      --proof-wash-y: 42vh;
+    }
+    html[data-theme="dark"] {
+      --canvas: #090908;
+      --surface: #121210;
+      --surface-2: #191815;
+      --ink: #f2efe8;
+      --muted: #969189;
+      --faint: rgba(242,239,232,.13);
+      --soft: rgba(242,239,232,.055);
+      --image: #171614;
+      --shadow: rgba(0,0,0,.45);
+      --paper: #e9edf0;
+      --paper-ink: #121820;
+    }
+    html[data-theme="light"] {
+      --canvas: #eee9dd;
+      --surface: #e4ded1;
+      --surface-2: #d9d2c4;
+      --ink: #171714;
+      --muted: #68635b;
+      --faint: rgba(23,23,20,.16);
+      --soft: rgba(23,23,20,.055);
+      --image: #d6cfc1;
+      --shadow: rgba(34,28,20,.12);
+      --paper: #f3f5f6;
+      --paper-ink: #121820;
+    }
+    /* Scroll is the source of truth for the motion system. Native smooth scrolling
+       can keep wheel input in a stale animation, so section links jump cleanly and
+       the visual layer follows the actual scroll position every frame. */
+    html { scroll-behavior: auto; background: var(--canvas); }
+    body {
+      position: relative;
+      isolation: isolate;
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: color 220ms ease, background-color 220ms ease;
+    }
+    .topbar, main { position: relative; z-index: 1; }
+    body.modal-open { overflow: hidden; }
+    button, a { color: inherit; font: inherit; }
+    button { border: 0; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    :where(a, button):focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      color: var(--canvas);
+      background: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      transform: translateY(-160%);
+      transition: transform 140ms ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .shell { width: min(var(--max), 100%); margin-inline: auto; padding-inline: var(--pad); }
+    .proof-canvas {
+      position: fixed;
+      z-index: 0;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .proof-canvas::after {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
+      content: "";
+      opacity: .022;
+      mix-blend-mode: soft-light;
+    }
+    .proof-wash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: min(52vw, 760px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 13%, transparent) 0, color-mix(in srgb, var(--accent) 5%, transparent) 36%, transparent 69%);
+      filter: blur(12px);
+      opacity: .08;
+      transform: translate3d(var(--proof-wash-x), var(--proof-wash-y), 0) translate(-50%, -50%);
+      transition: opacity 90ms linear;
+      will-change: transform, opacity;
+    }
+    .proof-thread {
+      position: absolute;
+      top: clamp(118px, 18vh, 168px);
+      left: max(18px, calc(var(--pad) - 18px));
+      width: 1px;
+      height: var(--proof-length);
+      opacity: .42;
+      transition: none;
+      contain: layout paint;
+    }
+    .proof-thread-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: var(--faint);
+    }
+    .proof-thread-fill {
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform: scaleY(var(--proof-progress));
+      transform-origin: top;
+      transition: none;
+      will-change: transform;
+    }
+    .proof-thread-dot {
+      position: absolute;
+      top: var(--proof-dot-y);
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 10%, transparent);
+      transform: translate3d(-50%, -50%, 0);
+      transition: none;
+      will-change: transform;
+    }
+    html[data-proof-section="hero"] .proof-wash { opacity: .1; }
+    html[data-proof-section="experience"] .proof-wash { opacity: .045; }
+    html[data-proof-section="projects"] .proof-wash { opacity: .18; }
+    html[data-proof-section="skills"] .proof-wash { opacity: .045; }
+    html[data-proof-section="close"] .proof-wash { opacity: .065; }
+    html[data-theme="light"] .proof-canvas::after { opacity: .014; }
+    html[data-theme="light"] .proof-wash { opacity: .06; }
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .topbar {
+      position: absolute;
+      z-index: 30;
+      inset: 0 0 auto;
+    }
+    .topbar-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      min-height: 82px;
+      border-bottom: 1px solid var(--faint);
+    }
+    .mark { font-weight: 760; letter-spacing: -.04em; }
+    .mark i { color: var(--accent); font-style: normal; }
+    .navlinks { display: flex; gap: clamp(18px, 2.4vw, 38px); align-items: center; }
+    .navlinks a, .contact-link { font-size: 12px; font-weight: 600; }
+    .top-actions { display: flex; justify-self: end; align-items: center; gap: 17px; }
+    .theme-toggle {
+      display: flex;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--faint);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+    }
+    .theme-toggle button {
+      min-width: 50px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+    }
+    html[data-theme="dark"] [data-set-theme="dark"],
+    html[data-theme="light"] [data-set-theme="light"] {
+      color: var(--canvas);
+      background: var(--ink);
+    }
+
+    .hero {
+      display: flex;
+      min-height: 100svh;
+      align-items: flex-end;
+      padding: 142px 0 clamp(38px, 5vw, 70px);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr);
+      gap: clamp(36px, 6vw, 96px);
+      align-items: end;
+    }
+    .hero-name {
+      margin: 0;
+      font-size: clamp(66px, 9.8vw, 150px);
+      font-weight: 650;
+      letter-spacing: -.078em;
+      line-height: .79;
+      will-change: transform;
+    }
+    .hero-role {
+      margin: clamp(28px, 3.5vw, 50px) 0 0;
+      color: var(--accent);
+      font-size: clamp(38px, 5vw, 76px);
+      font-weight: 540;
+      letter-spacing: -.058em;
+      line-height: .9;
+    }
+    .portrait-wrap {
+      justify-self: end;
+      width: min(25vw, 360px);
+      min-width: 250px;
+      will-change: transform;
+    }
+    .portrait {
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 1;
+      border: 1px solid var(--faint);
+      border-radius: 50%;
+      background: var(--surface);
+      box-shadow: 0 28px 80px var(--shadow);
+    }
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 27%;
+      filter: saturate(.78) contrast(.98);
+      transform: scale(1.03);
+    }
+    .portrait-note {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .portrait-note::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(250px, .6fr);
+      gap: 34px;
+      align-items: end;
+      margin-top: clamp(42px, 6vw, 82px);
+      padding-top: 22px;
+      border-top: 1px solid var(--faint);
+    }
+    .hero-line {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(21px, 2.1vw, 32px);
+      font-weight: 510;
+      letter-spacing: -.036em;
+      line-height: 1.14;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 22px; }
+    .quiet-link, .route-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: max-content;
+      padding: 0 0 4px;
+      border-bottom: 1px solid currentColor;
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .section { padding: clamp(92px, 11vw, 160px) 0; border-top: 1px solid var(--faint); }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, .38fr);
+      gap: 40px;
+      align-items: end;
+      margin-bottom: clamp(42px, 6vw, 78px);
+    }
+    .section h2 {
+      margin: 0;
+      font-size: clamp(54px, 7.2vw, 106px);
+      font-weight: 560;
+      letter-spacing: -.067em;
+      line-height: .88;
+    }
+    .section-aside { align-self: end; }
+    .section-intro { max-width: 365px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .section-aside .route-button { margin-top: 20px; }
+    #experience .section-head { align-items: center; }
+    #experience .section-aside { align-self: center; }
+    #experience .section-aside .route-button { margin-top: 0; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 420ms ease, transform 460ms var(--ease);
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .experience-row.reveal:nth-child(2) { transition-delay: 40ms; }
+    .experience-row.reveal:nth-child(3) { transition-delay: 80ms; }
+    .experience-row.reveal:nth-child(4) { transition-delay: 120ms; }
+
+    .experience-list { border-top: 1px solid var(--faint); }
+    .experience-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 62px minmax(220px, .65fr) minmax(360px, 1.25fr) 110px;
+      gap: clamp(18px, 2.4vw, 36px);
+      align-items: center;
+      width: 100%;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--faint);
+      color: inherit;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: inset 1px 0 0 transparent;
+      transition: padding 120ms var(--ease), background-color 120ms ease, box-shadow 100ms linear;
+    }
+    .experience-row:hover { padding-inline: 12px; background: var(--soft); }
+    .experience-row.is-proof-active {
+      background-color: color-mix(in srgb, var(--accent) 3.5%, transparent);
+      box-shadow: inset 1px 0 0 color-mix(in srgb, var(--accent) 72%, transparent);
+    }
+    .company-logo {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-left: clamp(8px, 1vw, 14px);
+      overflow: hidden;
+      border: 1px solid var(--faint);
+      border-radius: 14px;
+      background: transparent;
+      transition: transform 180ms var(--ease-snap), border-radius 180ms var(--ease-snap);
+    }
+    .experience-row:hover .company-logo { transform: rotate(-5deg) scale(1.08); border-radius: 18px; }
+    .experience-row.is-proof-active .company-logo { transform: scale(1.055); }
+    .company-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .company-logo.remly { border: 0; border-radius: 13px; }
+    .company-logo.cc {
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(12, 18, 24, .08);
+    }
+    .company-logo.cc img { width: 56%; height: 56%; max-width: 28px; max-height: 28px; object-fit: contain; }
+    .company-logo.protege { border: 0; background: #0d2a4a; }
+    .company-logo.protege img { width: 80%; height: 80%; }
+    .company-block h3 { margin: 0; font-size: clamp(22px, 2vw, 31px); font-weight: 570; letter-spacing: -.04em; }
+    .company-block p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+    .experience-result { margin: 0; max-width: 650px; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.45; }
+    .experience-row time { justify-self: end; padding: 4px 0 4px 16px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+    .projects-section { overflow: clip; padding-bottom: 0; }
+    .projects-section .section-head { align-items: center; margin-bottom: clamp(34px, 4vw, 58px); }
+    .projects-section .section-aside { display: flex; align-self: center; justify-content: flex-end; }
+    .projects-section .section-aside .route-button { margin-top: 0; }
+    .project-runway { position: relative; }
+    .project-sticky {
+      position: sticky;
+      top: 0;
+      display: grid;
+      min-height: 100svh;
+      align-content: center;
+      overflow: hidden;
+      border-block: 1px solid var(--faint);
+      background:
+        radial-gradient(circle at var(--rail-glow-x, 14%) 55%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 29%),
+        var(--canvas);
+    }
+    .project-progress {
+      position: absolute;
+      z-index: 4;
+      top: 30px;
+      right: var(--pad);
+      left: var(--pad);
+      height: 1px;
+      overflow: hidden;
+      background: var(--faint);
+    }
+    .project-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transform: scaleX(var(--rail-progress, 0));
+      transform-origin: left;
+    }
+    .project-progress::after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+      transform: translate3d(var(--rail-dot-x, 0px), -50%, 0);
+      will-change: transform;
+    }
+    .project-proof {
+      position: absolute;
+      z-index: 0;
+      right: clamp(20px, 4vw, 72px);
+      bottom: clamp(34px, 6vh, 74px);
+      max-width: 92vw;
+      color: color-mix(in srgb, var(--ink) 7%, transparent);
+      text-align: right;
+      pointer-events: none;
+      transition: opacity 120ms ease-out, transform 260ms var(--ease);
+    }
+    .project-proof.is-changing { opacity: 0; transform: translate3d(0, 14px, 0); }
+    .project-proof-value {
+      display: block;
+      font-size: clamp(92px, 18vw, 290px);
+      font-weight: 650;
+      letter-spacing: -.085em;
+      line-height: .7;
+      white-space: nowrap;
+    }
+    .project-proof-label {
+      display: block;
+      margin-top: clamp(22px, 4vh, 42px);
+      color: color-mix(in srgb, var(--ink) 20%, transparent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .project-rail {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: clamp(42px, 7vw, 110px);
+      width: max-content;
+      padding-block: 42px 24px;
+      will-change: transform;
+    }
+    .project-exhibit {
+      position: relative;
+      flex: 0 0 clamp(480px, 50vw, 620px);
+      color: var(--paper-ink);
+      transform: scale(.9);
+      transform-origin: center;
+      opacity: .42;
+      filter: saturate(.62);
+      transition: transform 280ms ease-out, opacity 280ms ease-out, filter 280ms ease-out;
+    }
+    .project-exhibit.active { transform: scale(1); opacity: 1; filter: saturate(.94); }
+    .exhibit-letter {
+      position: absolute;
+      z-index: 0;
+      top: -76px;
+      left: -30px;
+      color: color-mix(in srgb, var(--paper-ink) 8%, transparent);
+      font-size: clamp(140px, 17vw, 260px);
+      font-weight: 650;
+      letter-spacing: -.08em;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .exhibit-frame {
+      position: relative;
+      z-index: 1;
+      padding: clamp(14px, 1.6vw, 22px);
+      background: var(--paper);
+      box-shadow: 0 28px 90px var(--shadow);
+    }
+    .exhibit-frame > a,
+    .exhibit-frame > button.exhibit-thumb {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+    .exhibit-frame > a:focus-visible,
+    .exhibit-frame > button.exhibit-thumb:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+    }
+    .exhibit-frame > button.exhibit-thumb img { pointer-events: none; }
+    .exhibit-frame img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border: 1px solid rgba(18,24,32,.14);
+      background: #0f1115;
+    }
+    .exhibit-frame img.contain { object-fit: contain; padding: 5%; background: #fff; }
+    .exhibit-body { position: relative; z-index: 1; padding: 22px 0 0; color: var(--ink); border-top: 1px solid var(--faint); margin-top: 18px; }
+    .exhibit-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .exhibit-number { color: var(--accent); font-size: 10px; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
+    .exhibit-title { margin: 7px 0 0; font-size: clamp(34px, 4vw, 57px); font-weight: 570; letter-spacing: -.055em; line-height: .94; }
+    .exhibit-result { max-width: 670px; margin: 16px 0 0; font-size: clamp(15px, 1.35vw, 19px); line-height: 1.45; }
+    .exhibit-meta {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 5px 16px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+    .exhibit-meta dt { letter-spacing: .08em; text-transform: uppercase; }
+    .exhibit-meta dd { margin: 0; color: var(--ink); }
+    .exhibit-body .route-button { margin-top: 20px; }
+    .exhibit-actions { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+    .skills-list { border-top: 1px solid var(--faint); }
+    .skills-head { grid-template-columns: 1fr; }
+    .skill-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(250px, .58fr) minmax(300px, .8fr) minmax(300px, 1fr);
+      gap: clamp(32px, 3.4vw, 64px);
+      align-items: center;
+      min-height: clamp(132px, 10.6vw, 153px);
+      padding: clamp(34px, 3vw, 42px) clamp(10px, 1vw, 18px);
+      border-bottom: 1px solid var(--faint);
+      background: linear-gradient(90deg, transparent, transparent);
+      box-shadow: inset 0 0 0 transparent;
+      transition: background-color 220ms ease, box-shadow 220ms ease;
+    }
+    .skill-row.is-proof-active {
+      background-color: color-mix(in srgb, var(--accent) 2.5%, transparent);
+      box-shadow: inset -1px 0 0 color-mix(in srgb, var(--accent) 58%, transparent);
+    }
+    .skill-row h3 { margin: 0; font-size: clamp(21px, 2vw, 29px); font-weight: 570; letter-spacing: -.035em; }
+    .skill-capability { margin: 2px 0 0; font-size: 15px; line-height: 1.45; }
+    .skill-tools { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .skill-row.reveal:nth-child(2) { transition-delay: 70ms; }
+    .skill-row.reveal:nth-child(3) { transition-delay: 140ms; }
+    .skill-row.reveal:nth-child(4) { transition-delay: 210ms; }
+    #skills { padding-bottom: clamp(36px, 4vw, 64px); }
+    .close {
+      display: flex;
+      min-height: clamp(620px, calc(100svh + 72px), 900px);
+      align-items: flex-start;
+      padding: clamp(48px, 6vw, 80px) 0 clamp(48px, 5vw, 68px);
+      border-top: 1px solid var(--faint);
+    }
+    .close > .reveal { opacity: 1; transform: none; transition: none; }
+    .close h2 { margin: 0; max-width: 1100px; font-size: clamp(58px, 8.8vw, 132px); font-weight: 560; letter-spacing: -.075em; line-height: .82; }
+    .close-email-row { display: flex; align-items: center; gap: 14px; width: max-content; margin-top: 34px; }
+    .close-proof-dot {
+      position: relative;
+      width: 9px;
+      height: 9px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 10%, transparent);
+      opacity: 0;
+      transform: scale(.72);
+      transition: none;
+    }
+    .close-proof-dot::after {
+      position: absolute;
+      inset: -7px;
+      border: 1px solid color-mix(in srgb, var(--accent) 68%, transparent);
+      border-radius: 50%;
+      content: "";
+      opacity: 0;
+      transform: scale(.65);
+    }
+    .reveal.in-view .close-proof-dot { opacity: 1; transform: scale(1); }
+    .close.is-live .close-proof-dot { opacity: 1; transform: scale(1); }
+    .close.is-live .close-proof-dot::after { animation: close-pulse 1.6s var(--ease) both; }
+    @keyframes close-pulse {
+      0% { opacity: .7; transform: scale(.65); }
+      70% { opacity: 0; transform: scale(1.9); }
+      100% { opacity: 0; transform: scale(1.9); }
+    }
+    .close-email { display: inline-block; padding-bottom: 6px; border-bottom: 2px solid currentColor; font-size: clamp(17px, 1.8vw, 25px); }
+    .close-foot { display: flex; justify-content: space-between; margin-top: 64px; color: var(--muted); font-size: 10px; }
+
+    dialog {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border: 0;
+      color: var(--ink);
+      background: var(--canvas);
+    }
+    dialog::backdrop { background: rgba(0,0,0,.4); }
+    .dialog-shell { width: 100%; min-height: 100%; }
+    .dialog-top {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 82px;
+      border-bottom: 1px solid var(--faint);
+      background: color-mix(in srgb, var(--canvas) 93%, transparent);
+      backdrop-filter: blur(12px);
+    }
+    .dialog-top span { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .close-dialog {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--faint);
+      border-radius: 50%;
+      color: inherit;
+      background: transparent;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .dialog-content { padding: clamp(54px, 8vw, 112px) 0 100px; }
+    .case-title-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(24px, 4vw, 64px);
+      align-items: end;
+    }
+    .dialog-title { margin: 0; max-width: 1100px; font-size: clamp(56px, 8vw, 118px); font-weight: 560; letter-spacing: -.07em; line-height: .86; }
+    .case-source-link { margin-bottom: clamp(5px, .8vw, 12px); white-space: nowrap; }
+    .dialog-dek { max-width: 760px; margin: 30px 0 0; color: var(--muted); font-size: clamp(17px, 1.7vw, 23px); line-height: 1.45; }
+    .timeline { margin-top: 78px; border-top: 1px solid var(--faint); }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: minmax(150px, .24fr) minmax(210px, .52fr) minmax(0, 1fr);
+      gap: 36px;
+      min-width: 0;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--faint);
+    }
+    .timeline-item > * { min-width: 0; }
+    .timeline-item time { padding-right: 14px; white-space: nowrap; }
+    .timeline-item time, .timeline-item .stack { color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .timeline-item h3 { margin: 0; font-size: 23px; font-weight: 590; letter-spacing: -.035em; }
+    .timeline-item h3 span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; font-weight: 520; letter-spacing: 0; }
+    .timeline-item p { margin: 0 0 10px; font-size: 14px; line-height: 1.5; }
+    .all-projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 74px; background: var(--faint); border: 1px solid var(--faint); }
+    .all-project-card { min-height: 390px; padding: 28px; color: inherit; background: var(--canvas); cursor: pointer; text-align: left; }
+    .all-project-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--faint); background: var(--image); }
+    .all-project-card img.contain { object-fit: contain; padding: 5%; }
+    .all-project-card h3 { margin: 22px 0 0; font-size: 28px; font-weight: 570; letter-spacing: -.04em; }
+    .all-project-card p { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .case-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 64px; border-block: 1px solid var(--faint); }
+    .case-meta div { padding: 20px 22px 20px 0; }
+    .case-meta div + div { padding-left: 22px; border-left: 1px solid var(--faint); }
+    .case-meta strong { display: block; font-size: 22px; font-weight: 610; letter-spacing: -.035em; }
+    .case-meta span { display: block; margin-top: 6px; color: var(--muted); font-size: 10px; line-height: 1.4; }
+    .case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
+    .case-gallery figure { margin: 0; }
+    .case-gallery figure:only-child {
+      grid-column: 1 / -1;
+      width: min(100%, 920px);
+      justify-self: center;
+    }
+    .case-gallery img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid var(--faint); background: var(--image); }
+    .case-gallery figure:only-child img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: min(68vh, 720px);
+      aspect-ratio: auto;
+      object-fit: contain;
+      margin-inline: auto;
+    }
+    .case-gallery figcaption { margin-top: 9px; color: var(--muted); font-size: 10px; }
+
+    @media (max-width: 900px) {
+      .proof-wash, .proof-thread { display: none; }
+      .topbar-inner { grid-template-columns: 1fr auto; }
+      .navlinks, .contact-link { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .portrait-wrap { justify-self: start; grid-row: 1; width: min(52vw, 300px); min-width: 210px; }
+      .hero-name { font-size: clamp(62px, 18vw, 118px); }
+      .hero-bottom, .section-head { grid-template-columns: 1fr; }
+      .hero-meta { justify-content: flex-start; }
+      .experience-row { grid-template-columns: 52px 1fr auto; }
+      .experience-result { grid-column: 2 / -1; }
+      .projects-section .section-aside { justify-content: flex-start; }
+      .project-runway { height: auto !important; }
+      .project-sticky { position: relative; min-height: auto; padding: 58px 0 40px; }
+      .project-progress { display: none; }
+      .project-rail {
+        width: auto;
+        overflow-x: auto;
+        gap: 24px;
+        padding: 32px var(--pad) 42px !important;
+        transform: none !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+      .project-rail::-webkit-scrollbar { display: none; }
+      .project-exhibit { flex-basis: min(82vw, 620px); transform: none; opacity: 1; filter: none; scroll-snap-align: center; }
+      .project-exhibit.active { transform: none; }
+      .exhibit-letter { top: -54px; font-size: 150px; }
+      .project-proof { top: 26px; right: var(--pad); bottom: auto; }
+      .project-proof-value { font-size: clamp(72px, 20vw, 142px); }
+      .project-proof-label { margin-top: 16px; }
+      .skill-row { grid-template-columns: 1fr; gap: 10px; align-items: start; min-height: 0; padding: 26px 8px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 12px; }
+      .timeline-item time, .timeline-item h3, .timeline-item > div { grid-column: auto; grid-row: auto; }
+      .timeline-item time { padding-right: 0; }
+      .case-title-row { grid-template-columns: 1fr; align-items: start; }
+      .case-source-link { margin: 4px 0 0; }
+      .all-projects-grid { grid-template-columns: 1fr; }
+      .case-gallery figure:only-child { width: min(100%, 820px); }
+      .case-gallery figure:only-child img { max-height: 64vh; }
+      .case-meta { grid-template-columns: 1fr; }
+      .case-meta div + div { padding-left: 0; border-top: 1px solid var(--faint); border-left: 0; }
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .timeline-item { grid-template-columns: 140px minmax(0, 1fr); gap: 18px 24px; }
+      .timeline-item time { grid-column: 1; grid-row: 1 / span 2; }
+      .timeline-item h3, .timeline-item > div { grid-column: 2; }
+      .skill-row { grid-template-columns: minmax(220px, .65fr) minmax(0, 1fr); gap: 12px 30px; align-items: start; padding: 32px 10px; }
+      .skill-tools { grid-column: 2; }
+    }
+    @media (max-width: 620px) {
+      .experience-row { grid-template-columns: 48px 1fr; }
+      .experience-row time { grid-column: 2; justify-self: start; }
+      .case-gallery { grid-template-columns: 1fr; }
+      .close-foot { gap: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .proof-wash, .proof-thread { display: none; }
+      .project-runway { height: auto !important; }
+      .project-sticky { position: relative; min-height: auto; }
+      .project-rail { width: auto; overflow-x: auto; padding-inline: var(--pad) !important; transform: none !important; }
+      .project-exhibit { opacity: 1; filter: none; transform: none !important; }
+      .project-progress { display: none; }
+      .project-proof { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#experience">Skip to experience</a>
+  <div class="proof-canvas" aria-hidden="true">
+    <div class="proof-wash"></div>
+    <div class="proof-thread">
+      <div class="proof-thread-line">
+        <span class="proof-thread-fill"></span>
+        <span class="proof-thread-dot"></span>
+      </div>
+    </div>
+  </div>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="mark" href="#top" aria-label="Bohdan Chuprynka, home">BC<i>.</i></a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+      </nav>
+      <div class="top-actions">
+        <div class="theme-toggle" role="group" aria-label="Color theme">
+          <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
+          <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
+        </div>
+        <a class="contact-link" href="mailto:bohdan.chuprynka@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-name" aria-label="Bohdan Chuprynka">Bohdan<br />Chuprynka</h1>
+            <p class="hero-role">AI Engineer</p>
+          </div>
+          <div class="portrait-wrap">
+            <div class="portrait"><img src="./portrait.jpg" alt="Portrait of Bohdan Chuprynka" decoding="async" fetchpriority="high" /></div>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <p class="hero-line">I build AI products that survive contact with reality.</p>
+          <div class="hero-meta">
+            <a class="quiet-link" href="https://github.com/BohdanChuprynka" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="quiet-link" href="https://www.linkedin.com/in/bohdanchuprynka/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="shell">
+        <div class="section-head reveal">
+          <h2>Experience</h2>
+        </div>
+        <div class="experience-list">
+          <button class="experience-row reveal" type="button" data-experience-detail="remly">
+            <span class="company-logo remly"><img src="./remly-official.png" alt="Remly logo" /></span>
+            <span class="company-block"><h3>Founding AI Engineer</h3><p>Remly</p></span>
+            <span class="experience-result">Built cited search and Q&amp;A across web and macOS, with connector retrieval, ranking, ingestion, and access controls.</span>
+            <time>Jun 2026 — Now</time>
+          </button>
+          <button class="experience-row reveal" type="button" data-experience-detail="clinic-2026">
+            <span class="company-logo cc"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" /></span>
+            <span class="company-block"><h3>Cybersecurity Intern</h3><p>Cleveland Clinic</p></span>
+            <span class="experience-result">Reviewed 17 sensitive-data classifiers and built 13 custom classifiers; synthetic tests covered six file formats.</span>
+            <time>Summer 2026</time>
+          </button>
+          <button class="experience-row reveal" type="button" data-experience-detail="protege">
+            <span class="company-logo protege"><img src="./protege.svg" alt="Protégé logo" /></span>
+            <span class="company-block"><h3>Co-Founder &amp; CTO</h3><p>Protégé</p></span>
+            <span class="experience-result">Built the AI coding mentor, backend, model routing, and product infrastructure.</span>
+            <time>Mar — May 2026</time>
+          </button>
+          <button class="experience-row reveal" type="button" data-experience-detail="clinic-2025">
+            <span class="company-logo cc"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" /></span>
+            <span class="company-block"><h3>AI Engineer Intern</h3><p>Cleveland Clinic</p></span>
+            <span class="experience-result">Built an nnU-Net vertebral segmentation pipeline for spinal X-rays with clinical collaborators.</span>
+            <time>Summer 2025</time>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="shell">
+        <div class="section-head reveal">
+          <h2>Projects</h2>
+          <div class="section-aside">
+            <button class="route-button" type="button" data-open="projects-dialog">View all projects ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-runway" id="project-runway">
+        <div class="project-sticky" id="project-sticky">
+          <div class="project-proof" id="project-proof" aria-hidden="true">
+            <span class="project-proof-value" id="project-proof-value">CURRENT</span>
+            <span class="project-proof-label" id="project-proof-label">Founding AI Engineer</span>
+          </div>
+          <div class="project-progress" aria-hidden="true"><span></span></div>
+          <div class="project-rail" id="project-rail" aria-label="Projects">
+            <article class="project-exhibit active" data-exhibit="remly-project" data-proof-value="CURRENT" data-proof-label="Founding AI Engineer">
+              <span class="exhibit-letter" aria-hidden="true">R</span>
+              <div class="exhibit-frame">
+                <a href="https://www.remly.it/" target="_blank" rel="noopener noreferrer" aria-label="Open Remly.it">
+                  <img src="./remly-landing.jpg" alt="Remly.it homepage" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Current product</span></div>
+                <h3 class="exhibit-title">Remly.it</h3>
+                <p class="exhibit-result">The context layer for Mac and AI. I build the retrieval, cited Q&amp;A, connector, and cross-platform product layers.</p>
+                <dl class="exhibit-meta"><dt>Role</dt><dd>Founding AI Engineer</dd><dt>Surface</dt><dd>Next.js web + Swift macOS</dd></dl>
+                <div class="exhibit-actions">
+                  <a class="route-button" href="https://www.remly.it/" target="_blank" rel="noopener noreferrer">Visit Remly.it ↗</a>
+                  <button class="route-button" type="button" data-project-detail="remly-project">Results + gallery ↗</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="persona" data-proof-value="$0" data-proof-label="Local inference">
+              <span class="exhibit-letter" aria-hidden="true">P</span>
+              <div class="exhibit-frame">
+                <a href="https://github.com/BohdanChuprynka/Persona-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Persona-RAG on GitHub">
+                  <img src="./persona-rag.png" alt="Persona-RAG comparison interface" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Research + product</span></div>
+                <h3 class="exhibit-title">Persona-RAG</h3>
+                <p class="exhibit-result">Caught a major evaluation leak, rebuilt the test, and showed a local fine-tune could match the paid RAG stack on voice.</p>
+                <dl class="exhibit-meta"><dt>Proof</dt><dd>90% → 0 train/test leak</dd><dt>Result</dt><dd>$0 local inference · n = 300 hold-out</dd></dl>
+                <button class="route-button" type="button" data-project-detail="persona">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="aximon" data-proof-value="1,000+" data-proof-label="Beta testers">
+              <span class="exhibit-letter" aria-hidden="true">A</span>
+              <div class="exhibit-frame">
+                <button class="exhibit-thumb" type="button" data-project-detail="aximon" aria-label="Open Aximon project details">
+                  <img src="./aximon.png" alt="Aximon adaptive Python tutor interface" loading="lazy" decoding="async" />
+                </button>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">AI product</span></div>
+                <h3 class="exhibit-title">Aximon</h3>
+                <p class="exhibit-result">Built the AI foundation for an adaptive Python tutor: routed models, pgvector retrieval, evaluation, and course generation.</p>
+                <dl class="exhibit-meta"><dt>Reach</dt><dd>1,000+ beta testers</dd><dt>Distribution</dt><dd>6 partnerships · 30K ICP · 1.6K downloads</dd></dl>
+                <button class="route-button" type="button" data-project-detail="aximon">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="policy" data-proof-value="HYBRID" data-proof-label="Dense + keyword retrieval">
+              <span class="exhibit-letter" aria-hidden="true">R</span>
+              <div class="exhibit-frame">
+                <a href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Policy RAG on GitHub">
+                  <img class="contain" src="./policy-rag.png" alt="Policy RAG system architecture" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Retrieval</span></div>
+                <h3 class="exhibit-title">Policy RAG</h3>
+                <p class="exhibit-result">Built citation-grounded policy search from scratch with dense and keyword retrieval, weighted fusion, and a FastAPI backend.</p>
+                <dl class="exhibit-meta"><dt>Build</dt><dd>Retrieval written directly in Python + NumPy</dd><dt>Result</dt><dd>Hybrid search with cited answers</dd></dl>
+                <button class="route-button" type="button" data-project-detail="policy">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="vertebrae" data-proof-value="nnU-Net" data-proof-label="Medical imaging">
+              <span class="exhibit-letter" aria-hidden="true">V</span>
+              <div class="exhibit-frame">
+                <button class="exhibit-thumb" type="button" data-project-detail="vertebrae" aria-label="Open vertebral segmentation project details">
+                  <img src="./vertebrae.jpg" alt="Vertebral segmentation project overview" loading="lazy" decoding="async" />
+                </button>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Medical imaging</span></div>
+                <h3 class="exhibit-title">Vertebral segmentation</h3>
+                <p class="exhibit-result">Built an nnU-Net pipeline for segmenting vertebrae in spinal X-rays during my Cleveland Clinic internship.</p>
+                <dl class="exhibit-meta"><dt>Model</dt><dd>nnU-Net</dd><dt>Scope</dt><dd>Preprocessing through evaluation</dd></dl>
+                <button class="route-button" type="button" data-project-detail="vertebrae">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="stock" data-proof-value="0.83" data-proof-label="Best R²">
+              <span class="exhibit-letter" aria-hidden="true">S</span>
+              <div class="exhibit-frame">
+                <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noopener noreferrer" aria-label="Open sales forecasting on GitHub">
+                  <img src="./stock-sales.png" alt="Sales forecasting results" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Machine learning</span></div>
+                <h3 class="exhibit-title">Sales forecasting</h3>
+                <p class="exhibit-result">Compared five model families across more than three million retail rows and 54 stores.</p>
+                <dl class="exhibit-meta"><dt>Scale</dt><dd>3M+ rows · 54 stores</dd><dt>Best</dt><dd>R² 0.83</dd></dl>
+                <button class="route-button" type="button" data-project-detail="stock">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="sentiment" data-proof-value="1.6M" data-proof-label="Tweets evaluated">
+              <span class="exhibit-letter" aria-hidden="true">N</span>
+              <div class="exhibit-frame">
+                <a href="https://github.com/BohdanChuprynka/Sentiment-Analysis-Model" target="_blank" rel="noopener noreferrer" aria-label="Open sentiment analysis on GitHub">
+                  <img src="./sentiment.png" alt="Sentiment analysis model comparison" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Natural language processing</span></div>
+                <h3 class="exhibit-title">Sentiment analysis</h3>
+                <p class="exhibit-result">Compared classical machine learning and deep learning across 1.6 million tweets.</p>
+                <dl class="exhibit-meta"><dt>Data</dt><dd>1.6M tweets</dd><dt>Best</dt><dd>80.6% accuracy</dd></dl>
+                <button class="route-button" type="button" data-project-detail="sentiment">Results + gallery ↗</button>
+              </div>
+            </article>
+
+            <article class="project-exhibit" data-exhibit="tableau" data-proof-value="LIVE" data-proof-label="Interactive dashboard">
+              <span class="exhibit-letter" aria-hidden="true">D</span>
+              <div class="exhibit-frame">
+                <a href="https://public.tableau.com/app/profile/bohdan.chuprynka/viz/BusinessSummary_17527722001530/BusinessSummary" target="_blank" rel="noopener noreferrer" aria-label="Open business dashboard on Tableau">
+                  <img src="./tableau.png" alt="Tableau business dashboard" loading="lazy" decoding="async" />
+                </a>
+              </div>
+              <div class="exhibit-body">
+                <div class="exhibit-top"><span class="exhibit-number">Data visualization</span></div>
+                <h3 class="exhibit-title">Business dashboard</h3>
+                <p class="exhibit-result">Built an interactive view of sales, margins, regional performance, and business-unit trends.</p>
+                <dl class="exhibit-meta"><dt>Tool</dt><dd>Tableau</dd><dt>Focus</dt><dd>Sales + margin decisions</dd></dl>
+                <button class="route-button" type="button" data-project-detail="tableau">Results + gallery ↗</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="shell">
+        <div class="section-head skills-head reveal">
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-list">
+          <div class="skill-row reveal">
+            <h3>AI integration + automation</h3>
+            <p class="skill-capability">API integrations, tool calling, structured outputs, workflow orchestration</p>
+            <p class="skill-tools">OpenAI API · MCP · REST APIs · OAuth · webhooks</p>
+          </div>
+          <div class="skill-row reveal">
+            <h3>LLM applications + retrieval</h3>
+            <p class="skill-capability">RAG, hybrid search, agent workflows, model routing, fine-tuning</p>
+            <p class="skill-tools">LangGraph · Hugging Face · Qdrant · pgvector · BM25 · LoRA</p>
+          </div>
+          <div class="skill-row reveal">
+            <h3>Production AI + evaluation</h3>
+            <p class="skill-capability">Backend services, test harnesses, observability, privacy, latency and cost control</p>
+            <p class="skill-tools">Python · FastAPI · TypeScript · PostgreSQL · Docker · MLflow · pytest</p>
+          </div>
+          <div class="skill-row reveal">
+            <h3>Machine learning</h3>
+            <p class="skill-capability">Deep learning, computer vision, NLP, model training</p>
+            <p class="skill-tools">PyTorch · TensorFlow · scikit-learn · nnU-Net · OpenCV</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="close">
+      <div class="shell reveal">
+        <h2>Let's connect</h2>
+        <div class="close-email-row">
+          <span class="close-proof-dot" aria-hidden="true"></span>
+          <a class="close-email" href="mailto:bohdan.chuprynka@gmail.com">bohdan.chuprynka@gmail.com</a>
+        </div>
+        <div class="close-foot"><span>Cleveland, Ohio</span><span>© 2026 Bohdan Chuprynka</span></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="role-dialog" aria-labelledby="role-title">
+    <div class="dialog-shell shell">
+      <div class="dialog-top"><span>Experience detail</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
+      <div class="dialog-content">
+        <p class="eyebrow" id="role-company">Company</p>
+        <h2 class="dialog-title" id="role-title">Role</h2>
+        <p class="dialog-dek" id="role-dek"></p>
+        <div class="case-meta" id="role-meta"></div>
+        <div class="timeline" id="role-details"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="projects-dialog" aria-labelledby="projects-dialog-title">
+    <div class="dialog-shell shell">
+      <div class="dialog-top"><span>All projects</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
+      <div class="dialog-content">
+        <p class="eyebrow">Project index</p>
+        <h2 class="dialog-title" id="projects-dialog-title">The broader body of work.</h2>
+        <p class="dialog-dek">A compact index of the same projects shown in the horizontal story.</p>
+        <div class="all-projects-grid">
+          <button class="all-project-card" type="button" data-project-detail="remly-project"><img src="./remly-landing.jpg" alt="Remly.it homepage" loading="lazy" decoding="async" /><h3>Remly.it</h3><p>The context layer for Mac and AI, with retrieval, cited Q&amp;A, connectors, and cross-platform product work.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="persona"><img src="./persona-rag.png" alt="Persona-RAG" loading="lazy" decoding="async" /><h3>Persona-RAG</h3><p>Local fine-tuning, RAG, leak-audited evaluation, and a working Telegram product.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="aximon"><img src="./aximon.png" alt="Aximon" loading="lazy" decoding="async" /><h3>Aximon</h3><p>Adaptive tutoring with routed models, retrieval, evaluation, and course generation.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="policy"><img class="contain" src="./policy-rag.png" alt="Policy RAG" loading="lazy" decoding="async" /><h3>Policy RAG</h3><p>Hybrid retrieval and citation-grounded answers built from scratch.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="vertebrae"><img src="./vertebrae.jpg" alt="Vertebral segmentation" loading="lazy" decoding="async" /><h3>Vertebral segmentation</h3><p>nnU-Net medical-imaging pipeline developed during a Cleveland Clinic internship.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="stock"><img src="./stock-sales.png" alt="Stock sales prediction" loading="lazy" decoding="async" /><h3>Sales forecasting</h3><p>Five-model forecasting pipeline on more than three million rows; best R² 0.83.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="sentiment"><img src="./sentiment.png" alt="Sentiment analysis" loading="lazy" decoding="async" /><h3>Sentiment analysis</h3><p>Classical and deep-learning comparison on 1.6 million tweets; best accuracy 80.6%.</p></button>
+          <button class="all-project-card" type="button" data-project-detail="tableau"><img src="./tableau.png" alt="Tableau sales dashboard" loading="lazy" decoding="async" /><h3>Business dashboard</h3><p>Interactive sales, margin, and regional-performance analysis in Tableau.</p></button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="case-dialog" aria-labelledby="case-title">
+    <div class="dialog-shell shell">
+      <div class="dialog-top"><span id="case-kicker">Project case study</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
+      <div class="dialog-content">
+        <p class="eyebrow" id="case-type">Project</p>
+        <div class="case-title-row">
+          <h2 class="dialog-title" id="case-title">Project title</h2>
+          <a class="route-button case-source-link" id="case-source" href="#case-gallery">View gallery ↓</a>
+        </div>
+        <p class="dialog-dek" id="case-dek"></p>
+        <div class="case-meta" id="case-meta"></div>
+        <div class="case-gallery" id="case-gallery"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      var savedTheme = null;
+      try { savedTheme = localStorage.getItem('bohdan-portfolio-theme'); } catch (error) { savedTheme = null; }
+      var initialTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+      function applyTheme(theme, persist) {
+        root.setAttribute('data-theme', theme);
+        if (themeColor) themeColor.setAttribute('content', theme === 'light' ? '#eee9dd' : '#090908');
+        document.querySelectorAll('[data-set-theme]').forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.getAttribute('data-set-theme') === theme));
+        });
+        if (persist) {
+          try { localStorage.setItem('bohdan-portfolio-theme', theme); } catch (error) { /* Theme still works without storage. */ }
+        }
+      }
+
+      applyTheme(initialTheme, false);
+
+      document.querySelectorAll('[data-set-theme]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var theme = button.getAttribute('data-set-theme');
+          applyTheme(theme, true);
+        });
+      });
+
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var runway = document.getElementById('project-runway');
+      var sticky = document.getElementById('project-sticky');
+      var rail = document.getElementById('project-rail');
+      var progressLine = sticky.querySelector('.project-progress');
+      var proofLine = document.querySelector('.proof-thread-line');
+      var exhibits = Array.from(document.querySelectorAll('[data-exhibit]'));
+      var heroName = document.querySelector('.hero-name');
+      var portraitWrap = document.querySelector('.portrait-wrap');
+      var projectProof = document.getElementById('project-proof');
+      var projectProofValue = document.getElementById('project-proof-value');
+      var projectProofLabel = document.getElementById('project-proof-label');
+      var experienceRows = Array.from(document.querySelectorAll('.experience-row'));
+      var skillRows = Array.from(document.querySelectorAll('.skill-row'));
+      var closeSection = document.querySelector('.close');
+      var proofThread = document.querySelector('.proof-thread');
+      var proofDot = document.querySelector('.proof-thread-dot');
+      var proofSections = [
+        { name: 'hero', element: document.querySelector('.hero') },
+        { name: 'experience', element: document.getElementById('experience') },
+        { name: 'projects', element: document.getElementById('projects') },
+        { name: 'skills', element: document.getElementById('skills') },
+        { name: 'close', element: document.querySelector('.close') }
+      ];
+      var railTravel = 0;
+      var railProgress = 0;
+      var ticking = false;
+      var activeExhibitIndex = 0;
+      var proofLineLength = 0;
+      var proofSectionBounds = [];
+
+      function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+      function pageProgress() {
+        return clamp(window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight), 0, 1);
+      }
+
+      function syncProofRail() {
+        var height = window.innerHeight;
+        var lineLengthPx = proofLineLength || Math.min(height * .52, 560);
+        var progress = pageProgress();
+        root.style.setProperty('--proof-progress', progress.toFixed(4));
+        root.style.setProperty('--proof-dot-y', (lineLengthPx * progress).toFixed(1) + 'px');
+      }
+
+      function updateProjectProof(index) {
+        if (index === activeExhibitIndex || !exhibits[index]) return;
+        activeExhibitIndex = index;
+        projectProofValue.textContent = exhibits[index].getAttribute('data-proof-value') || '';
+        projectProofLabel.textContent = exhibits[index].getAttribute('data-proof-label') || '';
+        projectProof.classList.remove('is-changing');
+      }
+
+      function activateClosestExhibit() {
+        var viewportCenter = window.innerWidth / 2;
+        var closest = 0;
+        var closestDistance = Infinity;
+        exhibits.forEach(function (exhibit, index) {
+          var rect = exhibit.getBoundingClientRect();
+          var distance = Math.abs(rect.left + rect.width / 2 - viewportCenter);
+          if (distance < closestDistance) { closestDistance = distance; closest = index; }
+        });
+        exhibits.forEach(function (exhibit, index) { exhibit.classList.toggle('active', index === closest); });
+        updateProjectProof(closest);
+        return closest;
+      }
+
+      function activateClosestRow(rows, enabled, targetY) {
+        var closest = -1;
+        var closestDistance = Infinity;
+        if (enabled) {
+          var anchorY = Number.isFinite(targetY) ? targetY : window.innerHeight * .54;
+          rows.forEach(function (row, index) {
+            var rect = row.getBoundingClientRect();
+            if (Number.isFinite(targetY) && (anchorY < rect.top || anchorY > rect.bottom)) return;
+            var distance = Math.abs(rect.top + rect.height / 2 - anchorY);
+            if (distance < closestDistance) { closestDistance = distance; closest = index; }
+          });
+        }
+        rows.forEach(function (row, index) { row.classList.toggle('is-proof-active', enabled && index === closest); });
+      }
+
+      function measureProofGeometry() {
+        proofSectionBounds = proofSections.filter(function (section) { return section.element; }).map(function (section) {
+          var rect = section.element.getBoundingClientRect();
+          var top = rect.top + window.scrollY;
+          return { name: section.name, top: top, bottom: top + rect.height, section: section };
+        });
+        proofLineLength = proofLine ? proofLine.getBoundingClientRect().height : 0;
+      }
+
+      function activeProofSection() {
+        var viewportMark = window.scrollY + window.innerHeight * .52;
+        if (!proofSectionBounds.length) measureProofGeometry();
+        var closest = proofSections[0];
+        var closestDistance = Infinity;
+        proofSectionBounds.forEach(function (bound) {
+          var section = bound.section;
+          var top = bound.top;
+          var bottom = bound.bottom;
+          if (top <= viewportMark && bottom >= viewportMark) {
+            closest = section;
+            closestDistance = 0;
+            return;
+          }
+          if (closestDistance === 0) return;
+          var distance = Math.min(Math.abs(top - viewportMark), Math.abs(bottom - viewportMark));
+          if (distance < closestDistance) { closestDistance = distance; closest = section; }
+        });
+        return closest;
+      }
+
+      function updateProofSystem() {
+        var section = activeProofSection();
+        var name = section.name;
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var washX = width * .78;
+        var washY = height * .42;
+        var progress = pageProgress();
+
+        if (name === 'hero') {
+          washX = width * .78;
+          washY = height * .42;
+        } else if (name === 'experience') {
+          washX = width * .2;
+          washY = height * .5;
+        } else if (name === 'projects') {
+          washX = width * (.14 + railProgress * .72);
+          washY = height * .55;
+        } else if (name === 'skills') {
+          washX = width * .22;
+          washY = height * .46;
+        } else if (name === 'close') {
+          washX = width * .24;
+          washY = height * .72;
+        }
+
+        var lineLengthPx = proofLineLength || Math.min(height * .52, 560);
+        var proofDotViewportY = proofThread ? proofThread.getBoundingClientRect().top + lineLengthPx * progress : height * .54;
+        root.setAttribute('data-proof-section', name);
+        root.style.setProperty('--proof-length', lineLengthPx.toFixed(1) + 'px');
+        root.style.setProperty('--proof-progress', progress.toFixed(4));
+        root.style.setProperty('--proof-dot-y', (lineLengthPx * progress).toFixed(1) + 'px');
+        root.style.setProperty('--proof-wash-x', washX.toFixed(1) + 'px');
+        root.style.setProperty('--proof-wash-y', washY.toFixed(1) + 'px');
+        closeSection.classList.toggle('is-live', name === 'close');
+        activateClosestRow(experienceRows, name === 'experience', name === 'experience' ? proofDotViewportY : undefined);
+        activateClosestRow(skillRows, name === 'skills');
+      }
+
+      function sizeRail() {
+        measureProofGeometry();
+        if (window.innerWidth <= 900 || reducedMotion) {
+          runway.style.height = 'auto';
+          rail.style.paddingLeft = '';
+          rail.style.paddingRight = '';
+          rail.style.transform = '';
+          var mobileIndex = activateClosestExhibit();
+          railProgress = exhibits.length > 1 ? mobileIndex / (exhibits.length - 1) : 0;
+          requestMotion();
+          return;
+        }
+        var firstWidth = exhibits[0].getBoundingClientRect().width;
+        var edge = Math.max(34, (window.innerWidth - firstWidth) / 2);
+        rail.style.paddingLeft = edge + 'px';
+        rail.style.paddingRight = edge + 'px';
+        railTravel = Math.max(0, rail.scrollWidth - window.innerWidth);
+        runway.style.height = (window.innerHeight + railTravel * .45) + 'px';
+        updateMotion();
+      }
+
+      function updateMotion() {
+        ticking = false;
+        var heroProgress = reducedMotion ? 0 : clamp(window.scrollY / Math.max(1, window.innerHeight * .9), 0, 1);
+        heroName.style.transform = 'translate3d(0,' + (heroProgress * 34) + 'px,0)';
+        portraitWrap.style.transform = 'translate3d(0,' + (heroProgress * -24) + 'px,0) scale(' + (1 + heroProgress * .035) + ')';
+
+        var runwayRect = runway.getBoundingClientRect();
+        if (window.innerWidth > 900 && !reducedMotion) {
+          var total = Math.max(1, runway.offsetHeight - window.innerHeight);
+          railProgress = clamp(-runwayRect.top / total, 0, 1);
+          sticky.style.setProperty('--rail-progress', railProgress.toFixed(4));
+          sticky.style.setProperty('--rail-glow-x', (14 + railProgress * 72).toFixed(2) + '%');
+          sticky.style.setProperty('--rail-dot-x', (Math.max(0, progressLine.clientWidth - 7) * railProgress).toFixed(1) + 'px');
+          rail.style.transform = 'translate3d(' + (-railTravel * railProgress) + 'px,0,0)';
+        }
+        var projectVisible = runwayRect.top < window.innerHeight && runwayRect.bottom > 0;
+        var closestIndex = activeExhibitIndex;
+        if (projectVisible || window.innerWidth <= 900 || reducedMotion) {
+          closestIndex = activateClosestExhibit();
+        }
+        if (window.innerWidth <= 900 || reducedMotion) {
+          railProgress = exhibits.length > 1 ? closestIndex / (exhibits.length - 1) : 0;
+        }
+        updateProofSystem();
+      }
+
+      function requestMotion() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateMotion);
+      }
+
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (item) { revealObserver.observe(item); });
+
+      function handleWindowScroll() {
+        syncProofRail();
+        requestMotion();
+      }
+
+      window.addEventListener('scroll', handleWindowScroll, { passive: true });
+      window.addEventListener('resize', sizeRail);
+      rail.addEventListener('scroll', requestMotion, { passive: true });
+      sizeRail();
+      requestMotion();
+
+      var caseData = {
+        'remly-project': {
+          type: 'Current product', title: 'Remly.it',
+          source: 'https://www.remly.it/', sourceLabel: 'Visit Remly.it ↗',
+          dek: 'The context layer for Mac and AI. I build the retrieval, cited Q&A, connector, and cross-platform product layers as Founding AI Engineer.',
+          meta: [['Current', 'active product work'], ['Two apps', 'Next.js web + Swift macOS'], ['Role', 'Founding AI Engineer']],
+          gallery: [['./remly-landing.jpg', 'Remly.it homepage']]
+        },
+        persona: {
+          type: 'Research + product', title: 'Persona-RAG',
+          source: 'https://github.com/BohdanChuprynka/Persona-RAG', sourceLabel: 'View GitHub ↗',
+          dek: 'A local Qwen2.5-3B LoRA and a paid RAG product, compared through a leak-audited evaluation instead of a polished demo alone.',
+          meta: [['90% → 0', 'train/test leak caught and removed'], ['n = 300', 'leak-free hold-out'], ['$0 local', 'versus $0.37 per 1k API replies']],
+          gallery: [['./persona-rag.png', 'Working product comparison'], ['./persona-headline.png', 'Headline result'], ['./persona-voice-tics.png', 'Voice-register metrics'], ['./persona-leak-guard.png', 'Retrieval leak guard']]
+        },
+        aximon: {
+          type: 'Closed beta', title: 'Aximon',
+          source: '#case-gallery', sourceLabel: 'View gallery ↓',
+          dek: 'The AI foundation for an adaptive Python tutor: multi-step tutoring, pgvector retrieval, model routing, evaluation, and asynchronous course generation.',
+          meta: [['1,000+', 'beta testers'], ['6', 'partnerships · 30K ICP'], ['1.6K', 'downloads']],
+          gallery: [['./aximon.png', 'Product overview'], ['./aximon-theory.png', 'Theory lesson + tutor'], ['./aximon-practice.png', 'Practice feedback'], ['./aximon-tree.png', 'Curriculum sequencing']]
+        },
+        policy: {
+          type: 'Applied AI', title: 'Policy RAG',
+          source: 'https://github.com/BohdanChuprynka/Policy-RAG', sourceLabel: 'View GitHub ↗',
+          dek: 'A citation-grounded Q&A system using hybrid dense and BM25 retrieval with weighted fusion, built directly in Python and NumPy.',
+          meta: [['Hybrid search', 'dense + BM25 retrieval'], ['From scratch', 'no LangChain or LlamaIndex'], ['Production shape', 'FastAPI, cache, session state, Docker']],
+          gallery: [['./policy-rag.png', 'System architecture and retrieval flow']]
+        },
+        vertebrae: {
+          type: 'Medical imaging', title: 'Vertebral segmentation',
+          source: '#case-gallery', sourceLabel: 'View gallery ↓',
+          dek: 'An nnU-Net-based vertebral segmentation workflow for spinal X-rays, including preprocessing, training, post-processing, and evaluation with clinical collaborators.',
+          meta: [['nnU-Net', 'segmentation model'], ['Clinical setting', 'Cleveland Clinic internship'], ['Private work', 'shown without protected data']],
+          gallery: [['./vertebrae.jpg', 'Project-safe overview']]
+        },
+        stock: {
+          type: 'Machine learning', title: 'Sales forecasting',
+          source: 'https://github.com/BohdanChuprynka/Stock-Sales-Prediction', sourceLabel: 'View GitHub ↗',
+          dek: 'An end-to-end retail forecasting pipeline comparing five model families across more than three million rows and 54 stores.',
+          meta: [['3M+', 'rows'], ['54', 'stores'], ['R² 0.83', 'best model']],
+          gallery: [['./stock-sales.png', 'Forecasting results']]
+        },
+        sentiment: {
+          type: 'NLP', title: 'Sentiment analysis',
+          source: 'https://github.com/BohdanChuprynka/Sentiment-Analysis-Model', sourceLabel: 'View GitHub ↗',
+          dek: 'A comparison of classical machine learning and deep learning on 1.6 million tweets, with preprocessing tuned to each model family.',
+          meta: [['1.6M', 'tweets'], ['80.6%', 'best accuracy'], ['4 approaches', 'classical + deep learning']],
+          gallery: [['./sentiment.png', 'Model comparison']]
+        },
+        tableau: {
+          type: 'Data visualization', title: 'Business dashboard',
+          source: 'https://public.tableau.com/app/profile/bohdan.chuprynka/viz/BusinessSummary_17527722001530/BusinessSummary', sourceLabel: 'View Tableau ↗',
+          dek: 'An interactive Tableau dashboard for sales, profit margins, regional performance, and business-unit trends.',
+          meta: [['Interactive', 'filterable dashboard'], ['Business KPIs', 'sales + margin'], ['Tableau', 'public visualization']],
+          gallery: [['./tableau.png', 'Dashboard overview']]
+        }
+      };
+
+      var roleData = {
+        remly: {
+          company: 'Remly', title: 'Founding AI Engineer',
+          dek: 'Building the retrieval and product layers behind cited search and Q&A across web and macOS.',
+          meta: [['Current', 'June 2026 — present'], ['Two apps', 'Next.js web + Swift macOS'], ['Core work', 'search, retrieval, evaluation']],
+          details: ['Built semantic and exact-name search, citation-backed Q&A, and connector retrieval across the product.', 'Implemented OAuth 2.1 MCP retrieval, ingestion batching, ranking, access controls, and cross-platform tests.'],
+          stack: 'Next.js · Swift · Python · PostgreSQL · pgvector · MCP'
+        },
+        'clinic-2026': {
+          company: 'Cleveland Clinic', title: 'Cybersecurity Intern · Data Protection',
+          dek: 'Applied data-protection work focused on detecting sensitive information reliably across real document formats.',
+          meta: [['17', 'classifiers reviewed'], ['13', 'custom classifiers built'], ['6 formats', 'synthetic evaluation coverage']],
+          details: ['Reviewed sensitive-data classifiers and engineered custom regex classifiers for privacy and compliance workflows.', 'Built a privacy-safe test harness; synthetic evaluations reached approximately 100% precision and recall.'],
+          stack: 'Python · regex · data protection · synthetic evaluation'
+        },
+        protege: {
+          company: 'Protégé', title: 'Co-Founder & CTO',
+          dek: 'Built and maintained the AI coding mentor and the product behind it.',
+          meta: [['~2 months', 'zero to closed beta'], ['2 people', 'founding product team'], ['AI stack', 'tutor, retrieval, evaluation']],
+          details: ['Built the AI coding mentor, backend, model routing, and product infrastructure.', 'Shipped the working product with a two-person team.'],
+          stack: 'TypeScript · Next.js · NestJS · PostgreSQL · pgvector · BullMQ'
+        },
+        'clinic-2025': {
+          company: 'Cleveland Clinic', title: 'AI Engineer Intern',
+          dek: 'Developed an nnU-Net vertebral segmentation workflow for spinal X-rays in a clinical research setting.',
+          meta: [['Medical AI', 'vertebral segmentation'], ['Full pipeline', 'preprocess to evaluation'], ['Clinical work', 'radiology + neurosurgery context']],
+          details: ['Built preprocessing, training, post-processing, and evaluation for the segmentation pipeline.', 'Worked with clinical collaborators to evaluate the medical-imaging workflow without exposing private data.'],
+          stack: 'Python · PyTorch · nnU-Net · medical imaging'
+        }
+      };
+
+      var caseDialog = document.getElementById('case-dialog');
+      var roleDialog = document.getElementById('role-dialog');
+      function openDialog(dialog) {
+        document.querySelectorAll('dialog[open]').forEach(function (open) { if (open !== dialog) open.close(); });
+        dialog.showModal();
+        document.body.classList.add('modal-open');
+      }
+      function closeDialog(dialog) {
+        dialog.close();
+        if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('[data-open]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var dialog = document.getElementById(button.getAttribute('data-open'));
+          if (dialog) openDialog(dialog);
+        });
+      });
+
+      document.querySelectorAll('[data-experience-detail]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var item = roleData[button.getAttribute('data-experience-detail')];
+          if (!item) return;
+          document.getElementById('role-company').textContent = item.company;
+          document.getElementById('role-title').textContent = item.title;
+          document.getElementById('role-dek').textContent = item.dek;
+          document.getElementById('role-meta').innerHTML = item.meta.map(function (cell) { return '<div><strong>' + cell[0] + '</strong><span>' + cell[1] + '</span></div>'; }).join('');
+          document.getElementById('role-details').innerHTML = '<article class="timeline-item"><time>' + item.company + '</time><h3>' + item.title + '<span>Selected work</span></h3><div><p>' + item.details[0] + '</p><p>' + item.details[1] + '</p><span class="stack">' + item.stack + '</span></div></article>';
+          openDialog(roleDialog);
+        });
+      });
+
+      document.querySelectorAll('[data-project-detail]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var key = button.getAttribute('data-project-detail');
+          var item = caseData[key];
+          if (!item) return;
+          document.getElementById('case-type').textContent = item.type;
+          document.getElementById('case-title').textContent = item.title;
+          var sourceLink = document.getElementById('case-source');
+          sourceLink.textContent = item.sourceLabel;
+          sourceLink.setAttribute('href', item.source);
+          if (/^https?:\/\//.test(item.source)) {
+            sourceLink.setAttribute('target', '_blank');
+            sourceLink.setAttribute('rel', 'noopener noreferrer');
+          } else {
+            sourceLink.removeAttribute('target');
+            sourceLink.removeAttribute('rel');
+          }
+          document.getElementById('case-dek').textContent = item.dek;
+          document.getElementById('case-meta').innerHTML = item.meta.map(function (cell) { return '<div><strong>' + cell[0] + '</strong><span>' + cell[1] + '</span></div>'; }).join('');
+          document.getElementById('case-gallery').innerHTML = item.gallery.map(function (figure) { return '<figure><img src="' + figure[0] + '" alt="' + figure[1] + '" loading="lazy" decoding="async"><figcaption>' + figure[1] + '</figcaption></figure>'; }).join('');
+          openDialog(caseDialog);
+        });
+      });
+
+      document.querySelectorAll('[data-close-dialog]').forEach(function (button) {
+        button.addEventListener('click', function () { closeDialog(button.closest('dialog')); });
+      });
+      document.querySelectorAll('dialog').forEach(function (dialog) {
+        dialog.addEventListener('click', function (event) { if (event.target === dialog) closeDialog(dialog); });
+        dialog.addEventListener('close', function () { if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open'); });
+      });
+    }());
+  </script>
+</body>
+</html>

@@ -4,41 +4,35 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-    inputs:
-      profile:
-        description: 'Profile to deploy (ml or se)'
-        required: true
-        default: 'ml'
-        type: choice
-        options:
-          - ml
-          - se
 
 permissions:
   contents: write
 
+concurrency:
+  group: portfolio-pages
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  verify-and-deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        env:
-          REACT_APP_PROFILE: ${{ github.event.inputs.profile || 'ml' }}
-        run: npm run build
+      - name: Verify static site
+        run: node scripts/check-site.mjs
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./site
