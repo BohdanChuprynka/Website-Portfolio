@@ -36,8 +36,19 @@
       --proof-progress: 0;
       --proof-dot-y: 0px;
       --proof-length: min(52vh, 560px);
-      --proof-wash-x: 78vw;
-      --proof-wash-y: 42vh;
+      --proof-gain: 1;
+      --pw-x: 80vw;
+      --pw-y: 42vh;
+      --pw-sx: 1.16;
+      --pw-sy: 1.16;
+      --pw-rot: 0deg;
+      --pw-a: .4;
+      --pt-x: 80vw;
+      --pt-y: 42vh;
+      --pt-sx: 1.16;
+      --pt-sy: 1.16;
+      --pt-rot: 0deg;
+      --pt-a: .17;
     }
     html[data-theme="dark"] {
       --canvas: #090908;
@@ -64,6 +75,7 @@
       --shadow: rgba(34,28,20,.12);
       --paper: #f3f5f6;
       --paper-ink: #121820;
+      --proof-gain: .52;
     }
     /* Scroll is the source of truth for the motion system. Native smooth scrolling
        can keep wheel input in a stale animation, so section links jump cleanly and
@@ -117,21 +129,41 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
       content: "";
       opacity: .022;
-      mix-blend-mode: soft-light;
+      /* Deliberately not a blend mode. At 2.2% the visual difference is under
+         3/255, but soft-light forces a full-viewport re-blend on every frame the
+         light moves underneath it, which measured 8.5ms per frame on its own. */
+      mix-blend-mode: normal;
     }
-    .proof-wash {
+    /* The light is two bodies, not one. The head tracks the wheel almost exactly;
+       the trail is wider, dimmer, and heavier, so fast scrolling pulls them apart
+       into a streak and stopping lets them settle back into a single pool. Both are
+       circles, so rotate() then scale() smears them along their own travel. */
+    .proof-wash, .proof-trail {
       position: absolute;
       top: 0;
       left: 0;
-      width: min(52vw, 760px);
       aspect-ratio: 1;
       border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 13%, transparent) 0, color-mix(in srgb, var(--accent) 5%, transparent) 36%, transparent 69%);
-      filter: blur(12px);
-      opacity: .08;
-      transform: translate3d(var(--proof-wash-x), var(--proof-wash-y), 0) translate(-50%, -50%);
-      transition: opacity 90ms linear;
+      /* rotate() and scale() are conjugated by transform-origin, so the default
+         centre origin would offset the translated position by half the scaled box.
+         Pinned at 0 0, translate3d lands the centre exactly where it is told. */
+      transform-origin: 0 0;
       will-change: transform, opacity;
+    }
+    /* No filter: blur() on either body. A blur of this radius over a circle this
+       large costs ~25ms per frame to raster, and all it was doing was smoothing the
+       gradient. Extra stops do that for free, and the noise layer dithers the rest. */
+    .proof-wash {
+      width: min(56vw, 780px);
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 0, color-mix(in srgb, var(--accent) 11.4%, transparent) 18%, color-mix(in srgb, var(--accent) 8%, transparent) 30%, color-mix(in srgb, var(--accent) 5%, transparent) 42%, color-mix(in srgb, var(--accent) 2.5%, transparent) 55%, color-mix(in srgb, var(--accent) .8%, transparent) 66%, transparent 76%);
+      opacity: calc(var(--pw-a) * var(--proof-gain));
+      transform: translate3d(var(--pw-x), var(--pw-y), 0) rotate(var(--pw-rot)) scale(var(--pw-sx), var(--pw-sy)) translate(-50%, -50%);
+    }
+    .proof-trail {
+      width: min(78vw, 1080px);
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 10%, transparent) 0, color-mix(in srgb, var(--accent) 7%, transparent) 20%, color-mix(in srgb, var(--accent) 4%, transparent) 38%, color-mix(in srgb, var(--accent) 1.8%, transparent) 54%, color-mix(in srgb, var(--accent) .5%, transparent) 64%, transparent 74%);
+      opacity: calc(var(--pt-a) * var(--proof-gain));
+      transform: translate3d(var(--pt-x), var(--pt-y), 0) rotate(var(--pt-rot)) scale(var(--pt-sx), var(--pt-sy)) translate(-50%, -50%);
     }
     .proof-thread {
       position: absolute;
@@ -173,13 +205,7 @@
       transition: none;
       will-change: transform;
     }
-    html[data-proof-section="hero"] .proof-wash { opacity: .1; }
-    html[data-proof-section="experience"] .proof-wash { opacity: .045; }
-    html[data-proof-section="projects"] .proof-wash { opacity: .18; }
-    html[data-proof-section="skills"] .proof-wash { opacity: .045; }
-    html[data-proof-section="close"] .proof-wash { opacity: .065; }
     html[data-theme="light"] .proof-canvas::after { opacity: .014; }
-    html[data-theme="light"] .proof-wash { opacity: .06; }
     .eyebrow {
       margin: 0;
       color: var(--accent);
@@ -359,7 +385,7 @@
     .experience-row {
       position: relative;
       display: grid;
-      grid-template-columns: 62px minmax(220px, .65fr) minmax(360px, 1.25fr) 110px;
+      grid-template-columns: 62px minmax(220px, .65fr) minmax(340px, 1.25fr) 138px;
       gap: clamp(18px, 2.4vw, 36px);
       align-items: center;
       width: 100%;
@@ -405,7 +431,7 @@
     .company-block h3 { margin: 0; font-size: clamp(22px, 2vw, 31px); font-weight: 570; letter-spacing: -.04em; }
     .company-block p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
     .experience-result { margin: 0; max-width: 650px; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.45; }
-    .experience-row time { justify-self: end; padding: 4px 0 4px 16px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .experience-row time { justify-self: end; padding: 4px clamp(12px, 1.4vw, 22px) 4px 12px; color: var(--muted); font-size: 11px; white-space: nowrap; }
 
     .projects-section { overflow: clip; padding-bottom: 0; }
     .projects-section .section-head { align-items: center; margin-bottom: clamp(34px, 4vw, 58px); }
@@ -728,7 +754,8 @@
     .case-gallery figcaption { margin-top: 9px; color: var(--muted); font-size: 10px; }
 
     @media (max-width: 900px) {
-      .proof-wash, .proof-thread { display: none; }
+      .proof-trail, .proof-thread { display: none; }
+      .proof-wash { width: min(96vw, 540px); }
       .topbar-inner { grid-template-columns: 1fr auto; }
       .navlinks, .contact-link { display: none; }
       .hero-grid { grid-template-columns: 1fr; }
@@ -779,14 +806,14 @@
     }
     @media (max-width: 620px) {
       .experience-row { grid-template-columns: 48px 1fr; }
-      .experience-row time { grid-column: 2; justify-self: start; }
+      .experience-row time { grid-column: 2; justify-self: start; padding-left: 0; }
       .case-gallery { grid-template-columns: 1fr; }
       .close-foot { gap: 24px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      .proof-wash, .proof-thread { display: none; }
+      .proof-wash, .proof-trail, .proof-thread { display: none; }
       .project-runway { height: auto !important; }
       .project-sticky { position: relative; min-height: auto; }
       .project-rail { width: auto; overflow-x: auto; padding-inline: var(--pad) !important; transform: none !important; }
@@ -799,6 +826,7 @@
 <body>
   <a class="skip-link" href="#experience">Skip to experience</a>
   <div class="proof-canvas" aria-hidden="true">
+    <div class="proof-trail"></div>
     <div class="proof-wash"></div>
     <div class="proof-thread">
       <div class="proof-thread-line">
@@ -1183,20 +1211,18 @@
       var ticking = false;
       var activeExhibitIndex = 0;
       var proofLineLength = 0;
-      var proofSectionBounds = [];
+      var sectionSpans = [];
+      var lightPhases = [];
+      var lightHead = { x: 0, y: 0, s: 1, a: .4, rot: 0, ready: false };
+      var lightTrail = { x: 0, y: 0, s: 1, a: .4, rot: 0 };
+      var lightStamp = 0;
+      var pageSpan = 1;
 
       function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
 
+      // Reads no layout: pageSpan is cached by measureProofGeometry.
       function pageProgress() {
-        return clamp(window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight), 0, 1);
-      }
-
-      function syncProofRail() {
-        var height = window.innerHeight;
-        var lineLengthPx = proofLineLength || Math.min(height * .52, 560);
-        var progress = pageProgress();
-        root.style.setProperty('--proof-progress', progress.toFixed(4));
-        root.style.setProperty('--proof-dot-y', (lineLengthPx * progress).toFixed(1) + 'px');
+        return clamp(window.scrollY / pageSpan, 0, 1);
       }
 
       function updateProjectProof(index) {
@@ -1236,82 +1262,177 @@
         rows.forEach(function (row, index) { row.classList.toggle('is-proof-active', enabled && index === closest); });
       }
 
+      function railPinned() { return window.innerWidth > 900 && !reducedMotion; }
+
       function measureProofGeometry() {
-        proofSectionBounds = proofSections.filter(function (section) { return section.element; }).map(function (section) {
+        var height = window.innerHeight;
+        var maxScroll = Math.max(1, document.documentElement.scrollHeight - height);
+        pageSpan = maxScroll;
+        var bounds = proofSections.filter(function (section) { return section.element; }).map(function (section) {
           var rect = section.element.getBoundingClientRect();
           var top = rect.top + window.scrollY;
-          return { name: section.name, top: top, bottom: top + rect.height, section: section };
+          return { name: section.name, top: top, bottom: top + rect.height };
+        });
+
+        // Which section owns the row highlighting and the live close dot. Sections are
+        // stacked, so cutting at each bottom partitions the entire scroll range.
+        var cursor = 0;
+        sectionSpans = bounds.map(function (bound, index) {
+          var end = index === bounds.length - 1 ? maxScroll : clamp(bound.bottom - height * .52, 0, maxScroll);
+          var span = { name: bound.name, end: Math.max(cursor + 1, end) };
+          cursor = span.end;
+          return span;
+        });
+
+        /* The light is cut on the moments that actually change the screen: the hero
+           clearing, the projects panel pinning and releasing, and the close arriving.
+           Cutting on section edges instead parks the light through the projects
+           heading and again through the panel's tail, which is a viewport and a half
+           of scroll where nothing in the background moves. */
+        var railStart = runway.getBoundingClientRect().top + window.scrollY;
+        var railSpan = railPinned() ? runway.offsetHeight - height : runway.offsetHeight;
+        var closer = bounds[bounds.length - 1];
+        var stops = [
+          (bounds[0] ? bounds[0].bottom : height) - height * .6,
+          railStart,
+          railStart + Math.max(1, railSpan),
+          (closer ? closer.top : maxScroll) - height * .85
+        ];
+        var edge = 0;
+        lightPhases = ['open', 'approach', 'rail', 'release', 'rest'].map(function (key, index) {
+          var end = index < stops.length ? clamp(stops[index], 0, maxScroll) : maxScroll;
+          var phase = { key: key, start: edge, end: Math.max(edge + 1, end) };
+          edge = phase.end;
+          return phase;
         });
         proofLineLength = proofLine ? proofLine.getBoundingClientRect().height : 0;
       }
 
-      function activeProofSection() {
-        var viewportMark = window.scrollY + window.innerHeight * .52;
-        if (!proofSectionBounds.length) measureProofGeometry();
-        var closest = proofSections[0];
-        var closestDistance = Infinity;
-        proofSectionBounds.forEach(function (bound) {
-          var section = bound.section;
-          var top = bound.top;
-          var bottom = bound.bottom;
-          if (top <= viewportMark && bottom >= viewportMark) {
-            closest = section;
-            closestDistance = 0;
-            return;
-          }
-          if (closestDistance === 0) return;
-          var distance = Math.min(Math.abs(top - viewportMark), Math.abs(bottom - viewportMark));
-          if (distance < closestDistance) { closestDistance = distance; closest = section; }
-        });
-        return closest;
+      /* One light crosses the whole page in five continuous runs. Each run hands the
+         light off at exactly the position the next one starts from, so the travel
+         never cuts. The projects panel is opaque and paints its own copy of the light
+         at --rail-glow-x, so the path arrives at 14% as the panel pins and picks the
+         light back up at 86% as it releases: the same light, passing behind. The
+         direction reverses at the panel, which is what stops a page this long from
+         reading as one slow drift in a single direction. */
+      var lightPath = {
+        open: { x: [.80, .92], y: [.42, .66], s: [1.16, 1.06], a: [.40, .46] },
+        approach: { x: [.92, .14], y: [.66, .55], s: [1.06, .96], a: [.46, .46] },
+        rail: { x: [.14, .86], y: [.55, .55], s: [.96, .92], a: [.46, .70] },
+        release: { x: [.86, .20], y: [.55, .62], s: [.92, 1.04], a: [.70, .48] },
+        rest: { x: [.20, .34], y: [.62, .78], s: [1.04, 1.18], a: [.48, .62] }
+      };
+
+      function mix(pair, t) { return pair[0] + (pair[1] - pair[0]) * t; }
+
+      // Mostly linear, so travel stays locked to the wheel the way the project rail
+      // is, with just enough ease at the ends that handoffs do not change speed.
+      function glide(t) { return t + (t * t * (3 - 2 * t) - t) * .55; }
+
+      function pick(list) {
+        if (!list.length) measureProofGeometry();
+        var scrolled = window.scrollY;
+        for (var index = 0; index < list.length; index += 1) {
+          if (scrolled < list[index].end) return list[index];
+        }
+        return list[list.length - 1];
+      }
+
+      function activeSectionName() { return pick(sectionSpans).name; }
+
+      function lightTarget() {
+        var phase = pick(lightPhases);
+        var path = lightPath[phase.key];
+        var t = glide(clamp((window.scrollY - phase.start) / Math.max(1, phase.end - phase.start), 0, 1));
+        // On the pinned rail the panel paints its own copy of this light from
+        // railProgress, so x comes off the same number instead of off phase time.
+        var travel = phase.key === 'rail' && railPinned() ? railProgress : t;
+        return {
+          x: mix(path.x, travel) * window.innerWidth,
+          y: mix(path.y, t) * window.innerHeight,
+          s: mix(path.s, t),
+          a: mix(path.a, travel)
+        };
+      }
+
+      // Returns true once both bodies have settled, which is how the frame loop knows
+      // it can stop instead of burning a rAF on a page nobody is scrolling.
+      function stepLight(stamp) {
+        if (reducedMotion) return true;
+        var target = lightTarget();
+        var delta = lightStamp ? Math.min(.064, (stamp - lightStamp) / 1000) : .016;
+        lightStamp = stamp;
+        if (!lightHead.ready) {
+          lightHead.x = lightTrail.x = target.x;
+          lightHead.y = lightTrail.y = target.y;
+          lightHead.s = lightTrail.s = target.s;
+          lightHead.a = lightTrail.a = target.a;
+          lightHead.ready = true;
+        }
+        // Frame-rate independent easing, so a 120Hz display and a 60Hz one settle over
+        // the same wall-clock time rather than the same number of frames.
+        var headPull = 1 - Math.exp(-delta / .1);
+        var trailPull = 1 - Math.exp(-delta / .3);
+        var nextX = lightHead.x + (target.x - lightHead.x) * headPull;
+        var nextY = lightHead.y + (target.y - lightHead.y) * headPull;
+        var moveX = nextX - lightHead.x;
+        var moveY = nextY - lightHead.y;
+        var speed = Math.sqrt(moveX * moveX + moveY * moveY) / Math.max(delta, .001);
+        if (speed > 70) lightHead.rot = Math.atan2(moveY, moveX) * 180 / Math.PI;
+        lightHead.x = nextX;
+        lightHead.y = nextY;
+        lightHead.s += (target.s - lightHead.s) * headPull;
+        lightHead.a += (target.a - lightHead.a) * headPull;
+        lightTrail.x += (target.x - lightTrail.x) * trailPull;
+        lightTrail.y += (target.y - lightTrail.y) * trailPull;
+        lightTrail.s += (target.s - lightTrail.s) * trailPull;
+        lightTrail.a += (target.a - lightTrail.a) * trailPull;
+
+        var gapX = lightHead.x - lightTrail.x;
+        var gapY = lightHead.y - lightTrail.y;
+        var gap = Math.sqrt(gapX * gapX + gapY * gapY);
+        if (gap > 26) lightTrail.rot = Math.atan2(gapY, gapX) * 180 / Math.PI;
+        var smear = clamp(speed / 3000, 0, 1);
+        var drag = clamp(gap / 460, 0, 1);
+
+        root.style.setProperty('--pw-x', lightHead.x.toFixed(1) + 'px');
+        root.style.setProperty('--pw-y', lightHead.y.toFixed(1) + 'px');
+        root.style.setProperty('--pw-sx', (lightHead.s * (1 + smear * .46)).toFixed(3));
+        root.style.setProperty('--pw-sy', (lightHead.s * (1 - smear * .17)).toFixed(3));
+        root.style.setProperty('--pw-rot', lightHead.rot.toFixed(1) + 'deg');
+        root.style.setProperty('--pw-a', (lightHead.a * (1 + smear * .24)).toFixed(3));
+        root.style.setProperty('--pt-x', lightTrail.x.toFixed(1) + 'px');
+        root.style.setProperty('--pt-y', lightTrail.y.toFixed(1) + 'px');
+        root.style.setProperty('--pt-sx', (lightTrail.s * (1 + drag * .55)).toFixed(3));
+        root.style.setProperty('--pt-sy', (lightTrail.s * (1 - drag * .2)).toFixed(3));
+        root.style.setProperty('--pt-rot', lightTrail.rot.toFixed(1) + 'deg');
+        root.style.setProperty('--pt-a', (lightTrail.a * .42 * (1 + drag * .45)).toFixed(3));
+
+        return speed < 8 && gap < 2 && Math.abs(target.a - lightHead.a) < .002 && Math.abs(target.s - lightHead.s) < .003;
       }
 
       function updateProofSystem() {
-        var section = activeProofSection();
-        var name = section.name;
-        var width = window.innerWidth;
+        var name = activeSectionName();
         var height = window.innerHeight;
-        var washX = width * .78;
-        var washY = height * .42;
         var progress = pageProgress();
-
-        if (name === 'hero') {
-          washX = width * .78;
-          washY = height * .42;
-        } else if (name === 'experience') {
-          washX = width * .2;
-          washY = height * .5;
-        } else if (name === 'projects') {
-          washX = width * (.14 + railProgress * .72);
-          washY = height * .55;
-        } else if (name === 'skills') {
-          washX = width * .22;
-          washY = height * .46;
-        } else if (name === 'close') {
-          washX = width * .24;
-          washY = height * .72;
-        }
-
         var lineLengthPx = proofLineLength || Math.min(height * .52, 560);
         var proofDotViewportY = proofThread ? proofThread.getBoundingClientRect().top + lineLengthPx * progress : height * .54;
         root.setAttribute('data-proof-section', name);
         root.style.setProperty('--proof-length', lineLengthPx.toFixed(1) + 'px');
         root.style.setProperty('--proof-progress', progress.toFixed(4));
         root.style.setProperty('--proof-dot-y', (lineLengthPx * progress).toFixed(1) + 'px');
-        root.style.setProperty('--proof-wash-x', washX.toFixed(1) + 'px');
-        root.style.setProperty('--proof-wash-y', washY.toFixed(1) + 'px');
         closeSection.classList.toggle('is-live', name === 'close');
         activateClosestRow(experienceRows, name === 'experience', name === 'experience' ? proofDotViewportY : undefined);
         activateClosestRow(skillRows, name === 'skills');
       }
 
       function sizeRail() {
-        measureProofGeometry();
         if (window.innerWidth <= 900 || reducedMotion) {
           runway.style.height = 'auto';
           rail.style.paddingLeft = '';
           rail.style.paddingRight = '';
           rail.style.transform = '';
+          measureProofGeometry();
           var mobileIndex = activateClosestExhibit();
           railProgress = exhibits.length > 1 ? mobileIndex / (exhibits.length - 1) : 0;
           requestMotion();
@@ -1323,10 +1444,13 @@
         rail.style.paddingRight = edge + 'px';
         railTravel = Math.max(0, rail.scrollWidth - window.innerWidth);
         runway.style.height = (window.innerHeight + railTravel * .45) + 'px';
+        // Measured only after the runway is sized, because the runway sets the page
+        // height that every light segment below it is keyed to.
+        measureProofGeometry();
         updateMotion();
       }
 
-      function updateMotion() {
+      function updateMotion(stamp) {
         ticking = false;
         var heroProgress = reducedMotion ? 0 : clamp(window.scrollY / Math.max(1, window.innerHeight * .9), 0, 1);
         heroName.style.transform = 'translate3d(0,' + (heroProgress * 34) + 'px,0)';
@@ -1350,6 +1474,7 @@
           railProgress = exhibits.length > 1 ? closestIndex / (exhibits.length - 1) : 0;
         }
         updateProofSystem();
+        if (!stepLight(typeof stamp === 'number' ? stamp : performance.now())) requestMotion();
       }
 
       function requestMotion() {
@@ -1368,13 +1493,9 @@
       }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal').forEach(function (item) { revealObserver.observe(item); });
 
-      function handleWindowScroll() {
-        syncProofRail();
-        requestMotion();
-      }
-
-      window.addEventListener('scroll', handleWindowScroll, { passive: true });
+      window.addEventListener('scroll', requestMotion, { passive: true });
       window.addEventListener('resize', sizeRail);
+      window.addEventListener('load', sizeRail);
       rail.addEventListener('scroll', requestMotion, { passive: true });
       sizeRail();
       requestMotion();
