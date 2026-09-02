@@ -1,1659 +1,677 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bohdan Chuprynka is an AI Engineer building retrieval, evaluation, machine learning, and production AI products." />
+  <meta name="description" content="Bohdan Chuprynka, AI Engineer in Cleveland, Ohio. Founding AI Engineer at Remly. Retrieval, evaluation, and agent systems that hold up in production. Work, projects, and résumé." />
   <meta name="author" content="Bohdan Chuprynka" />
   <meta name="robots" content="index, follow" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="color-scheme" content="dark light" />
-  <meta name="theme-color" content="#090908" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; media-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; manifest-src 'self'; upgrade-insecure-requests" />
   <link rel="canonical" href="https://bohdanchuprynka.github.io/Website-Portfolio/" />
   <link rel="icon" href="./favicon.ico" sizes="any" />
+  <link rel="preload" href="./Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
   <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://bohdanchuprynka.github.io/Website-Portfolio/" />
   <meta property="og:title" content="Bohdan Chuprynka | AI Engineer" />
-  <meta property="og:description" content="AI products, retrieval, evaluation, machine learning, and the proof behind the work." />
-  <meta property="og:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/portrait.jpg" />
-  <meta property="og:image:alt" content="Portrait of Bohdan Chuprynka" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:description" content="Retrieval, evaluation, and agent systems that hold up in production. Founding AI Engineer at Remly." />
+  <meta property="og:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bohdan Chuprynka, AI Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Bohdan Chuprynka | AI Engineer" />
-  <meta name="twitter:description" content="AI products, retrieval, evaluation, machine learning, and the proof behind the work." />
-  <meta name="twitter:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/portrait.jpg" />
+  <meta name="twitter:description" content="Retrieval, evaluation, and agent systems that hold up in production. Founding AI Engineer at Remly." />
+  <meta name="twitter:image" content="https://bohdanchuprynka.github.io/Website-Portfolio/og.png" />
 
   <title>Bohdan Chuprynka | AI Engineer</title>
   <style>
-    * { box-sizing: border-box; }
+    @font-face { font-family: "Geist"; src: url("./Geist-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+    @font-face { font-family: "Geist Mono"; src: url("./GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
     :root {
-      --accent: #ff5935;
-      --max: 1440px;
-      --pad: clamp(22px, 4.2vw, 68px);
-      --ease: cubic-bezier(.22,.8,.22,1);
-      --ease-snap: cubic-bezier(.18,.88,.24,1);
-      --proof-progress: 0;
-      --proof-dot-y: 0px;
-      --proof-length: min(52vh, 560px);
-      --proof-gain: 1;
-      --pw-x: 80vw;
-      --pw-y: 42vh;
-      --pw-sx: 1.16;
-      --pw-sy: 1.16;
-      --pw-rot: 0deg;
-      --pw-a: .4;
-      --pt-x: 80vw;
-      --pt-y: 42vh;
-      --pt-sx: 1.16;
-      --pt-sy: 1.16;
-      --pt-rot: 0deg;
-      --pt-a: .17;
+      --bg: #0a0a0b;
+      --bg-2: #0e0e10;
+      --bg-3: #141416;
+      --line: rgba(255, 255, 255, .08);
+      --line-2: rgba(255, 255, 255, .16);
+      --ink: #ececee;
+      --ink-2: #a3a3ad;
+      --ink-3: #6f6f79;
+      --live: #3fcf7a;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --frame: 960px;
+      --pad: clamp(20px, 4vw, 40px);
+      --ease: cubic-bezier(.23, 1, .32, 1);
+      --id-gap: clamp(18px, 3vw, 28px);
     }
-    html[data-theme="dark"] {
-      --canvas: #090908;
-      --surface: #121210;
-      --surface-2: #191815;
-      --ink: #f2efe8;
-      --muted: #969189;
-      --faint: rgba(242,239,232,.13);
-      --soft: rgba(242,239,232,.055);
-      --image: #171614;
-      --shadow: rgba(0,0,0,.45);
-      --paper: #e9edf0;
-      --paper-ink: #121820;
-    }
-    html[data-theme="light"] {
-      --canvas: #eee9dd;
-      --surface: #e4ded1;
-      --surface-2: #d9d2c4;
-      --ink: #171714;
-      --muted: #68635b;
-      --faint: rgba(23,23,20,.16);
-      --soft: rgba(23,23,20,.055);
-      --image: #d6cfc1;
-      --shadow: rgba(34,28,20,.12);
-      --paper: #f3f5f6;
-      --paper-ink: #121820;
-      --proof-gain: .52;
-    }
-    /* Scroll is the source of truth for the motion system. Native smooth scrolling
-       can keep wheel input in a stale animation, so section links jump cleanly and
-       the visual layer follows the actual scroll position every frame. */
-    html { scroll-behavior: auto; background: var(--canvas); }
+
+    * { box-sizing: border-box; }
+    html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     body {
-      position: relative;
-      isolation: isolate;
       margin: 0;
+      overflow-x: clip;
       color: var(--ink);
-      background: var(--canvas);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+      letter-spacing: .004em;
       -webkit-font-smoothing: antialiased;
-      transition: color 220ms ease, background-color 220ms ease;
+      text-rendering: optimizeLegibility;
     }
-    .topbar, main { position: relative; z-index: 1; }
-    body.modal-open { overflow: hidden; }
-    button, a { color: inherit; font: inherit; }
-    button { border: 0; }
-    a { text-decoration: none; }
-    img { display: block; max-width: 100%; }
-    :where(a, button):focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 4px;
-    }
+    ::selection { background: var(--ink); color: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0; text-wrap: pretty; }
+    h1, h2, h3 { margin: 0; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    svg { display: block; }
+    summary { list-style: none; cursor: pointer; }
+    summary::-webkit-details-marker { display: none; }
+    :where(a, button, summary):focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 3px; }
+    .mono { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0; font-feature-settings: "tnum"; }
     .skip-link {
-      position: fixed;
-      z-index: 100;
-      top: 12px;
-      left: 12px;
-      padding: 10px 14px;
-      color: var(--canvas);
-      background: var(--ink);
-      font-size: 12px;
-      font-weight: 700;
-      transform: translateY(-160%);
-      transition: transform 140ms ease;
+      position: fixed; z-index: 100; top: 10px; left: 10px;
+      padding: 8px 12px; background: var(--ink); color: var(--bg);
+      font-size: 12px; font-weight: 600; transform: translateY(-160%); transition: transform 120ms ease;
     }
-    .skip-link:focus { transform: translateY(0); }
-    .shell { width: min(var(--max), 100%); margin-inline: auto; padding-inline: var(--pad); }
-    .proof-canvas {
-      position: fixed;
-      z-index: 0;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .proof-canvas::after {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
-      content: "";
-      opacity: .022;
-      /* Deliberately not a blend mode. At 2.2% the visual difference is under
-         3/255, but soft-light forces a full-viewport re-blend on every frame the
-         light moves underneath it, which measured 8.5ms per frame on its own. */
-      mix-blend-mode: normal;
-    }
-    /* The light is two bodies, not one. The head tracks the wheel almost exactly;
-       the trail is wider, dimmer, and heavier, so fast scrolling pulls them apart
-       into a streak and stopping lets them settle back into a single pool. Both are
-       circles, so rotate() then scale() smears them along their own travel. */
-    .proof-wash, .proof-trail {
-      position: absolute;
-      top: 0;
-      left: 0;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      /* rotate() and scale() are conjugated by transform-origin, so the default
-         centre origin would offset the translated position by half the scaled box.
-         Pinned at 0 0, translate3d lands the centre exactly where it is told. */
-      transform-origin: 0 0;
-      will-change: transform, opacity;
-    }
-    /* No filter: blur() on either body. A blur of this radius over a circle this
-       large costs ~25ms per frame to raster, and all it was doing was smoothing the
-       gradient. Extra stops do that for free, and the noise layer dithers the rest. */
-    .proof-wash {
-      width: min(56vw, 780px);
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent) 0, color-mix(in srgb, var(--accent) 11.4%, transparent) 18%, color-mix(in srgb, var(--accent) 8%, transparent) 30%, color-mix(in srgb, var(--accent) 5%, transparent) 42%, color-mix(in srgb, var(--accent) 2.5%, transparent) 55%, color-mix(in srgb, var(--accent) .8%, transparent) 66%, transparent 76%);
-      opacity: calc(var(--pw-a) * var(--proof-gain));
-      transform: translate3d(var(--pw-x), var(--pw-y), 0) rotate(var(--pw-rot)) scale(var(--pw-sx), var(--pw-sy)) translate(-50%, -50%);
-    }
-    .proof-trail {
-      width: min(78vw, 1080px);
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 10%, transparent) 0, color-mix(in srgb, var(--accent) 7%, transparent) 20%, color-mix(in srgb, var(--accent) 4%, transparent) 38%, color-mix(in srgb, var(--accent) 1.8%, transparent) 54%, color-mix(in srgb, var(--accent) .5%, transparent) 64%, transparent 74%);
-      opacity: calc(var(--pt-a) * var(--proof-gain));
-      transform: translate3d(var(--pt-x), var(--pt-y), 0) rotate(var(--pt-rot)) scale(var(--pt-sx), var(--pt-sy)) translate(-50%, -50%);
-    }
-    .proof-thread {
-      position: absolute;
-      top: clamp(118px, 18vh, 168px);
-      left: max(18px, calc(var(--pad) - 18px));
-      width: 1px;
-      height: var(--proof-length);
-      opacity: .42;
-      transition: none;
-      contain: layout paint;
-    }
-    .proof-thread-line {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1px;
-      height: 100%;
-      background: var(--faint);
-    }
-    .proof-thread-fill {
-      position: absolute;
-      inset: 0;
-      background: var(--accent);
-      transform: scaleY(var(--proof-progress));
-      transform-origin: top;
-      transition: none;
-      will-change: transform;
-    }
-    .proof-thread-dot {
-      position: absolute;
-      top: var(--proof-dot-y);
-      left: 50%;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 10%, transparent);
-      transform: translate3d(-50%, -50%, 0);
-      transition: none;
-      will-change: transform;
-    }
-    html[data-theme="light"] .proof-canvas::after { opacity: .014; }
-    .eyebrow {
-      margin: 0;
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 750;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    .topbar {
-      position: absolute;
-      z-index: 30;
-      inset: 0 0 auto;
-    }
-    .topbar-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      min-height: 82px;
-      border-bottom: 1px solid var(--faint);
-    }
-    .mark { font-weight: 760; letter-spacing: -.04em; }
-    .mark i { color: var(--accent); font-style: normal; }
-    .navlinks { display: flex; gap: clamp(18px, 2.4vw, 38px); align-items: center; }
-    .navlinks a, .contact-link { font-size: 12px; font-weight: 600; }
-    .top-actions { display: flex; justify-self: end; align-items: center; gap: 17px; }
-    .theme-toggle {
-      display: flex;
-      gap: 2px;
-      padding: 3px;
-      border: 1px solid var(--faint);
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--surface) 76%, transparent);
-    }
-    .theme-toggle button {
-      min-width: 50px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      color: var(--muted);
-      background: transparent;
-      cursor: pointer;
-      font-size: 10px;
-      font-weight: 700;
-    }
-    html[data-theme="dark"] [data-set-theme="dark"],
-    html[data-theme="light"] [data-set-theme="light"] {
-      color: var(--canvas);
-      background: var(--ink);
+    .skip-link:focus { transform: none; }
+
+    /* Frame: the whole page sits in one column with hairline edges, like a drawing sheet. */
+    .frame { position: relative; width: min(100%, var(--frame)); margin-inline: auto; border-inline: 1px solid var(--line); }
+    @media (max-width: 640px) { .frame { border-inline: 0; } }
+    .bleed { width: 100vw; margin-left: calc(50% - 50vw); }
+    .hatch {
+      height: 24px;
+      border-block: 1px solid var(--line);
+      background: repeating-linear-gradient(-45deg, var(--line) 0 1px, transparent 1px 9px);
     }
 
-    .hero {
-      display: flex;
-      min-height: 100svh;
-      align-items: flex-end;
-      padding: 142px 0 clamp(38px, 5vw, 70px);
+    /* Header */
+    .top { position: sticky; z-index: 20; top: 0; background: rgba(10, 10, 11, .78); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid var(--line); }
+    .top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; padding-inline: var(--pad); }
+    .mark { font-size: 17px; font-weight: 700; letter-spacing: -.04em; }
+    .mark i { font-style: normal; color: var(--ink-3); }
+    .nav { display: flex; gap: clamp(14px, 2.4vw, 28px); font-size: 13.5px; color: var(--ink-2); }
+    .nav a { padding: 6px 0; transition: color 140ms ease; }
+    .nav a:hover { color: var(--ink); }
+    .top-actions { display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 720px) { .nav { display: none; } }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 34px; padding: 0 13px; border: 1px solid var(--line-2); border-radius: 7px;
+      background: var(--bg-2); color: var(--ink); font-size: 13.5px; font-weight: 500; white-space: nowrap;
+      transition: background-color 140ms ease, border-color 140ms ease, transform 100ms ease;
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, .42fr);
-      gap: clamp(36px, 6vw, 96px);
-      align-items: end;
+    .btn:hover { background: var(--bg-3); border-color: rgba(255, 255, 255, .26); }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .btn-primary:hover { background: #fff; border-color: #fff; }
+    .btn .i { width: 15px; height: 15px; }
+    .btn-sm { height: 30px; padding: 0 10px; font-size: 13px; }
+
+    /* Hero */
+    .art { position: relative; height: clamp(160px, 22vw, 210px); overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .art::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+      background-size: 40px 40px; background-position: center top;
+      -webkit-mask-image: radial-gradient(ellipse 62% 90% at 50% 55%, #000 15%, transparent 78%);
+      mask-image: radial-gradient(ellipse 62% 90% at 50% 55%, #000 15%, transparent 78%);
     }
-    .hero-name {
-      margin: 0;
-      font-size: clamp(66px, 9.8vw, 150px);
-      font-weight: 650;
-      letter-spacing: -.078em;
-      line-height: .79;
-      will-change: transform;
-    }
-    .hero-role {
-      margin: clamp(28px, 3.5vw, 50px) 0 0;
-      color: var(--accent);
-      font-size: clamp(38px, 5vw, 76px);
-      font-weight: 540;
-      letter-spacing: -.058em;
-      line-height: .9;
-    }
-    .portrait-wrap {
-      justify-self: end;
-      width: min(25vw, 360px);
-      min-width: 250px;
-      will-change: transform;
-    }
+    .art::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 40% 60% at 50% 70%, rgba(255, 255, 255, .05), transparent 70%); pointer-events: none; }
+    .id { display: grid; grid-template-columns: 152px 1fr; align-items: end; gap: 0 var(--id-gap); padding: 0 var(--pad); }
     .portrait {
-      overflow: hidden;
-      width: 100%;
-      aspect-ratio: 1;
-      border: 1px solid var(--faint);
-      border-radius: 50%;
-      background: var(--surface);
-      box-shadow: 0 28px 80px var(--shadow);
+      position: relative; z-index: 2; margin-top: -60px; aspect-ratio: 1; overflow: hidden;
+      border: 1px solid var(--line-2); border-radius: 6px; background: var(--bg-2);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .06) inset, 0 20px 40px -20px rgba(0, 0, 0, .8);
     }
-    .portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 27%;
-      filter: saturate(.78) contrast(.98);
-      transform: scale(1.03);
-    }
-    .portrait-note {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 650;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .portrait-note::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(250px, .6fr);
-      gap: 34px;
-      align-items: end;
-      margin-top: clamp(42px, 6vw, 82px);
-      padding-top: 22px;
-      border-top: 1px solid var(--faint);
-    }
-    .hero-line {
-      max-width: 760px;
-      margin: 0;
-      font-size: clamp(21px, 2.1vw, 32px);
-      font-weight: 510;
-      letter-spacing: -.036em;
-      line-height: 1.14;
-    }
-    .hero-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px 22px; }
-    .quiet-link, .route-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: max-content;
-      padding: 0 0 4px;
-      border-bottom: 1px solid currentColor;
-      background: transparent;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 650;
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+    .id-text { padding: 18px 0 14px; }
+    .id-text h1 { font-size: clamp(30px, 5vw, 42px); line-height: 1.05; letter-spacing: -.035em; }
+    .id-text .role { margin-top: 6px; color: var(--ink-2); font-size: 15px; }
+    .tagline { padding: 20px var(--pad) 22px; border-top: 1px solid var(--line); font-size: clamp(19px, 2.6vw, 24px); font-weight: 500; letter-spacing: -.022em; line-height: 1.3; }
+    .meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+    .meta li { display: flex; align-items: center; gap: 12px; padding: 12px var(--pad); border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 13px; color: var(--ink-2); min-width: 0; }
+    .meta li:nth-child(odd) { border-right: 1px solid var(--line); }
+    .meta li span { min-width: 0; overflow-wrap: anywhere; }
+    .meta li b { color: var(--ink); font-weight: 500; }
+    .meta a { border-bottom: 1px solid transparent; transition: border-color 140ms ease, color 140ms ease; }
+    .meta a:hover { color: var(--ink); border-bottom-color: var(--line-2); }
+    .ic { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); color: var(--ink-2); }
+    .ic svg, .i { width: 14px; height: 14px; }
+    .live { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 3px rgba(63, 207, 122, .16); }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 16px var(--pad) 22px; }
+    .actions .quiet { margin-left: auto; color: var(--ink-2); font-size: 13.5px; transition: color 140ms ease; }
+    .actions .quiet:hover { color: var(--ink); }
+    @media (max-width: 640px) {
+      .id { grid-template-columns: 116px 1fr; }
+      .portrait { margin-top: -48px; }
+      .meta { grid-template-columns: 1fr; }
+      .meta li:nth-child(odd) { border-right: 0; }
+      .actions .quiet { margin-left: 0; width: 100%; }
     }
 
-    .section { padding: clamp(92px, 11vw, 160px) 0; border-top: 1px solid var(--faint); }
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(250px, .38fr);
-      gap: 40px;
-      align-items: end;
-      margin-bottom: clamp(42px, 6vw, 78px);
-    }
-    .section h2 {
-      margin: 0;
-      font-size: clamp(54px, 7.2vw, 106px);
-      font-weight: 560;
-      letter-spacing: -.067em;
-      line-height: .88;
-    }
-    .section-aside { align-self: end; }
-    .section-intro { max-width: 365px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
-    .section-aside .route-button { margin-top: 20px; }
-    #experience .section-head { align-items: center; }
-    #experience .section-aside { align-self: center; }
-    #experience .section-aside .route-button { margin-top: 0; }
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 420ms ease, transform 460ms var(--ease);
-    }
-    .reveal.in-view { opacity: 1; transform: translateY(0); }
-    .experience-row.reveal:nth-child(2) { transition-delay: 40ms; }
-    .experience-row.reveal:nth-child(3) { transition-delay: 80ms; }
-    .experience-row.reveal:nth-child(4) { transition-delay: 120ms; }
+    /* GitHub contributions, regenerated by scripts/contributions.mjs */
+    .contrib { --c0: rgba(163, 163, 173, .07); --c1: rgba(163, 163, 173, .24); --c2: rgba(163, 163, 173, .46); --c3: rgba(163, 163, 173, .68); --c4: rgba(163, 163, 173, .92); padding: 20px var(--pad) 0; border-top: 1px solid var(--line); }
+    .contrib-scroll { overflow-x: auto; padding-bottom: 18px; border-bottom: 1px solid var(--line); scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+    .contrib svg { display: block; width: 100%; min-width: 560px; height: auto; }
+    .contrib svg text { fill: var(--ink-3); font-family: var(--sans); font-size: 12px; }
+    .contrib svg rect { fill: var(--c0); }
+    .contrib svg rect:hover { stroke: var(--ink); stroke-width: 1; }
+    .contrib svg .c1 { fill: var(--c1); } .contrib svg .c2 { fill: var(--c2); } .contrib svg .c3 { fill: var(--c3); } .contrib svg .c4 { fill: var(--c4); }
+    .contrib-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 12px 0 14px; color: var(--ink-2); font-size: 13.5px; font-feature-settings: "tnum"; }
+    .contrib-cap b { color: var(--ink); font-weight: 500; }
+    .contrib-cap a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
+    .contrib-cap a:hover { border-bottom-color: var(--ink); }
+    .contrib-cap a:hover { border-bottom-color: var(--ink); }
+    .legend { display: inline-flex; align-items: center; gap: 2px; color: var(--ink-3); font-size: 13px; }
+    .legend i { width: 12px; height: 12px; background: var(--c0); }
+    .legend i:first-of-type { margin-left: 4px; } .legend i:last-of-type { margin-right: 4px; }
+    .tip { position: fixed; z-index: 40; top: 0; left: 0; padding: 7px 12px; border-radius: 8px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; line-height: 1.3; white-space: nowrap; pointer-events: none; opacity: 0; transform: translate(-50%, calc(-100% - 6px)) scale(.96); transition: opacity 120ms ease, transform 120ms var(--ease); }
+    .tip.on { opacity: 1; transform: translate(-50%, calc(-100% - 8px)) scale(1); }
+    .legend .c1 { background: var(--c1); } .legend .c2 { background: var(--c2); } .legend .c3 { background: var(--c3); } .legend .c4 { background: var(--c4); }
 
-    .experience-list { border-top: 1px solid var(--faint); }
-    .experience-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: 62px minmax(220px, .65fr) minmax(340px, 1.25fr) 138px;
-      gap: clamp(18px, 2.4vw, 36px);
-      align-items: center;
-      width: 100%;
-      padding: 25px 0;
-      border-bottom: 1px solid var(--faint);
-      color: inherit;
-      background: transparent;
-      text-align: left;
-      cursor: pointer;
-      box-shadow: inset 1px 0 0 transparent;
-      transition: padding 120ms var(--ease), background-color 120ms ease, box-shadow 100ms linear;
-    }
-    .experience-row:hover { padding-inline: 12px; background: var(--soft); }
-    .experience-row.is-proof-active {
-      background-color: color-mix(in srgb, var(--accent) 3.5%, transparent);
-      box-shadow: inset 1px 0 0 color-mix(in srgb, var(--accent) 72%, transparent);
-    }
-    .company-logo {
-      display: grid;
-      place-items: center;
-      width: 48px;
-      height: 48px;
-      margin-left: clamp(8px, 1vw, 14px);
-      overflow: hidden;
-      border: 1px solid var(--faint);
-      border-radius: 14px;
-      background: transparent;
-      transition: transform 180ms var(--ease-snap), border-radius 180ms var(--ease-snap);
-    }
-    .experience-row:hover .company-logo { transform: rotate(-5deg) scale(1.08); border-radius: 18px; }
-    .experience-row.is-proof-active .company-logo { transform: scale(1.055); }
-    .company-logo img { width: 100%; height: 100%; object-fit: contain; }
-    .company-logo.remly { border: 0; border-radius: 13px; }
-    .company-logo.cc {
-      border: 0;
-      border-radius: 50%;
-      background: #fff;
-      box-shadow: inset 0 0 0 1px rgba(12, 18, 24, .08);
-    }
-    .company-logo.cc img { width: 56%; height: 56%; max-width: 28px; max-height: 28px; object-fit: contain; }
-    .company-logo.protege { border: 0; background: #0d2a4a; }
-    .company-logo.protege img { width: 80%; height: 80%; }
-    .company-block h3 { margin: 0; font-size: clamp(22px, 2vw, 31px); font-weight: 570; letter-spacing: -.04em; }
-    .company-block p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
-    .experience-result { margin: 0; max-width: 650px; font-size: clamp(14px, 1.2vw, 17px); line-height: 1.45; }
-    .experience-row time { justify-self: end; padding: 4px clamp(12px, 1.4vw, 22px) 4px 12px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+    /* Sections */
+    .sec-head { display: flex; align-items: baseline; gap: 10px; padding: 26px var(--pad) 18px; border-bottom: 1px solid var(--line); }
+    .sec-head h2 { font-size: clamp(22px, 3.2vw, 27px); letter-spacing: -.03em; }
+    .sec-head .count { margin-left: 4px; color: var(--ink-3); font-family: var(--mono); font-size: 13px; font-weight: 400; letter-spacing: 0; vertical-align: middle; }
+    .sec-head .sub { margin-left: auto; color: var(--ink-3); font-size: 13.5px; text-align: right; }
+    @media (max-width: 640px) { .sec-head { flex-wrap: wrap; } .sec-head .sub { margin-left: 0; text-align: left; width: 100%; } }
 
-    .projects-section { overflow: clip; padding-bottom: 0; }
-    .projects-section .section-head { align-items: center; margin-bottom: clamp(34px, 4vw, 58px); }
-    .projects-section .section-aside { display: flex; align-self: center; justify-content: flex-end; }
-    .projects-section .section-aside .route-button { margin-top: 0; }
-    .project-runway { position: relative; }
-    .project-sticky {
-      position: sticky;
-      top: 0;
-      display: grid;
-      min-height: 100svh;
-      align-content: center;
-      overflow: hidden;
-      border-block: 1px solid var(--faint);
-      background:
-        radial-gradient(circle at var(--rail-glow-x, 14%) 55%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 29%),
-        var(--canvas);
+    /* Experience */
+    .xp { border-bottom: 1px solid var(--line); }
+    .xp:last-child { border-bottom: 0; }
+    .xp summary { display: grid; grid-template-columns: 40px 1fr auto 18px; gap: 14px; align-items: start; padding: 18px var(--pad); transition: background-color 140ms ease; }
+    .xp summary:hover { background: var(--bg-2); }
+    .logo { display: grid; place-items: center; width: 40px; height: 40px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    .logo img { width: 100%; height: 100%; object-fit: cover; }
+    .logo.dark { background: var(--bg-3); padding: 8px; }
+    .logo.dark img { object-fit: contain; }
+    .xp-title { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -.012em; line-height: 1.3; }
+    .xp-co { color: var(--ink-2); font-weight: 400; }
+    .xp-line { display: block; margin-top: 5px; color: var(--ink-2); font-size: 14px; line-height: 1.5; max-width: 62ch; }
+    .xp-when { color: var(--ink-3); font-family: var(--mono); font-size: 12.5px; white-space: nowrap; padding-top: 3px; }
+    .chev { width: 16px; height: 16px; margin-top: 4px; color: var(--ink-3); transition: transform 200ms var(--ease); }
+    .xp[open] .chev { transform: rotate(180deg); }
+    .xp-body { padding: 0 var(--pad) 20px calc(var(--pad) + 54px); }
+    .xp-body ul { display: grid; gap: 6px; }
+    .xp-body li { position: relative; padding-left: 14px; color: var(--ink-2); font-size: 14px; max-width: 66ch; }
+    .xp-body li::before { content: ""; position: absolute; left: 0; top: .72em; width: 4px; height: 4px; border-radius: 50%; background: var(--ink-3); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag { display: inline-block; padding: 2px 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--bg-2); color: var(--ink-2); font-family: var(--mono); font-size: 11.5px; line-height: 1.6; white-space: nowrap; }
+    @media (max-width: 640px) {
+      .xp summary { grid-template-columns: 36px 1fr 18px; }
+      .xp-when { grid-column: 2; grid-row: 2; padding-top: 0; }
+      .xp-body { padding-left: var(--pad); }
     }
-    .project-progress {
-      position: absolute;
-      z-index: 4;
-      top: 30px;
-      right: var(--pad);
-      left: var(--pad);
-      height: 1px;
-      overflow: hidden;
-      background: var(--faint);
-    }
-    .project-progress span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: var(--accent);
-      transform: scaleX(var(--rail-progress, 0));
-      transform-origin: left;
-    }
-    .project-progress::after {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      content: "";
-      transform: translate3d(var(--rail-dot-x, 0px), -50%, 0);
-      will-change: transform;
-    }
-    .project-proof {
-      position: absolute;
-      z-index: 0;
-      right: clamp(20px, 4vw, 72px);
-      bottom: clamp(34px, 6vh, 74px);
-      max-width: 92vw;
-      color: color-mix(in srgb, var(--ink) 7%, transparent);
-      text-align: right;
-      pointer-events: none;
-      transition: opacity 120ms ease-out, transform 260ms var(--ease);
-    }
-    .project-proof.is-changing { opacity: 0; transform: translate3d(0, 14px, 0); }
-    .project-proof-value {
-      display: block;
-      font-size: clamp(92px, 18vw, 290px);
-      font-weight: 650;
-      letter-spacing: -.085em;
-      line-height: .7;
-      white-space: nowrap;
-    }
-    .project-proof-label {
-      display: block;
-      margin-top: clamp(22px, 4vh, 42px);
-      color: color-mix(in srgb, var(--ink) 20%, transparent);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-    .project-rail {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      gap: clamp(42px, 7vw, 110px);
-      width: max-content;
-      padding-block: 42px 24px;
-      will-change: transform;
-    }
-    .project-exhibit {
-      position: relative;
-      flex: 0 0 clamp(480px, 50vw, 620px);
-      color: var(--paper-ink);
-      transform: scale(.9);
-      transform-origin: center;
-      opacity: .42;
-      filter: saturate(.62);
-      transition: transform 280ms ease-out, opacity 280ms ease-out, filter 280ms ease-out;
-    }
-    .project-exhibit.active { transform: scale(1); opacity: 1; filter: saturate(.94); }
-    .exhibit-letter {
-      position: absolute;
-      z-index: 0;
-      top: -76px;
-      left: -30px;
-      color: color-mix(in srgb, var(--paper-ink) 8%, transparent);
-      font-size: clamp(140px, 17vw, 260px);
-      font-weight: 650;
-      letter-spacing: -.08em;
-      line-height: 1;
-      pointer-events: none;
-    }
-    .exhibit-frame {
-      position: relative;
-      z-index: 1;
-      padding: clamp(14px, 1.6vw, 22px);
-      background: var(--paper);
-      box-shadow: 0 28px 90px var(--shadow);
-    }
-    .exhibit-frame > a,
-    .exhibit-frame > button.exhibit-thumb {
-      display: block;
-      width: 100%;
-      padding: 0;
-      border: 0;
-      color: inherit;
-      background: transparent;
-      cursor: pointer;
-      text-align: left;
-    }
-    .exhibit-frame > a:focus-visible,
-    .exhibit-frame > button.exhibit-thumb:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 5px;
-    }
-    .exhibit-frame > button.exhibit-thumb img { pointer-events: none; }
-    .exhibit-frame img {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      border: 1px solid rgba(18,24,32,.14);
-      background: #0f1115;
-    }
-    .exhibit-frame img.contain { object-fit: contain; padding: 5%; background: #fff; }
-    .exhibit-body { position: relative; z-index: 1; padding: 22px 0 0; color: var(--ink); border-top: 1px solid var(--faint); margin-top: 18px; }
-    .exhibit-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
-    .exhibit-number { color: var(--accent); font-size: 10px; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
-    .exhibit-title { margin: 7px 0 0; font-size: clamp(34px, 4vw, 57px); font-weight: 570; letter-spacing: -.055em; line-height: .94; }
-    .exhibit-result { max-width: 670px; margin: 16px 0 0; font-size: clamp(15px, 1.35vw, 19px); line-height: 1.45; }
-    .exhibit-meta {
-      display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 5px 16px;
-      margin: 20px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-      line-height: 1.4;
-    }
-    .exhibit-meta dt { letter-spacing: .08em; text-transform: uppercase; }
-    .exhibit-meta dd { margin: 0; color: var(--ink); }
-    .exhibit-body .route-button { margin-top: 20px; }
-    .exhibit-actions { display: flex; flex-wrap: wrap; gap: 10px 22px; }
-    .skills-list { border-top: 1px solid var(--faint); }
-    .skills-head { grid-template-columns: 1fr; }
-    .skill-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(250px, .58fr) minmax(300px, .8fr) minmax(300px, 1fr);
-      gap: clamp(32px, 3.4vw, 64px);
-      align-items: center;
-      min-height: clamp(132px, 10.6vw, 153px);
-      padding: clamp(34px, 3vw, 42px) clamp(10px, 1vw, 18px);
-      border-bottom: 1px solid var(--faint);
-      background: linear-gradient(90deg, transparent, transparent);
-      box-shadow: inset 0 0 0 transparent;
-      transition: background-color 220ms ease, box-shadow 220ms ease;
-    }
-    .skill-row.is-proof-active {
-      background-color: color-mix(in srgb, var(--accent) 2.5%, transparent);
-      box-shadow: inset -1px 0 0 color-mix(in srgb, var(--accent) 58%, transparent);
-    }
-    .skill-row h3 { margin: 0; font-size: clamp(21px, 2vw, 29px); font-weight: 570; letter-spacing: -.035em; }
-    .skill-capability { margin: 2px 0 0; font-size: 15px; line-height: 1.45; }
-    .skill-tools { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
-    .skill-row.reveal:nth-child(2) { transition-delay: 70ms; }
-    .skill-row.reveal:nth-child(3) { transition-delay: 140ms; }
-    .skill-row.reveal:nth-child(4) { transition-delay: 210ms; }
-    #skills { padding-bottom: clamp(36px, 4vw, 64px); }
-    .close {
-      display: flex;
-      align-items: flex-start;
-      padding: clamp(48px, 6vw, 80px) 0 clamp(48px, 5vw, 68px);
-      border-top: 1px solid var(--faint);
-    }
-    .close > .reveal { opacity: 1; transform: none; transition: none; }
-    .close h2 { margin: 0; max-width: 1100px; font-size: clamp(58px, 8.8vw, 132px); font-weight: 560; letter-spacing: -.075em; line-height: .82; }
-    .close-email-row { display: flex; align-items: center; gap: 14px; width: max-content; margin-top: 34px; }
-    .close-proof-dot {
-      position: relative;
-      width: 9px;
-      height: 9px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 10%, transparent);
-      opacity: 0;
-      transform: scale(.72);
-      transition: none;
-    }
-    .close-proof-dot::after {
-      position: absolute;
-      inset: -7px;
-      border: 1px solid color-mix(in srgb, var(--accent) 68%, transparent);
-      border-radius: 50%;
-      content: "";
-      opacity: 0;
-      transform: scale(.65);
-    }
-    .reveal.in-view .close-proof-dot { opacity: 1; transform: scale(1); }
-    .close.is-live .close-proof-dot { opacity: 1; transform: scale(1); }
-    .close.is-live .close-proof-dot::after { animation: close-pulse 1.6s var(--ease) both; }
-    @keyframes close-pulse {
-      0% { opacity: .7; transform: scale(.65); }
-      70% { opacity: 0; transform: scale(1.9); }
-      100% { opacity: 0; transform: scale(1.9); }
-    }
-    .close-email { display: inline-block; padding-bottom: 6px; border-bottom: 2px solid currentColor; font-size: clamp(17px, 1.8vw, 25px); }
-    .close-foot { display: flex; justify-content: space-between; margin-top: 64px; color: var(--muted); font-size: 10px; }
 
-    dialog {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      max-width: none;
-      height: 100%;
-      max-height: none;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
-      border: 0;
-      color: var(--ink);
-      background: var(--canvas);
-    }
-    dialog::backdrop { background: rgba(0,0,0,.4); }
-    .dialog-shell { width: 100%; min-height: 100%; }
-    .dialog-top {
-      position: sticky;
-      z-index: 5;
-      top: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 82px;
-      border-bottom: 1px solid var(--faint);
-      background: color-mix(in srgb, var(--canvas) 93%, transparent);
-      backdrop-filter: blur(12px);
-    }
-    .dialog-top span { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .close-dialog {
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--faint);
-      border-radius: 50%;
-      color: inherit;
-      background: transparent;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    .dialog-content { padding: clamp(54px, 8vw, 112px) 0 100px; }
-    .case-title-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(24px, 4vw, 64px);
-      align-items: end;
-    }
-    .dialog-title { margin: 0; max-width: 1100px; font-size: clamp(56px, 8vw, 118px); font-weight: 560; letter-spacing: -.07em; line-height: .86; }
-    .case-source-link { margin-bottom: clamp(5px, .8vw, 12px); white-space: nowrap; }
-    .dialog-dek { max-width: 760px; margin: 30px 0 0; color: var(--muted); font-size: clamp(17px, 1.7vw, 23px); line-height: 1.45; }
-    .timeline { margin-top: 78px; border-top: 1px solid var(--faint); }
-    .timeline-item {
-      display: grid;
-      grid-template-columns: minmax(150px, .24fr) minmax(210px, .52fr) minmax(0, 1fr);
-      gap: 36px;
-      min-width: 0;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--faint);
-    }
-    .timeline-item > * { min-width: 0; }
-    .timeline-item time { padding-right: 14px; white-space: nowrap; }
-    .timeline-item time, .timeline-item .stack { color: var(--muted); font-size: 11px; line-height: 1.55; }
-    .timeline-item h3 { margin: 0; font-size: 23px; font-weight: 590; letter-spacing: -.035em; }
-    .timeline-item h3 span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; font-weight: 520; letter-spacing: 0; }
-    .timeline-item p { margin: 0 0 10px; font-size: 14px; line-height: 1.5; }
-    .all-projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 74px; background: var(--faint); border: 1px solid var(--faint); }
-    .all-project-card { min-height: 390px; padding: 28px; color: inherit; background: var(--canvas); cursor: pointer; text-align: left; }
-    .all-project-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid var(--faint); background: var(--image); }
-    .all-project-card img.contain { object-fit: contain; padding: 5%; }
-    .all-project-card h3 { margin: 22px 0 0; font-size: 28px; font-weight: 570; letter-spacing: -.04em; }
-    .all-project-card p { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
-    .case-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 64px; border-block: 1px solid var(--faint); }
-    .case-meta div { padding: 20px 22px 20px 0; }
-    .case-meta div + div { padding-left: 22px; border-left: 1px solid var(--faint); }
-    .case-meta strong { display: block; font-size: 22px; font-weight: 610; letter-spacing: -.035em; }
-    .case-meta span { display: block; margin-top: 6px; color: var(--muted); font-size: 10px; line-height: 1.4; }
-    .case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
-    .case-gallery figure { margin: 0; }
-    .case-gallery figure:only-child {
-      grid-column: 1 / -1;
-      width: min(100%, 920px);
-      justify-self: center;
-    }
-    .case-gallery img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border: 1px solid var(--faint); background: var(--image); }
-    .case-gallery figure:only-child img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: min(68vh, 720px);
-      aspect-ratio: auto;
-      object-fit: contain;
-      margin-inline: auto;
-    }
-    .case-gallery figcaption { margin-top: 9px; color: var(--muted); font-size: 10px; }
+    /* Projects */
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border-bottom: 1px solid var(--line); }
+    .card { display: flex; flex-direction: column; background: var(--bg); min-width: 0; }
+    .shot { display: block; position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 500ms var(--ease), opacity 300ms ease; }
+    .shot.contain img { object-fit: contain; padding: 18px; }
+    .shot.contain { background: #f6f6f7; }
+    @media (hover: hover) and (pointer: fine) { a.shot:hover img { transform: scale(1.02); } }
+    .card-b { display: flex; flex-direction: column; flex: 1; padding: 16px var(--pad) 18px; }
+    .card-t { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+    .card-t h3 { font-size: 16.5px; letter-spacing: -.015em; }
+    .card-t .kind { color: var(--ink-3); font-family: var(--mono); font-size: 11.5px; white-space: nowrap; }
+    .card p { margin-top: 8px; color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+    .kv { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+    .kv div { min-width: 0; }
+    .kv-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .kv dt { color: var(--ink-3); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+    .kv dd { margin: 3px 0 0; font-size: 13.5px; font-weight: 500; font-feature-settings: "tnum"; }
+    .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .card .links { margin-top: 14px; }
+    .gal { border-top: 1px solid var(--line); margin-top: 14px; }
+    .gal summary { display: flex; align-items: center; justify-content: space-between; padding: 10px 0 0; color: var(--ink-2); font-family: var(--mono); font-size: 12px; transition: color 140ms ease; }
+    .gal summary:hover { color: var(--ink); }
+    .gal[open] .chev { transform: rotate(180deg); }
+    .gal .chev { margin: 0; }
+    .strip { display: flex; gap: 10px; padding: 12px 0 2px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+    .strip figure { flex: none; margin: 0; width: min(78%, 300px); scroll-snap-align: start; }
+    .strip img { aspect-ratio: 16 / 9; width: 100%; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); }
+    .strip figcaption { margin-top: 6px; color: var(--ink-3); font-family: var(--mono); font-size: 11.5px; }
+    .rows { border-bottom: 1px solid var(--line); }
+    .row { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 12px var(--pad); border-bottom: 1px solid var(--line); transition: background-color 140ms ease; }
+    .row:last-child { border-bottom: 0; }
+    a.row:hover { background: var(--bg-2); }
+    .thumb { width: 56px; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); }
+    .row-t { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -.01em; }
+    .row-d { display: block; color: var(--ink-2); font-size: 13.5px; }
+    .row-m { color: var(--ink-3); font-family: var(--mono); font-size: 12px; white-space: nowrap; text-align: right; }
+    .row-m .i { display: inline-block; vertical-align: -2px; margin-left: 4px; width: 12px; height: 12px; }
+    @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .row { grid-template-columns: 56px 1fr; } .row-m { grid-column: 2; text-align: left; } }
 
-    @media (max-width: 900px) {
-      .proof-trail, .proof-thread { display: none; }
-      .proof-wash { width: min(96vw, 540px); }
-      .topbar-inner { grid-template-columns: 1fr auto; }
-      .navlinks, .contact-link { display: none; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .portrait-wrap { justify-self: start; grid-row: 1; width: min(52vw, 300px); min-width: 210px; }
-      .hero-name { font-size: clamp(62px, 18vw, 118px); }
-      .hero-bottom, .section-head { grid-template-columns: 1fr; }
-      .hero-meta { justify-content: flex-start; }
-      .experience-row { grid-template-columns: 52px 1fr auto; }
-      .experience-result { grid-column: 2 / -1; }
-      .projects-section .section-aside { justify-content: flex-start; }
-      .project-runway { height: auto !important; }
-      .project-sticky { position: relative; min-height: auto; padding: 58px 0 40px; }
-      .project-progress { display: none; }
-      .project-rail {
-        width: auto;
-        overflow-x: auto;
-        gap: 24px;
-        padding: 32px var(--pad) 42px !important;
-        transform: none !important;
-        scroll-snap-type: x mandatory;
-        scrollbar-width: none;
+    /* Skills */
+    .stack-row { display: grid; grid-template-columns: 220px 1fr; gap: 12px 20px; padding: 14px var(--pad); border-bottom: 1px solid var(--line); }
+    .stack-row:last-child { border-bottom: 0; }
+    .stack-k { font-size: 14px; font-weight: 500; }
+    .stack-k small { display: block; margin-top: 2px; color: var(--ink-3); font-size: 12.5px; font-weight: 400; }
+    .stack-k .n { color: var(--ink-3); font-family: var(--mono); font-size: 11.5px; margin-right: 8px; }
+    .stack-v { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; }
+    @media (max-width: 640px) { .stack-row { grid-template-columns: 1fr; gap: 8px; } }
+
+    /* About */
+    .story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border-bottom: 1px solid var(--line); }
+    .story-b { padding: 20px var(--pad) 22px; background: var(--bg); }
+    .story .k { display: block; margin-bottom: 8px; color: var(--ink-3); font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .07em; }
+    .story-b p { color: var(--ink-2); font-size: 14.5px; line-height: 1.65; max-width: 48ch; }
+    .story-b p + p { margin-top: 10px; }
+    .story-b em { color: var(--ink); font-style: normal; font-weight: 500; }
+    .story-b a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color 140ms ease; }
+    .story-b a:hover { border-bottom-color: var(--ink); }
+    .quote { grid-column: 1 / -1; padding: 22px var(--pad); background: var(--bg-2); }
+    .quote p { max-width: 40ch; color: var(--ink); font-size: clamp(18px, 2.4vw, 22px); font-weight: 500; letter-spacing: -.02em; line-height: 1.35; }
+    .quote .k { margin-bottom: 10px; }
+    @media (max-width: 720px) { .story { grid-template-columns: 1fr; } }
+
+    /* Contact */
+    .contact { padding: 40px var(--pad) 44px; }
+    .contact h2 { font-size: clamp(26px, 4vw, 34px); letter-spacing: -.035em; }
+    .contact .lead { margin-top: 8px; color: var(--ink-2); font-size: 15px; }
+    .big-mail { display: inline-block; margin-top: 22px; font-family: var(--mono); font-size: clamp(16px, 2.6vw, 22px); font-weight: 500; letter-spacing: -.01em; border-bottom: 1px solid var(--line-2); padding-bottom: 3px; transition: border-color 140ms ease; }
+    .big-mail:hover { border-bottom-color: var(--ink); }
+    .contact .links { margin-top: 22px; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding: 14px var(--pad) 26px; border-top: 1px solid var(--line); color: var(--ink-3); font-family: var(--mono); font-size: 12px; }
+
+
+    /* Lightbox */
+    .zoom { display: block; cursor: zoom-in; }
+    .lb { width: auto; max-width: min(96vw, 1400px); max-height: 96vh; margin: auto; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: visible; }
+    .lb::backdrop { background: rgba(6, 6, 7, .86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .lb img { display: block; max-width: min(96vw, 1400px); max-height: 86vh; width: auto; height: auto; object-fit: contain; border: 1px solid var(--line-2); border-radius: 8px; background: var(--bg-2); cursor: zoom-out; }
+    .lb-cap { margin: 10px 0 0; color: var(--ink-2); font-family: var(--mono); font-size: 12.5px; text-align: center; }
+    .lb-close { position: absolute; top: -40px; right: 0; width: 32px; height: 32px; border: 1px solid var(--line-2); border-radius: 50%; background: var(--bg-2); color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; }
+    .lb-close:hover { background: var(--bg-3); }
+    /* Entrance, scroll-driven and CSS-only. Without support everything is simply visible. */
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: view()) {
+        .rise { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 36%; }
+        @keyframes rise { from { opacity: .18; transform: translateY(12px); } to { opacity: 1; transform: none; } }
       }
-      .project-rail::-webkit-scrollbar { display: none; }
-      .project-exhibit { flex-basis: min(82vw, 620px); transform: none; opacity: 1; filter: none; scroll-snap-align: center; }
-      .project-exhibit.active { transform: none; }
-      .exhibit-letter { top: -54px; font-size: 150px; }
-      .project-proof { top: 26px; right: var(--pad); bottom: auto; }
-      .project-proof-value { font-size: clamp(72px, 20vw, 142px); }
-      .project-proof-label { margin-top: 16px; }
-      .skill-row { grid-template-columns: 1fr; gap: 10px; align-items: start; min-height: 0; padding: 26px 8px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 12px; }
-      .timeline-item time, .timeline-item h3, .timeline-item > div { grid-column: auto; grid-row: auto; }
-      .timeline-item time { padding-right: 0; }
-      .case-title-row { grid-template-columns: 1fr; align-items: start; }
-      .case-source-link { margin: 4px 0 0; }
-      .all-projects-grid { grid-template-columns: 1fr; }
-      .case-gallery figure:only-child { width: min(100%, 820px); }
-      .case-gallery figure:only-child img { max-height: 64vh; }
-      .case-meta { grid-template-columns: 1fr; }
-      .case-meta div + div { padding-left: 0; border-top: 1px solid var(--faint); border-left: 0; }
-    }
-    @media (min-width: 901px) and (max-width: 1100px) {
-      .timeline-item { grid-template-columns: 140px minmax(0, 1fr); gap: 18px 24px; }
-      .timeline-item time { grid-column: 1; grid-row: 1 / span 2; }
-      .timeline-item h3, .timeline-item > div { grid-column: 2; }
-      .skill-row { grid-template-columns: minmax(220px, .65fr) minmax(0, 1fr); gap: 12px 30px; align-items: start; padding: 32px 10px; }
-      .skill-tools { grid-column: 2; }
-    }
-    @media (max-width: 620px) {
-      .experience-row { grid-template-columns: 48px 1fr; }
-      .experience-row time { grid-column: 2; justify-self: start; padding-left: 0; }
-      .case-gallery { grid-template-columns: 1fr; }
-      .close-foot { gap: 24px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-      .proof-wash, .proof-trail, .proof-thread { display: none; }
-      .project-runway { height: auto !important; }
-      .project-sticky { position: relative; min-height: auto; }
-      .project-rail { width: auto; overflow-x: auto; padding-inline: var(--pad) !important; transform: none !important; }
-      .project-exhibit { opacity: 1; filter: none; transform: none !important; }
-      .project-progress { display: none; }
-      .project-proof { transform: none !important; }
     }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#experience">Skip to experience</a>
-  <div class="proof-canvas" aria-hidden="true">
-    <div class="proof-trail"></div>
-    <div class="proof-wash"></div>
-    <div class="proof-thread">
-      <div class="proof-thread-line">
-        <span class="proof-thread-fill"></span>
-        <span class="proof-thread-dot"></span>
-      </div>
-    </div>
-  </div>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="mark" href="#top" aria-label="Bohdan Chuprynka, home">BC<i>.</i></a>
-      <nav class="navlinks" aria-label="Primary">
+
+  <header class="top">
+    <div class="frame top-in">
+      <a class="mark" href="#top" aria-label="Bohdan Chuprynka, home">BC<i aria-hidden="true">.</i></a>
+      <nav class="nav" aria-label="Primary">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#about" hidden>About</a>
       </nav>
       <div class="top-actions">
-        <div class="theme-toggle" role="group" aria-label="Color theme">
-          <button type="button" data-set-theme="dark" aria-pressed="true">Dark</button>
-          <button type="button" data-set-theme="light" aria-pressed="false">Light</button>
-        </div>
-        <a class="contact-link" href="mailto:bohdan.chuprynka@gmail.com">Email</a>
+        <a class="btn btn-sm" href="./Bohdan-Chuprynka-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-sm btn-primary" href="mailto:bohdan.chuprynka@gmail.com">Email</a>
       </div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="shell">
-        <div class="hero-grid">
-          <div>
-            <h1 class="hero-name" aria-label="Bohdan Chuprynka">Bohdan<br />Chuprynka</h1>
-            <p class="hero-role">AI Engineer</p>
-          </div>
-          <div class="portrait-wrap">
-            <div class="portrait"><img src="./portrait.jpg" alt="Portrait of Bohdan Chuprynka" decoding="async" fetchpriority="high" /></div>
-          </div>
+  <main class="frame" id="top">
+    <section class="hero" aria-label="Profile">
+      <div class="art" aria-hidden="true"></div>
+
+      <div class="id">
+        <div class="portrait"><img src="./portrait.jpg" alt="Portrait of Bohdan Chuprynka" width="1024" height="1280" decoding="async" fetchpriority="high" /></div>
+        <div class="id-text">
+          <h1>Bohdan Chuprynka</h1>
+          <p class="role">AI Engineer</p>
         </div>
-        <div class="hero-bottom">
-          <p class="hero-line">I build AI products that survive contact with reality.</p>
-          <div class="hero-meta">
-            <a class="quiet-link" href="https://github.com/BohdanChuprynka" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-            <a class="quiet-link" href="https://www.linkedin.com/in/bohdanchuprynka/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+
+      <p class="tagline">I build AI products that survive contact with reality.</p>
+
+      <ul class="meta" aria-label="Details">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><span>Founding AI Engineer <a href="https://www.remly.it/" target="_blank" rel="noopener noreferrer"><b>@Remly</b></a></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Cleveland, Ohio</span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg></span><span><a href="mailto:bohdan.chuprynka@gmail.com">bohdan.chuprynka@gmail.com</a></span></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><span>Open to AI engineering roles and contracts</span></li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:bohdan.chuprynka@gmail.com">Email</a>
+        <a class="btn" href="./Bohdan-Chuprynka-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="btn" href="https://github.com/BohdanChuprynka" target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/bohdanchuprynka/" target="_blank" rel="noopener noreferrer"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>LinkedIn</a>
+        <a class="quiet" href="#about" hidden>Get to know me ↓</a>
+      </div>
+
+      <!-- GitHub contribution graph: parked for now (hidden), still refreshed by scripts/contributions.mjs. Drop the hidden attribute to show it. -->
+      <div class="contrib" hidden>
+        <div class="contrib-scroll"><!-- contributions:svg:start --><svg viewBox="0 0 740 116" role="img" aria-label="GitHub contribution calendar, 2,249 contributions, 31.08.2025 – 02.09.2026."><text x="14" y="0" dominant-baseline="hanging">Sep</text><text x="70" y="0" dominant-baseline="hanging">Oct</text><text x="126" y="0" dominant-baseline="hanging">Nov</text><text x="196" y="0" dominant-baseline="hanging">Dec</text><text x="252" y="0" dominant-baseline="hanging">Jan</text><text x="308" y="0" dominant-baseline="hanging">Feb</text><text x="364" y="0" dominant-baseline="hanging">Mar</text><text x="434" y="0" dominant-baseline="hanging">Apr</text><text x="490" y="0" dominant-baseline="hanging">May</text><text x="560" y="0" dominant-baseline="hanging">Jun</text><text x="616" y="0" dominant-baseline="hanging">Jul</text><text x="672" y="0" dominant-baseline="hanging">Aug</text><rect class="c0" x="0" y="20" width="12" height="12" data-date="2025-08-31" data-count="0"><title>No contributions on 31 Aug 2025</title></rect><rect class="c0" x="0" y="34" width="12" height="12" data-date="2025-09-01" data-count="0"><title>No contributions on 1 Sep 2025</title></rect><rect class="c0" x="0" y="48" width="12" height="12" data-date="2025-09-02" data-count="0"><title>No contributions on 2 Sep 2025</title></rect><rect class="c0" x="0" y="62" width="12" height="12" data-date="2025-09-03" data-count="0"><title>No contributions on 3 Sep 2025</title></rect><rect class="c0" x="0" y="76" width="12" height="12" data-date="2025-09-04" data-count="0"><title>No contributions on 4 Sep 2025</title></rect><rect class="c0" x="0" y="90" width="12" height="12" data-date="2025-09-05" data-count="0"><title>No contributions on 5 Sep 2025</title></rect><rect class="c0" x="0" y="104" width="12" height="12" data-date="2025-09-06" data-count="0"><title>No contributions on 6 Sep 2025</title></rect><rect class="c0" x="14" y="20" width="12" height="12" data-date="2025-09-07" data-count="0"><title>No contributions on 7 Sep 2025</title></rect><rect class="c0" x="14" y="34" width="12" height="12" data-date="2025-09-08" data-count="0"><title>No contributions on 8 Sep 2025</title></rect><rect class="c0" x="14" y="48" width="12" height="12" data-date="2025-09-09" data-count="0"><title>No contributions on 9 Sep 2025</title></rect><rect class="c0" x="14" y="62" width="12" height="12" data-date="2025-09-10" data-count="0"><title>No contributions on 10 Sep 2025</title></rect><rect class="c0" x="14" y="76" width="12" height="12" data-date="2025-09-11" data-count="0"><title>No contributions on 11 Sep 2025</title></rect><rect class="c0" x="14" y="90" width="12" height="12" data-date="2025-09-12" data-count="0"><title>No contributions on 12 Sep 2025</title></rect><rect class="c0" x="14" y="104" width="12" height="12" data-date="2025-09-13" data-count="0"><title>No contributions on 13 Sep 2025</title></rect><rect class="c0" x="28" y="20" width="12" height="12" data-date="2025-09-14" data-count="0"><title>No contributions on 14 Sep 2025</title></rect><rect class="c0" x="28" y="34" width="12" height="12" data-date="2025-09-15" data-count="0"><title>No contributions on 15 Sep 2025</title></rect><rect class="c0" x="28" y="48" width="12" height="12" data-date="2025-09-16" data-count="0"><title>No contributions on 16 Sep 2025</title></rect><rect class="c0" x="28" y="62" width="12" height="12" data-date="2025-09-17" data-count="0"><title>No contributions on 17 Sep 2025</title></rect><rect class="c0" x="28" y="76" width="12" height="12" data-date="2025-09-18" data-count="0"><title>No contributions on 18 Sep 2025</title></rect><rect class="c0" x="28" y="90" width="12" height="12" data-date="2025-09-19" data-count="0"><title>No contributions on 19 Sep 2025</title></rect><rect class="c0" x="28" y="104" width="12" height="12" data-date="2025-09-20" data-count="0"><title>No contributions on 20 Sep 2025</title></rect><rect class="c0" x="42" y="20" width="12" height="12" data-date="2025-09-21" data-count="0"><title>No contributions on 21 Sep 2025</title></rect><rect class="c0" x="42" y="34" width="12" height="12" data-date="2025-09-22" data-count="0"><title>No contributions on 22 Sep 2025</title></rect><rect class="c0" x="42" y="48" width="12" height="12" data-date="2025-09-23" data-count="0"><title>No contributions on 23 Sep 2025</title></rect><rect class="c0" x="42" y="62" width="12" height="12" data-date="2025-09-24" data-count="0"><title>No contributions on 24 Sep 2025</title></rect><rect class="c0" x="42" y="76" width="12" height="12" data-date="2025-09-25" data-count="0"><title>No contributions on 25 Sep 2025</title></rect><rect class="c0" x="42" y="90" width="12" height="12" data-date="2025-09-26" data-count="0"><title>No contributions on 26 Sep 2025</title></rect><rect class="c0" x="42" y="104" width="12" height="12" data-date="2025-09-27" data-count="0"><title>No contributions on 27 Sep 2025</title></rect><rect class="c0" x="56" y="20" width="12" height="12" data-date="2025-09-28" data-count="0"><title>No contributions on 28 Sep 2025</title></rect><rect class="c0" x="56" y="34" width="12" height="12" data-date="2025-09-29" data-count="0"><title>No contributions on 29 Sep 2025</title></rect><rect class="c0" x="56" y="48" width="12" height="12" data-date="2025-09-30" data-count="0"><title>No contributions on 30 Sep 2025</title></rect><rect class="c0" x="56" y="62" width="12" height="12" data-date="2025-10-01" data-count="0"><title>No contributions on 1 Oct 2025</title></rect><rect class="c0" x="56" y="76" width="12" height="12" data-date="2025-10-02" data-count="0"><title>No contributions on 2 Oct 2025</title></rect><rect class="c0" x="56" y="90" width="12" height="12" data-date="2025-10-03" data-count="0"><title>No contributions on 3 Oct 2025</title></rect><rect class="c0" x="56" y="104" width="12" height="12" data-date="2025-10-04" data-count="0"><title>No contributions on 4 Oct 2025</title></rect><rect class="c0" x="70" y="20" width="12" height="12" data-date="2025-10-05" data-count="0"><title>No contributions on 5 Oct 2025</title></rect><rect class="c0" x="70" y="34" width="12" height="12" data-date="2025-10-06" data-count="0"><title>No contributions on 6 Oct 2025</title></rect><rect class="c0" x="70" y="48" width="12" height="12" data-date="2025-10-07" data-count="0"><title>No contributions on 7 Oct 2025</title></rect><rect class="c0" x="70" y="62" width="12" height="12" data-date="2025-10-08" data-count="0"><title>No contributions on 8 Oct 2025</title></rect><rect class="c0" x="70" y="76" width="12" height="12" data-date="2025-10-09" data-count="0"><title>No contributions on 9 Oct 2025</title></rect><rect class="c0" x="70" y="90" width="12" height="12" data-date="2025-10-10" data-count="0"><title>No contributions on 10 Oct 2025</title></rect><rect class="c0" x="70" y="104" width="12" height="12" data-date="2025-10-11" data-count="0"><title>No contributions on 11 Oct 2025</title></rect><rect class="c0" x="84" y="20" width="12" height="12" data-date="2025-10-12" data-count="0"><title>No contributions on 12 Oct 2025</title></rect><rect class="c0" x="84" y="34" width="12" height="12" data-date="2025-10-13" data-count="0"><title>No contributions on 13 Oct 2025</title></rect><rect class="c0" x="84" y="48" width="12" height="12" data-date="2025-10-14" data-count="0"><title>No contributions on 14 Oct 2025</title></rect><rect class="c0" x="84" y="62" width="12" height="12" data-date="2025-10-15" data-count="0"><title>No contributions on 15 Oct 2025</title></rect><rect class="c0" x="84" y="76" width="12" height="12" data-date="2025-10-16" data-count="0"><title>No contributions on 16 Oct 2025</title></rect><rect class="c0" x="84" y="90" width="12" height="12" data-date="2025-10-17" data-count="0"><title>No contributions on 17 Oct 2025</title></rect><rect class="c0" x="84" y="104" width="12" height="12" data-date="2025-10-18" data-count="0"><title>No contributions on 18 Oct 2025</title></rect><rect class="c0" x="98" y="20" width="12" height="12" data-date="2025-10-19" data-count="0"><title>No contributions on 19 Oct 2025</title></rect><rect class="c0" x="98" y="34" width="12" height="12" data-date="2025-10-20" data-count="0"><title>No contributions on 20 Oct 2025</title></rect><rect class="c0" x="98" y="48" width="12" height="12" data-date="2025-10-21" data-count="0"><title>No contributions on 21 Oct 2025</title></rect><rect class="c0" x="98" y="62" width="12" height="12" data-date="2025-10-22" data-count="0"><title>No contributions on 22 Oct 2025</title></rect><rect class="c0" x="98" y="76" width="12" height="12" data-date="2025-10-23" data-count="0"><title>No contributions on 23 Oct 2025</title></rect><rect class="c0" x="98" y="90" width="12" height="12" data-date="2025-10-24" data-count="0"><title>No contributions on 24 Oct 2025</title></rect><rect class="c0" x="98" y="104" width="12" height="12" data-date="2025-10-25" data-count="0"><title>No contributions on 25 Oct 2025</title></rect><rect class="c0" x="112" y="20" width="12" height="12" data-date="2025-10-26" data-count="0"><title>No contributions on 26 Oct 2025</title></rect><rect class="c0" x="112" y="34" width="12" height="12" data-date="2025-10-27" data-count="0"><title>No contributions on 27 Oct 2025</title></rect><rect class="c0" x="112" y="48" width="12" height="12" data-date="2025-10-28" data-count="0"><title>No contributions on 28 Oct 2025</title></rect><rect class="c0" x="112" y="62" width="12" height="12" data-date="2025-10-29" data-count="0"><title>No contributions on 29 Oct 2025</title></rect><rect class="c0" x="112" y="76" width="12" height="12" data-date="2025-10-30" data-count="0"><title>No contributions on 30 Oct 2025</title></rect><rect class="c0" x="112" y="90" width="12" height="12" data-date="2025-10-31" data-count="0"><title>No contributions on 31 Oct 2025</title></rect><rect class="c0" x="112" y="104" width="12" height="12" data-date="2025-11-01" data-count="0"><title>No contributions on 1 Nov 2025</title></rect><rect class="c0" x="126" y="20" width="12" height="12" data-date="2025-11-02" data-count="0"><title>No contributions on 2 Nov 2025</title></rect><rect class="c0" x="126" y="34" width="12" height="12" data-date="2025-11-03" data-count="0"><title>No contributions on 3 Nov 2025</title></rect><rect class="c0" x="126" y="48" width="12" height="12" data-date="2025-11-04" data-count="0"><title>No contributions on 4 Nov 2025</title></rect><rect class="c0" x="126" y="62" width="12" height="12" data-date="2025-11-05" data-count="0"><title>No contributions on 5 Nov 2025</title></rect><rect class="c0" x="126" y="76" width="12" height="12" data-date="2025-11-06" data-count="0"><title>No contributions on 6 Nov 2025</title></rect><rect class="c0" x="126" y="90" width="12" height="12" data-date="2025-11-07" data-count="0"><title>No contributions on 7 Nov 2025</title></rect><rect class="c0" x="126" y="104" width="12" height="12" data-date="2025-11-08" data-count="0"><title>No contributions on 8 Nov 2025</title></rect><rect class="c0" x="140" y="20" width="12" height="12" data-date="2025-11-09" data-count="0"><title>No contributions on 9 Nov 2025</title></rect><rect class="c0" x="140" y="34" width="12" height="12" data-date="2025-11-10" data-count="0"><title>No contributions on 10 Nov 2025</title></rect><rect class="c0" x="140" y="48" width="12" height="12" data-date="2025-11-11" data-count="0"><title>No contributions on 11 Nov 2025</title></rect><rect class="c0" x="140" y="62" width="12" height="12" data-date="2025-11-12" data-count="0"><title>No contributions on 12 Nov 2025</title></rect><rect class="c0" x="140" y="76" width="12" height="12" data-date="2025-11-13" data-count="0"><title>No contributions on 13 Nov 2025</title></rect><rect class="c0" x="140" y="90" width="12" height="12" data-date="2025-11-14" data-count="0"><title>No contributions on 14 Nov 2025</title></rect><rect class="c0" x="140" y="104" width="12" height="12" data-date="2025-11-15" data-count="0"><title>No contributions on 15 Nov 2025</title></rect><rect class="c0" x="154" y="20" width="12" height="12" data-date="2025-11-16" data-count="0"><title>No contributions on 16 Nov 2025</title></rect><rect class="c0" x="154" y="34" width="12" height="12" data-date="2025-11-17" data-count="0"><title>No contributions on 17 Nov 2025</title></rect><rect class="c0" x="154" y="48" width="12" height="12" data-date="2025-11-18" data-count="0"><title>No contributions on 18 Nov 2025</title></rect><rect class="c0" x="154" y="62" width="12" height="12" data-date="2025-11-19" data-count="0"><title>No contributions on 19 Nov 2025</title></rect><rect class="c0" x="154" y="76" width="12" height="12" data-date="2025-11-20" data-count="0"><title>No contributions on 20 Nov 2025</title></rect><rect class="c0" x="154" y="90" width="12" height="12" data-date="2025-11-21" data-count="0"><title>No contributions on 21 Nov 2025</title></rect><rect class="c0" x="154" y="104" width="12" height="12" data-date="2025-11-22" data-count="0"><title>No contributions on 22 Nov 2025</title></rect><rect class="c0" x="168" y="20" width="12" height="12" data-date="2025-11-23" data-count="0"><title>No contributions on 23 Nov 2025</title></rect><rect class="c0" x="168" y="34" width="12" height="12" data-date="2025-11-24" data-count="0"><title>No contributions on 24 Nov 2025</title></rect><rect class="c0" x="168" y="48" width="12" height="12" data-date="2025-11-25" data-count="0"><title>No contributions on 25 Nov 2025</title></rect><rect class="c0" x="168" y="62" width="12" height="12" data-date="2025-11-26" data-count="0"><title>No contributions on 26 Nov 2025</title></rect><rect class="c0" x="168" y="76" width="12" height="12" data-date="2025-11-27" data-count="0"><title>No contributions on 27 Nov 2025</title></rect><rect class="c0" x="168" y="90" width="12" height="12" data-date="2025-11-28" data-count="0"><title>No contributions on 28 Nov 2025</title></rect><rect class="c0" x="168" y="104" width="12" height="12" data-date="2025-11-29" data-count="0"><title>No contributions on 29 Nov 2025</title></rect><rect class="c0" x="182" y="20" width="12" height="12" data-date="2025-11-30" data-count="0"><title>No contributions on 30 Nov 2025</title></rect><rect class="c0" x="182" y="34" width="12" height="12" data-date="2025-12-01" data-count="0"><title>No contributions on 1 Dec 2025</title></rect><rect class="c0" x="182" y="48" width="12" height="12" data-date="2025-12-02" data-count="0"><title>No contributions on 2 Dec 2025</title></rect><rect class="c0" x="182" y="62" width="12" height="12" data-date="2025-12-03" data-count="0"><title>No contributions on 3 Dec 2025</title></rect><rect class="c0" x="182" y="76" width="12" height="12" data-date="2025-12-04" data-count="0"><title>No contributions on 4 Dec 2025</title></rect><rect class="c0" x="182" y="90" width="12" height="12" data-date="2025-12-05" data-count="0"><title>No contributions on 5 Dec 2025</title></rect><rect class="c0" x="182" y="104" width="12" height="12" data-date="2025-12-06" data-count="0"><title>No contributions on 6 Dec 2025</title></rect><rect class="c0" x="196" y="20" width="12" height="12" data-date="2025-12-07" data-count="0"><title>No contributions on 7 Dec 2025</title></rect><rect class="c0" x="196" y="34" width="12" height="12" data-date="2025-12-08" data-count="0"><title>No contributions on 8 Dec 2025</title></rect><rect class="c0" x="196" y="48" width="12" height="12" data-date="2025-12-09" data-count="0"><title>No contributions on 9 Dec 2025</title></rect><rect class="c1" x="196" y="62" width="12" height="12" data-date="2025-12-10" data-count="3"><title>3 contributions on 10 Dec 2025</title></rect><rect class="c1" x="196" y="76" width="12" height="12" data-date="2025-12-11" data-count="1"><title>1 contribution on 11 Dec 2025</title></rect><rect class="c0" x="196" y="90" width="12" height="12" data-date="2025-12-12" data-count="0"><title>No contributions on 12 Dec 2025</title></rect><rect class="c0" x="196" y="104" width="12" height="12" data-date="2025-12-13" data-count="0"><title>No contributions on 13 Dec 2025</title></rect><rect class="c1" x="210" y="20" width="12" height="12" data-date="2025-12-14" data-count="4"><title>4 contributions on 14 Dec 2025</title></rect><rect class="c0" x="210" y="34" width="12" height="12" data-date="2025-12-15" data-count="0"><title>No contributions on 15 Dec 2025</title></rect><rect class="c0" x="210" y="48" width="12" height="12" data-date="2025-12-16" data-count="0"><title>No contributions on 16 Dec 2025</title></rect><rect class="c0" x="210" y="62" width="12" height="12" data-date="2025-12-17" data-count="0"><title>No contributions on 17 Dec 2025</title></rect><rect class="c0" x="210" y="76" width="12" height="12" data-date="2025-12-18" data-count="0"><title>No contributions on 18 Dec 2025</title></rect><rect class="c1" x="210" y="90" width="12" height="12" data-date="2025-12-19" data-count="3"><title>3 contributions on 19 Dec 2025</title></rect><rect class="c0" x="210" y="104" width="12" height="12" data-date="2025-12-20" data-count="0"><title>No contributions on 20 Dec 2025</title></rect><rect class="c0" x="224" y="20" width="12" height="12" data-date="2025-12-21" data-count="0"><title>No contributions on 21 Dec 2025</title></rect><rect class="c0" x="224" y="34" width="12" height="12" data-date="2025-12-22" data-count="0"><title>No contributions on 22 Dec 2025</title></rect><rect class="c0" x="224" y="48" width="12" height="12" data-date="2025-12-23" data-count="0"><title>No contributions on 23 Dec 2025</title></rect><rect class="c0" x="224" y="62" width="12" height="12" data-date="2025-12-24" data-count="0"><title>No contributions on 24 Dec 2025</title></rect><rect class="c1" x="224" y="76" width="12" height="12" data-date="2025-12-25" data-count="1"><title>1 contribution on 25 Dec 2025</title></rect><rect class="c1" x="224" y="90" width="12" height="12" data-date="2025-12-26" data-count="13"><title>13 contributions on 26 Dec 2025</title></rect><rect class="c1" x="224" y="104" width="12" height="12" data-date="2025-12-27" data-count="1"><title>1 contribution on 27 Dec 2025</title></rect><rect class="c1" x="238" y="20" width="12" height="12" data-date="2025-12-28" data-count="2"><title>2 contributions on 28 Dec 2025</title></rect><rect class="c1" x="238" y="34" width="12" height="12" data-date="2025-12-29" data-count="1"><title>1 contribution on 29 Dec 2025</title></rect><rect class="c0" x="238" y="48" width="12" height="12" data-date="2025-12-30" data-count="0"><title>No contributions on 30 Dec 2025</title></rect><rect class="c0" x="238" y="62" width="12" height="12" data-date="2025-12-31" data-count="0"><title>No contributions on 31 Dec 2025</title></rect><rect class="c0" x="238" y="76" width="12" height="12" data-date="2026-01-01" data-count="0"><title>No contributions on 1 Jan 2026</title></rect><rect class="c1" x="238" y="90" width="12" height="12" data-date="2026-01-02" data-count="3"><title>3 contributions on 2 Jan 2026</title></rect><rect class="c1" x="238" y="104" width="12" height="12" data-date="2026-01-03" data-count="1"><title>1 contribution on 3 Jan 2026</title></rect><rect class="c0" x="252" y="20" width="12" height="12" data-date="2026-01-04" data-count="0"><title>No contributions on 4 Jan 2026</title></rect><rect class="c0" x="252" y="34" width="12" height="12" data-date="2026-01-05" data-count="0"><title>No contributions on 5 Jan 2026</title></rect><rect class="c1" x="252" y="48" width="12" height="12" data-date="2026-01-06" data-count="1"><title>1 contribution on 6 Jan 2026</title></rect><rect class="c0" x="252" y="62" width="12" height="12" data-date="2026-01-07" data-count="0"><title>No contributions on 7 Jan 2026</title></rect><rect class="c0" x="252" y="76" width="12" height="12" data-date="2026-01-08" data-count="0"><title>No contributions on 8 Jan 2026</title></rect><rect class="c0" x="252" y="90" width="12" height="12" data-date="2026-01-09" data-count="0"><title>No contributions on 9 Jan 2026</title></rect><rect class="c1" x="252" y="104" width="12" height="12" data-date="2026-01-10" data-count="1"><title>1 contribution on 10 Jan 2026</title></rect><rect class="c0" x="266" y="20" width="12" height="12" data-date="2026-01-11" data-count="0"><title>No contributions on 11 Jan 2026</title></rect><rect class="c0" x="266" y="34" width="12" height="12" data-date="2026-01-12" data-count="0"><title>No contributions on 12 Jan 2026</title></rect><rect class="c0" x="266" y="48" width="12" height="12" data-date="2026-01-13" data-count="0"><title>No contributions on 13 Jan 2026</title></rect><rect class="c0" x="266" y="62" width="12" height="12" data-date="2026-01-14" data-count="0"><title>No contributions on 14 Jan 2026</title></rect><rect class="c0" x="266" y="76" width="12" height="12" data-date="2026-01-15" data-count="0"><title>No contributions on 15 Jan 2026</title></rect><rect class="c0" x="266" y="90" width="12" height="12" data-date="2026-01-16" data-count="0"><title>No contributions on 16 Jan 2026</title></rect><rect class="c0" x="266" y="104" width="12" height="12" data-date="2026-01-17" data-count="0"><title>No contributions on 17 Jan 2026</title></rect><rect class="c0" x="280" y="20" width="12" height="12" data-date="2026-01-18" data-count="0"><title>No contributions on 18 Jan 2026</title></rect><rect class="c0" x="280" y="34" width="12" height="12" data-date="2026-01-19" data-count="0"><title>No contributions on 19 Jan 2026</title></rect><rect class="c1" x="280" y="48" width="12" height="12" data-date="2026-01-20" data-count="2"><title>2 contributions on 20 Jan 2026</title></rect><rect class="c1" x="280" y="62" width="12" height="12" data-date="2026-01-21" data-count="2"><title>2 contributions on 21 Jan 2026</title></rect><rect class="c1" x="280" y="76" width="12" height="12" data-date="2026-01-22" data-count="2"><title>2 contributions on 22 Jan 2026</title></rect><rect class="c0" x="280" y="90" width="12" height="12" data-date="2026-01-23" data-count="0"><title>No contributions on 23 Jan 2026</title></rect><rect class="c0" x="280" y="104" width="12" height="12" data-date="2026-01-24" data-count="0"><title>No contributions on 24 Jan 2026</title></rect><rect class="c1" x="294" y="20" width="12" height="12" data-date="2026-01-25" data-count="2"><title>2 contributions on 25 Jan 2026</title></rect><rect class="c0" x="294" y="34" width="12" height="12" data-date="2026-01-26" data-count="0"><title>No contributions on 26 Jan 2026</title></rect><rect class="c1" x="294" y="48" width="12" height="12" data-date="2026-01-27" data-count="2"><title>2 contributions on 27 Jan 2026</title></rect><rect class="c1" x="294" y="62" width="12" height="12" data-date="2026-01-28" data-count="2"><title>2 contributions on 28 Jan 2026</title></rect><rect class="c1" x="294" y="76" width="12" height="12" data-date="2026-01-29" data-count="1"><title>1 contribution on 29 Jan 2026</title></rect><rect class="c0" x="294" y="90" width="12" height="12" data-date="2026-01-30" data-count="0"><title>No contributions on 30 Jan 2026</title></rect><rect class="c1" x="294" y="104" width="12" height="12" data-date="2026-01-31" data-count="1"><title>1 contribution on 31 Jan 2026</title></rect><rect class="c1" x="308" y="20" width="12" height="12" data-date="2026-02-01" data-count="2"><title>2 contributions on 1 Feb 2026</title></rect><rect class="c1" x="308" y="34" width="12" height="12" data-date="2026-02-02" data-count="1"><title>1 contribution on 2 Feb 2026</title></rect><rect class="c1" x="308" y="48" width="12" height="12" data-date="2026-02-03" data-count="5"><title>5 contributions on 3 Feb 2026</title></rect><rect class="c1" x="308" y="62" width="12" height="12" data-date="2026-02-04" data-count="1"><title>1 contribution on 4 Feb 2026</title></rect><rect class="c1" x="308" y="76" width="12" height="12" data-date="2026-02-05" data-count="4"><title>4 contributions on 5 Feb 2026</title></rect><rect class="c1" x="308" y="90" width="12" height="12" data-date="2026-02-06" data-count="1"><title>1 contribution on 6 Feb 2026</title></rect><rect class="c1" x="308" y="104" width="12" height="12" data-date="2026-02-07" data-count="1"><title>1 contribution on 7 Feb 2026</title></rect><rect class="c1" x="322" y="20" width="12" height="12" data-date="2026-02-08" data-count="1"><title>1 contribution on 8 Feb 2026</title></rect><rect class="c1" x="322" y="34" width="12" height="12" data-date="2026-02-09" data-count="1"><title>1 contribution on 9 Feb 2026</title></rect><rect class="c1" x="322" y="48" width="12" height="12" data-date="2026-02-10" data-count="4"><title>4 contributions on 10 Feb 2026</title></rect><rect class="c1" x="322" y="62" width="12" height="12" data-date="2026-02-11" data-count="8"><title>8 contributions on 11 Feb 2026</title></rect><rect class="c1" x="322" y="76" width="12" height="12" data-date="2026-02-12" data-count="2"><title>2 contributions on 12 Feb 2026</title></rect><rect class="c1" x="322" y="90" width="12" height="12" data-date="2026-02-13" data-count="2"><title>2 contributions on 13 Feb 2026</title></rect><rect class="c1" x="322" y="104" width="12" height="12" data-date="2026-02-14" data-count="2"><title>2 contributions on 14 Feb 2026</title></rect><rect class="c1" x="336" y="20" width="12" height="12" data-date="2026-02-15" data-count="2"><title>2 contributions on 15 Feb 2026</title></rect><rect class="c1" x="336" y="34" width="12" height="12" data-date="2026-02-16" data-count="1"><title>1 contribution on 16 Feb 2026</title></rect><rect class="c1" x="336" y="48" width="12" height="12" data-date="2026-02-17" data-count="1"><title>1 contribution on 17 Feb 2026</title></rect><rect class="c0" x="336" y="62" width="12" height="12" data-date="2026-02-18" data-count="0"><title>No contributions on 18 Feb 2026</title></rect><rect class="c1" x="336" y="76" width="12" height="12" data-date="2026-02-19" data-count="4"><title>4 contributions on 19 Feb 2026</title></rect><rect class="c1" x="336" y="90" width="12" height="12" data-date="2026-02-20" data-count="7"><title>7 contributions on 20 Feb 2026</title></rect><rect class="c1" x="336" y="104" width="12" height="12" data-date="2026-02-21" data-count="2"><title>2 contributions on 21 Feb 2026</title></rect><rect class="c1" x="350" y="20" width="12" height="12" data-date="2026-02-22" data-count="1"><title>1 contribution on 22 Feb 2026</title></rect><rect class="c0" x="350" y="34" width="12" height="12" data-date="2026-02-23" data-count="0"><title>No contributions on 23 Feb 2026</title></rect><rect class="c0" x="350" y="48" width="12" height="12" data-date="2026-02-24" data-count="0"><title>No contributions on 24 Feb 2026</title></rect><rect class="c1" x="350" y="62" width="12" height="12" data-date="2026-02-25" data-count="3"><title>3 contributions on 25 Feb 2026</title></rect><rect class="c1" x="350" y="76" width="12" height="12" data-date="2026-02-26" data-count="1"><title>1 contribution on 26 Feb 2026</title></rect><rect class="c1" x="350" y="90" width="12" height="12" data-date="2026-02-27" data-count="5"><title>5 contributions on 27 Feb 2026</title></rect><rect class="c0" x="350" y="104" width="12" height="12" data-date="2026-02-28" data-count="0"><title>No contributions on 28 Feb 2026</title></rect><rect class="c1" x="364" y="20" width="12" height="12" data-date="2026-03-01" data-count="1"><title>1 contribution on 1 Mar 2026</title></rect><rect class="c1" x="364" y="34" width="12" height="12" data-date="2026-03-02" data-count="1"><title>1 contribution on 2 Mar 2026</title></rect><rect class="c1" x="364" y="48" width="12" height="12" data-date="2026-03-03" data-count="7"><title>7 contributions on 3 Mar 2026</title></rect><rect class="c1" x="364" y="62" width="12" height="12" data-date="2026-03-04" data-count="4"><title>4 contributions on 4 Mar 2026</title></rect><rect class="c1" x="364" y="76" width="12" height="12" data-date="2026-03-05" data-count="1"><title>1 contribution on 5 Mar 2026</title></rect><rect class="c0" x="364" y="90" width="12" height="12" data-date="2026-03-06" data-count="0"><title>No contributions on 6 Mar 2026</title></rect><rect class="c1" x="364" y="104" width="12" height="12" data-date="2026-03-07" data-count="5"><title>5 contributions on 7 Mar 2026</title></rect><rect class="c1" x="378" y="20" width="12" height="12" data-date="2026-03-08" data-count="2"><title>2 contributions on 8 Mar 2026</title></rect><rect class="c1" x="378" y="34" width="12" height="12" data-date="2026-03-09" data-count="1"><title>1 contribution on 9 Mar 2026</title></rect><rect class="c1" x="378" y="48" width="12" height="12" data-date="2026-03-10" data-count="1"><title>1 contribution on 10 Mar 2026</title></rect><rect class="c1" x="378" y="62" width="12" height="12" data-date="2026-03-11" data-count="8"><title>8 contributions on 11 Mar 2026</title></rect><rect class="c1" x="378" y="76" width="12" height="12" data-date="2026-03-12" data-count="1"><title>1 contribution on 12 Mar 2026</title></rect><rect class="c1" x="378" y="90" width="12" height="12" data-date="2026-03-13" data-count="10"><title>10 contributions on 13 Mar 2026</title></rect><rect class="c0" x="378" y="104" width="12" height="12" data-date="2026-03-14" data-count="0"><title>No contributions on 14 Mar 2026</title></rect><rect class="c1" x="392" y="20" width="12" height="12" data-date="2026-03-15" data-count="3"><title>3 contributions on 15 Mar 2026</title></rect><rect class="c0" x="392" y="34" width="12" height="12" data-date="2026-03-16" data-count="0"><title>No contributions on 16 Mar 2026</title></rect><rect class="c1" x="392" y="48" width="12" height="12" data-date="2026-03-17" data-count="3"><title>3 contributions on 17 Mar 2026</title></rect><rect class="c0" x="392" y="62" width="12" height="12" data-date="2026-03-18" data-count="0"><title>No contributions on 18 Mar 2026</title></rect><rect class="c0" x="392" y="76" width="12" height="12" data-date="2026-03-19" data-count="0"><title>No contributions on 19 Mar 2026</title></rect><rect class="c0" x="392" y="90" width="12" height="12" data-date="2026-03-20" data-count="0"><title>No contributions on 20 Mar 2026</title></rect><rect class="c1" x="392" y="104" width="12" height="12" data-date="2026-03-21" data-count="5"><title>5 contributions on 21 Mar 2026</title></rect><rect class="c1" x="406" y="20" width="12" height="12" data-date="2026-03-22" data-count="5"><title>5 contributions on 22 Mar 2026</title></rect><rect class="c1" x="406" y="34" width="12" height="12" data-date="2026-03-23" data-count="10"><title>10 contributions on 23 Mar 2026</title></rect><rect class="c1" x="406" y="48" width="12" height="12" data-date="2026-03-24" data-count="2"><title>2 contributions on 24 Mar 2026</title></rect><rect class="c1" x="406" y="62" width="12" height="12" data-date="2026-03-25" data-count="16"><title>16 contributions on 25 Mar 2026</title></rect><rect class="c1" x="406" y="76" width="12" height="12" data-date="2026-03-26" data-count="5"><title>5 contributions on 26 Mar 2026</title></rect><rect class="c0" x="406" y="90" width="12" height="12" data-date="2026-03-27" data-count="0"><title>No contributions on 27 Mar 2026</title></rect><rect class="c1" x="406" y="104" width="12" height="12" data-date="2026-03-28" data-count="10"><title>10 contributions on 28 Mar 2026</title></rect><rect class="c1" x="420" y="20" width="12" height="12" data-date="2026-03-29" data-count="1"><title>1 contribution on 29 Mar 2026</title></rect><rect class="c1" x="420" y="34" width="12" height="12" data-date="2026-03-30" data-count="4"><title>4 contributions on 30 Mar 2026</title></rect><rect class="c1" x="420" y="48" width="12" height="12" data-date="2026-03-31" data-count="2"><title>2 contributions on 31 Mar 2026</title></rect><rect class="c1" x="420" y="62" width="12" height="12" data-date="2026-04-01" data-count="1"><title>1 contribution on 1 Apr 2026</title></rect><rect class="c1" x="420" y="76" width="12" height="12" data-date="2026-04-02" data-count="2"><title>2 contributions on 2 Apr 2026</title></rect><rect class="c0" x="420" y="90" width="12" height="12" data-date="2026-04-03" data-count="0"><title>No contributions on 3 Apr 2026</title></rect><rect class="c1" x="420" y="104" width="12" height="12" data-date="2026-04-04" data-count="1"><title>1 contribution on 4 Apr 2026</title></rect><rect class="c0" x="434" y="20" width="12" height="12" data-date="2026-04-05" data-count="0"><title>No contributions on 5 Apr 2026</title></rect><rect class="c1" x="434" y="34" width="12" height="12" data-date="2026-04-06" data-count="1"><title>1 contribution on 6 Apr 2026</title></rect><rect class="c1" x="434" y="48" width="12" height="12" data-date="2026-04-07" data-count="5"><title>5 contributions on 7 Apr 2026</title></rect><rect class="c0" x="434" y="62" width="12" height="12" data-date="2026-04-08" data-count="0"><title>No contributions on 8 Apr 2026</title></rect><rect class="c1" x="434" y="76" width="12" height="12" data-date="2026-04-09" data-count="1"><title>1 contribution on 9 Apr 2026</title></rect><rect class="c1" x="434" y="90" width="12" height="12" data-date="2026-04-10" data-count="6"><title>6 contributions on 10 Apr 2026</title></rect><rect class="c1" x="434" y="104" width="12" height="12" data-date="2026-04-11" data-count="1"><title>1 contribution on 11 Apr 2026</title></rect><rect class="c1" x="448" y="20" width="12" height="12" data-date="2026-04-12" data-count="8"><title>8 contributions on 12 Apr 2026</title></rect><rect class="c1" x="448" y="34" width="12" height="12" data-date="2026-04-13" data-count="3"><title>3 contributions on 13 Apr 2026</title></rect><rect class="c0" x="448" y="48" width="12" height="12" data-date="2026-04-14" data-count="0"><title>No contributions on 14 Apr 2026</title></rect><rect class="c0" x="448" y="62" width="12" height="12" data-date="2026-04-15" data-count="0"><title>No contributions on 15 Apr 2026</title></rect><rect class="c1" x="448" y="76" width="12" height="12" data-date="2026-04-16" data-count="13"><title>13 contributions on 16 Apr 2026</title></rect><rect class="c1" x="448" y="90" width="12" height="12" data-date="2026-04-17" data-count="5"><title>5 contributions on 17 Apr 2026</title></rect><rect class="c1" x="448" y="104" width="12" height="12" data-date="2026-04-18" data-count="1"><title>1 contribution on 18 Apr 2026</title></rect><rect class="c0" x="462" y="20" width="12" height="12" data-date="2026-04-19" data-count="0"><title>No contributions on 19 Apr 2026</title></rect><rect class="c1" x="462" y="34" width="12" height="12" data-date="2026-04-20" data-count="1"><title>1 contribution on 20 Apr 2026</title></rect><rect class="c1" x="462" y="48" width="12" height="12" data-date="2026-04-21" data-count="1"><title>1 contribution on 21 Apr 2026</title></rect><rect class="c0" x="462" y="62" width="12" height="12" data-date="2026-04-22" data-count="0"><title>No contributions on 22 Apr 2026</title></rect><rect class="c1" x="462" y="76" width="12" height="12" data-date="2026-04-23" data-count="13"><title>13 contributions on 23 Apr 2026</title></rect><rect class="c1" x="462" y="90" width="12" height="12" data-date="2026-04-24" data-count="4"><title>4 contributions on 24 Apr 2026</title></rect><rect class="c0" x="462" y="104" width="12" height="12" data-date="2026-04-25" data-count="0"><title>No contributions on 25 Apr 2026</title></rect><rect class="c1" x="476" y="20" width="12" height="12" data-date="2026-04-26" data-count="3"><title>3 contributions on 26 Apr 2026</title></rect><rect class="c1" x="476" y="34" width="12" height="12" data-date="2026-04-27" data-count="2"><title>2 contributions on 27 Apr 2026</title></rect><rect class="c0" x="476" y="48" width="12" height="12" data-date="2026-04-28" data-count="0"><title>No contributions on 28 Apr 2026</title></rect><rect class="c0" x="476" y="62" width="12" height="12" data-date="2026-04-29" data-count="0"><title>No contributions on 29 Apr 2026</title></rect><rect class="c1" x="476" y="76" width="12" height="12" data-date="2026-04-30" data-count="6"><title>6 contributions on 30 Apr 2026</title></rect><rect class="c1" x="476" y="90" width="12" height="12" data-date="2026-05-01" data-count="13"><title>13 contributions on 1 May 2026</title></rect><rect class="c1" x="476" y="104" width="12" height="12" data-date="2026-05-02" data-count="9"><title>9 contributions on 2 May 2026</title></rect><rect class="c1" x="490" y="20" width="12" height="12" data-date="2026-05-03" data-count="6"><title>6 contributions on 3 May 2026</title></rect><rect class="c1" x="490" y="34" width="12" height="12" data-date="2026-05-04" data-count="2"><title>2 contributions on 4 May 2026</title></rect><rect class="c0" x="490" y="48" width="12" height="12" data-date="2026-05-05" data-count="0"><title>No contributions on 5 May 2026</title></rect><rect class="c1" x="490" y="62" width="12" height="12" data-date="2026-05-06" data-count="4"><title>4 contributions on 6 May 2026</title></rect><rect class="c1" x="490" y="76" width="12" height="12" data-date="2026-05-07" data-count="1"><title>1 contribution on 7 May 2026</title></rect><rect class="c1" x="490" y="90" width="12" height="12" data-date="2026-05-08" data-count="1"><title>1 contribution on 8 May 2026</title></rect><rect class="c1" x="490" y="104" width="12" height="12" data-date="2026-05-09" data-count="4"><title>4 contributions on 9 May 2026</title></rect><rect class="c0" x="504" y="20" width="12" height="12" data-date="2026-05-10" data-count="0"><title>No contributions on 10 May 2026</title></rect><rect class="c1" x="504" y="34" width="12" height="12" data-date="2026-05-11" data-count="1"><title>1 contribution on 11 May 2026</title></rect><rect class="c0" x="504" y="48" width="12" height="12" data-date="2026-05-12" data-count="0"><title>No contributions on 12 May 2026</title></rect><rect class="c1" x="504" y="62" width="12" height="12" data-date="2026-05-13" data-count="7"><title>7 contributions on 13 May 2026</title></rect><rect class="c1" x="504" y="76" width="12" height="12" data-date="2026-05-14" data-count="6"><title>6 contributions on 14 May 2026</title></rect><rect class="c1" x="504" y="90" width="12" height="12" data-date="2026-05-15" data-count="1"><title>1 contribution on 15 May 2026</title></rect><rect class="c1" x="504" y="104" width="12" height="12" data-date="2026-05-16" data-count="8"><title>8 contributions on 16 May 2026</title></rect><rect class="c1" x="518" y="20" width="12" height="12" data-date="2026-05-17" data-count="8"><title>8 contributions on 17 May 2026</title></rect><rect class="c1" x="518" y="34" width="12" height="12" data-date="2026-05-18" data-count="14"><title>14 contributions on 18 May 2026</title></rect><rect class="c1" x="518" y="48" width="12" height="12" data-date="2026-05-19" data-count="11"><title>11 contributions on 19 May 2026</title></rect><rect class="c2" x="518" y="62" width="12" height="12" data-date="2026-05-20" data-count="39"><title>39 contributions on 20 May 2026</title></rect><rect class="c1" x="518" y="76" width="12" height="12" data-date="2026-05-21" data-count="12"><title>12 contributions on 21 May 2026</title></rect><rect class="c1" x="518" y="90" width="12" height="12" data-date="2026-05-22" data-count="2"><title>2 contributions on 22 May 2026</title></rect><rect class="c1" x="518" y="104" width="12" height="12" data-date="2026-05-23" data-count="4"><title>4 contributions on 23 May 2026</title></rect><rect class="c1" x="532" y="20" width="12" height="12" data-date="2026-05-24" data-count="2"><title>2 contributions on 24 May 2026</title></rect><rect class="c1" x="532" y="34" width="12" height="12" data-date="2026-05-25" data-count="2"><title>2 contributions on 25 May 2026</title></rect><rect class="c3" x="532" y="48" width="12" height="12" data-date="2026-05-26" data-count="54"><title>54 contributions on 26 May 2026</title></rect><rect class="c1" x="532" y="62" width="12" height="12" data-date="2026-05-27" data-count="13"><title>13 contributions on 27 May 2026</title></rect><rect class="c1" x="532" y="76" width="12" height="12" data-date="2026-05-28" data-count="18"><title>18 contributions on 28 May 2026</title></rect><rect class="c1" x="532" y="90" width="12" height="12" data-date="2026-05-29" data-count="6"><title>6 contributions on 29 May 2026</title></rect><rect class="c1" x="532" y="104" width="12" height="12" data-date="2026-05-30" data-count="1"><title>1 contribution on 30 May 2026</title></rect><rect class="c2" x="546" y="20" width="12" height="12" data-date="2026-05-31" data-count="35"><title>35 contributions on 31 May 2026</title></rect><rect class="c2" x="546" y="34" width="12" height="12" data-date="2026-06-01" data-count="27"><title>27 contributions on 1 Jun 2026</title></rect><rect class="c2" x="546" y="48" width="12" height="12" data-date="2026-06-02" data-count="32"><title>32 contributions on 2 Jun 2026</title></rect><rect class="c2" x="546" y="62" width="12" height="12" data-date="2026-06-03" data-count="40"><title>40 contributions on 3 Jun 2026</title></rect><rect class="c1" x="546" y="76" width="12" height="12" data-date="2026-06-04" data-count="4"><title>4 contributions on 4 Jun 2026</title></rect><rect class="c1" x="546" y="90" width="12" height="12" data-date="2026-06-05" data-count="4"><title>4 contributions on 5 Jun 2026</title></rect><rect class="c1" x="546" y="104" width="12" height="12" data-date="2026-06-06" data-count="8"><title>8 contributions on 6 Jun 2026</title></rect><rect class="c1" x="560" y="20" width="12" height="12" data-date="2026-06-07" data-count="4"><title>4 contributions on 7 Jun 2026</title></rect><rect class="c1" x="560" y="34" width="12" height="12" data-date="2026-06-08" data-count="2"><title>2 contributions on 8 Jun 2026</title></rect><rect class="c1" x="560" y="48" width="12" height="12" data-date="2026-06-09" data-count="7"><title>7 contributions on 9 Jun 2026</title></rect><rect class="c1" x="560" y="62" width="12" height="12" data-date="2026-06-10" data-count="13"><title>13 contributions on 10 Jun 2026</title></rect><rect class="c1" x="560" y="76" width="12" height="12" data-date="2026-06-11" data-count="12"><title>12 contributions on 11 Jun 2026</title></rect><rect class="c1" x="560" y="90" width="12" height="12" data-date="2026-06-12" data-count="20"><title>20 contributions on 12 Jun 2026</title></rect><rect class="c1" x="560" y="104" width="12" height="12" data-date="2026-06-13" data-count="15"><title>15 contributions on 13 Jun 2026</title></rect><rect class="c1" x="574" y="20" width="12" height="12" data-date="2026-06-14" data-count="14"><title>14 contributions on 14 Jun 2026</title></rect><rect class="c2" x="574" y="34" width="12" height="12" data-date="2026-06-15" data-count="28"><title>28 contributions on 15 Jun 2026</title></rect><rect class="c2" x="574" y="48" width="12" height="12" data-date="2026-06-16" data-count="31"><title>31 contributions on 16 Jun 2026</title></rect><rect class="c1" x="574" y="62" width="12" height="12" data-date="2026-06-17" data-count="6"><title>6 contributions on 17 Jun 2026</title></rect><rect class="c1" x="574" y="76" width="12" height="12" data-date="2026-06-18" data-count="15"><title>15 contributions on 18 Jun 2026</title></rect><rect class="c2" x="574" y="90" width="12" height="12" data-date="2026-06-19" data-count="24"><title>24 contributions on 19 Jun 2026</title></rect><rect class="c1" x="574" y="104" width="12" height="12" data-date="2026-06-20" data-count="2"><title>2 contributions on 20 Jun 2026</title></rect><rect class="c1" x="588" y="20" width="12" height="12" data-date="2026-06-21" data-count="12"><title>12 contributions on 21 Jun 2026</title></rect><rect class="c1" x="588" y="34" width="12" height="12" data-date="2026-06-22" data-count="10"><title>10 contributions on 22 Jun 2026</title></rect><rect class="c1" x="588" y="48" width="12" height="12" data-date="2026-06-23" data-count="2"><title>2 contributions on 23 Jun 2026</title></rect><rect class="c1" x="588" y="62" width="12" height="12" data-date="2026-06-24" data-count="7"><title>7 contributions on 24 Jun 2026</title></rect><rect class="c1" x="588" y="76" width="12" height="12" data-date="2026-06-25" data-count="9"><title>9 contributions on 25 Jun 2026</title></rect><rect class="c1" x="588" y="90" width="12" height="12" data-date="2026-06-26" data-count="19"><title>19 contributions on 26 Jun 2026</title></rect><rect class="c2" x="588" y="104" width="12" height="12" data-date="2026-06-27" data-count="33"><title>33 contributions on 27 Jun 2026</title></rect><rect class="c3" x="602" y="20" width="12" height="12" data-date="2026-06-28" data-count="44"><title>44 contributions on 28 Jun 2026</title></rect><rect class="c2" x="602" y="34" width="12" height="12" data-date="2026-06-29" data-count="27"><title>27 contributions on 29 Jun 2026</title></rect><rect class="c1" x="602" y="48" width="12" height="12" data-date="2026-06-30" data-count="7"><title>7 contributions on 30 Jun 2026</title></rect><rect class="c2" x="602" y="62" width="12" height="12" data-date="2026-07-01" data-count="23"><title>23 contributions on 1 Jul 2026</title></rect><rect class="c1" x="602" y="76" width="12" height="12" data-date="2026-07-02" data-count="2"><title>2 contributions on 2 Jul 2026</title></rect><rect class="c1" x="602" y="90" width="12" height="12" data-date="2026-07-03" data-count="2"><title>2 contributions on 3 Jul 2026</title></rect><rect class="c1" x="602" y="104" width="12" height="12" data-date="2026-07-04" data-count="13"><title>13 contributions on 4 Jul 2026</title></rect><rect class="c1" x="616" y="20" width="12" height="12" data-date="2026-07-05" data-count="7"><title>7 contributions on 5 Jul 2026</title></rect><rect class="c1" x="616" y="34" width="12" height="12" data-date="2026-07-06" data-count="6"><title>6 contributions on 6 Jul 2026</title></rect><rect class="c1" x="616" y="48" width="12" height="12" data-date="2026-07-07" data-count="7"><title>7 contributions on 7 Jul 2026</title></rect><rect class="c1" x="616" y="62" width="12" height="12" data-date="2026-07-08" data-count="1"><title>1 contribution on 8 Jul 2026</title></rect><rect class="c1" x="616" y="76" width="12" height="12" data-date="2026-07-09" data-count="6"><title>6 contributions on 9 Jul 2026</title></rect><rect class="c1" x="616" y="90" width="12" height="12" data-date="2026-07-10" data-count="15"><title>15 contributions on 10 Jul 2026</title></rect><rect class="c2" x="616" y="104" width="12" height="12" data-date="2026-07-11" data-count="22"><title>22 contributions on 11 Jul 2026</title></rect><rect class="c2" x="630" y="20" width="12" height="12" data-date="2026-07-12" data-count="32"><title>32 contributions on 12 Jul 2026</title></rect><rect class="c1" x="630" y="34" width="12" height="12" data-date="2026-07-13" data-count="10"><title>10 contributions on 13 Jul 2026</title></rect><rect class="c2" x="630" y="48" width="12" height="12" data-date="2026-07-14" data-count="22"><title>22 contributions on 14 Jul 2026</title></rect><rect class="c2" x="630" y="62" width="12" height="12" data-date="2026-07-15" data-count="38"><title>38 contributions on 15 Jul 2026</title></rect><rect class="c3" x="630" y="76" width="12" height="12" data-date="2026-07-16" data-count="46"><title>46 contributions on 16 Jul 2026</title></rect><rect class="c2" x="630" y="90" width="12" height="12" data-date="2026-07-17" data-count="34"><title>34 contributions on 17 Jul 2026</title></rect><rect class="c1" x="630" y="104" width="12" height="12" data-date="2026-07-18" data-count="1"><title>1 contribution on 18 Jul 2026</title></rect><rect class="c3" x="644" y="20" width="12" height="12" data-date="2026-07-19" data-count="42"><title>42 contributions on 19 Jul 2026</title></rect><rect class="c2" x="644" y="34" width="12" height="12" data-date="2026-07-20" data-count="21"><title>21 contributions on 20 Jul 2026</title></rect><rect class="c4" x="644" y="48" width="12" height="12" data-date="2026-07-21" data-count="74"><title>74 contributions on 21 Jul 2026</title></rect><rect class="c2" x="644" y="62" width="12" height="12" data-date="2026-07-22" data-count="33"><title>33 contributions on 22 Jul 2026</title></rect><rect class="c1" x="644" y="76" width="12" height="12" data-date="2026-07-23" data-count="5"><title>5 contributions on 23 Jul 2026</title></rect><rect class="c0" x="644" y="90" width="12" height="12" data-date="2026-07-24" data-count="0"><title>No contributions on 24 Jul 2026</title></rect><rect class="c0" x="644" y="104" width="12" height="12" data-date="2026-07-25" data-count="0"><title>No contributions on 25 Jul 2026</title></rect><rect class="c1" x="658" y="20" width="12" height="12" data-date="2026-07-26" data-count="1"><title>1 contribution on 26 Jul 2026</title></rect><rect class="c1" x="658" y="34" width="12" height="12" data-date="2026-07-27" data-count="3"><title>3 contributions on 27 Jul 2026</title></rect><rect class="c1" x="658" y="48" width="12" height="12" data-date="2026-07-28" data-count="11"><title>11 contributions on 28 Jul 2026</title></rect><rect class="c1" x="658" y="62" width="12" height="12" data-date="2026-07-29" data-count="2"><title>2 contributions on 29 Jul 2026</title></rect><rect class="c4" x="658" y="76" width="12" height="12" data-date="2026-07-30" data-count="61"><title>61 contributions on 30 Jul 2026</title></rect><rect class="c1" x="658" y="90" width="12" height="12" data-date="2026-07-31" data-count="13"><title>13 contributions on 31 Jul 2026</title></rect><rect class="c2" x="658" y="104" width="12" height="12" data-date="2026-08-01" data-count="30"><title>30 contributions on 1 Aug 2026</title></rect><rect class="c2" x="672" y="20" width="12" height="12" data-date="2026-08-02" data-count="34"><title>34 contributions on 2 Aug 2026</title></rect><rect class="c1" x="672" y="34" width="12" height="12" data-date="2026-08-03" data-count="6"><title>6 contributions on 3 Aug 2026</title></rect><rect class="c1" x="672" y="48" width="12" height="12" data-date="2026-08-04" data-count="18"><title>18 contributions on 4 Aug 2026</title></rect><rect class="c1" x="672" y="62" width="12" height="12" data-date="2026-08-05" data-count="7"><title>7 contributions on 5 Aug 2026</title></rect><rect class="c4" x="672" y="76" width="12" height="12" data-date="2026-08-06" data-count="75"><title>75 contributions on 6 Aug 2026</title></rect><rect class="c1" x="672" y="90" width="12" height="12" data-date="2026-08-07" data-count="4"><title>4 contributions on 7 Aug 2026</title></rect><rect class="c2" x="672" y="104" width="12" height="12" data-date="2026-08-08" data-count="27"><title>27 contributions on 8 Aug 2026</title></rect><rect class="c4" x="686" y="20" width="12" height="12" data-date="2026-08-09" data-count="80"><title>80 contributions on 9 Aug 2026</title></rect><rect class="c1" x="686" y="34" width="12" height="12" data-date="2026-08-10" data-count="20"><title>20 contributions on 10 Aug 2026</title></rect><rect class="c2" x="686" y="48" width="12" height="12" data-date="2026-08-11" data-count="25"><title>25 contributions on 11 Aug 2026</title></rect><rect class="c1" x="686" y="62" width="12" height="12" data-date="2026-08-12" data-count="14"><title>14 contributions on 12 Aug 2026</title></rect><rect class="c2" x="686" y="76" width="12" height="12" data-date="2026-08-13" data-count="21"><title>21 contributions on 13 Aug 2026</title></rect><rect class="c4" x="686" y="90" width="12" height="12" data-date="2026-08-14" data-count="63"><title>63 contributions on 14 Aug 2026</title></rect><rect class="c2" x="686" y="104" width="12" height="12" data-date="2026-08-15" data-count="33"><title>33 contributions on 15 Aug 2026</title></rect><rect class="c1" x="700" y="20" width="12" height="12" data-date="2026-08-16" data-count="12"><title>12 contributions on 16 Aug 2026</title></rect><rect class="c1" x="700" y="34" width="12" height="12" data-date="2026-08-17" data-count="15"><title>15 contributions on 17 Aug 2026</title></rect><rect class="c0" x="700" y="48" width="12" height="12" data-date="2026-08-18" data-count="0"><title>No contributions on 18 Aug 2026</title></rect><rect class="c0" x="700" y="62" width="12" height="12" data-date="2026-08-19" data-count="0"><title>No contributions on 19 Aug 2026</title></rect><rect class="c1" x="700" y="76" width="12" height="12" data-date="2026-08-20" data-count="3"><title>3 contributions on 20 Aug 2026</title></rect><rect class="c1" x="700" y="90" width="12" height="12" data-date="2026-08-21" data-count="14"><title>14 contributions on 21 Aug 2026</title></rect><rect class="c2" x="700" y="104" width="12" height="12" data-date="2026-08-22" data-count="24"><title>24 contributions on 22 Aug 2026</title></rect><rect class="c1" x="714" y="20" width="12" height="12" data-date="2026-08-23" data-count="4"><title>4 contributions on 23 Aug 2026</title></rect><rect class="c1" x="714" y="34" width="12" height="12" data-date="2026-08-24" data-count="8"><title>8 contributions on 24 Aug 2026</title></rect><rect class="c1" x="714" y="48" width="12" height="12" data-date="2026-08-25" data-count="3"><title>3 contributions on 25 Aug 2026</title></rect><rect class="c3" x="714" y="62" width="12" height="12" data-date="2026-08-26" data-count="45"><title>45 contributions on 26 Aug 2026</title></rect><rect class="c1" x="714" y="76" width="12" height="12" data-date="2026-08-27" data-count="2"><title>2 contributions on 27 Aug 2026</title></rect><rect class="c1" x="714" y="90" width="12" height="12" data-date="2026-08-28" data-count="14"><title>14 contributions on 28 Aug 2026</title></rect><rect class="c1" x="714" y="104" width="12" height="12" data-date="2026-08-29" data-count="5"><title>5 contributions on 29 Aug 2026</title></rect><rect class="c1" x="728" y="20" width="12" height="12" data-date="2026-08-30" data-count="4"><title>4 contributions on 30 Aug 2026</title></rect><rect class="c1" x="728" y="34" width="12" height="12" data-date="2026-08-31" data-count="19"><title>19 contributions on 31 Aug 2026</title></rect><rect class="c1" x="728" y="48" width="12" height="12" data-date="2026-09-01" data-count="7"><title>7 contributions on 1 Sep 2026</title></rect><rect class="c1" x="728" y="62" width="12" height="12" data-date="2026-09-02" data-count="1"><title>1 contribution on 2 Sep 2026</title></rect></svg><!-- contributions:svg:end --></div>
+        <p class="contrib-cap">
+          <span><!-- contributions:summary:start --><b>2,249</b> contributions, 31.08.2025 – 02.09.2026.<!-- contributions:summary:end --> Source: <a href="https://github.com/BohdanChuprynka" target="_blank" rel="noopener noreferrer">GitHub</a>.</span>
+          <span class="legend" aria-hidden="true">Less <i class="c0"></i><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i> More</span>
+        </p>
+      </div>
+    </section>
+
+    <div class="hatch bleed" aria-hidden="true"></div>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="sec-head"><h2 id="experience-title">Experience</h2></div>
+
+      <details class="xp rise">
+        <summary>
+          <span class="logo"><img src="./remly-official.png" alt="Remly logo" width="400" height="400" loading="lazy" decoding="async" /></span>
+          <span>
+            <span class="xp-title">Founding AI Engineer <span class="xp-co">· Remly</span></span>
+            <span class="xp-line">Retrieval, agents, and product features across a Next.js web app and a Swift macOS client: local files and connected apps searchable by meaning, with cited answers.</span>
+          </span>
+          <span class="xp-when">Jun 2026 – Present</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="xp-body">
+          <ul>
+            <li>Built exact-filename search, relevance ranking, and Ask context with citations across web and Mac.</li>
+            <li>Shipped connector integrations, Mac ingestion batching, and OAuth 2.1 MCP retrieval with access controls and cross-platform tests.</li>
+          </ul>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">Swift</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">MCP</span><span class="tag">OpenAI API</span></div>
+        </div>
+      </details>
+
+      <details class="xp rise">
+        <summary>
+          <span class="logo"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" width="158" height="158" loading="lazy" decoding="async" /></span>
+          <span>
+            <span class="xp-title">Cybersecurity Intern, Data Protection <span class="xp-co">· Cleveland Clinic</span></span>
+            <span class="xp-line">Reviewed 17 sensitive-data classifiers, engineered 13 custom classifiers, and built a privacy-safe validation harness with six-format synthetic tests.</span>
+          </span>
+          <span class="xp-when">Jun – Aug 2026</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="xp-body">
+          <ul>
+            <li>Regex classifiers for privacy and compliance workflows, tuned on synthetic data with holdout sets.</li>
+            <li>Synthetic evaluations reached approximately 100% precision and recall across six file formats.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Regex</span><span class="tag">Data protection</span><span class="tag">Synthetic evaluation</span></div>
+        </div>
+      </details>
+
+      <details class="xp rise">
+        <summary>
+          <span class="logo dark"><img src="./protege.svg" alt="Aximon logo" width="92" height="69" loading="lazy" decoding="async" /></span>
+          <span>
+            <span class="xp-title">Co-Founder &amp; CTO <span class="xp-co">· Aximon</span></span>
+            <span class="xp-line">Owned backend and AI infrastructure for an AI coding mentor. 1.7K extension downloads, 1,000+ beta testers, 6 partnerships.</span>
+          </span>
+          <span class="xp-when">Mar – May 2026</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="xp-body">
+          <ul>
+            <li>Built tutoring and platform features across a TypeScript extension and backend: learner and code-context injection, Python validation, automated checks, interactive IDE previews.</li>
+            <li>Model-provider routing, shared LLM-output caching, cost controls, cloud-synced chat, and editor analytics.</li>
+          </ul>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">BullMQ</span></div>
+        </div>
+      </details>
+
+      <details class="xp rise">
+        <summary>
+          <span class="logo"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" width="158" height="158" loading="lazy" decoding="async" /></span>
+          <span>
+            <span class="xp-title">AI Engineer Intern <span class="xp-co">· Cleveland Clinic</span></span>
+            <span class="xp-line">Built an nnU-Net vertebral segmentation pipeline for spinal X-rays: preprocessing, training, post-processing, and evaluation with clinical collaborators.</span>
+          </span>
+          <span class="xp-when">Jun – Aug 2025</span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="xp-body">
+          <ul>
+            <li>Customized nnU-Net planners, loss functions, and post-processing filters for vertebral structures.</li>
+            <li>Validated outputs with radiologists and neurosurgeons for surgical planning, without exposing protected data.</li>
+          </ul>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">nnU-Net</span><span class="tag">Medical imaging</span><span class="tag">Python</span></div>
+        </div>
+      </details>
+    </section>
+
+    <div class="hatch bleed" aria-hidden="true"></div>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="sec-head"><h2 id="projects-title">Projects <span class="count">(8)</span></h2></div>
+
+      <div class="cards">
+        <article class="card rise">
+          <a class="shot" href="https://www.remly.it/" target="_blank" rel="noopener noreferrer" aria-label="Open Remly.it"><img src="./remly-landing.jpg" alt="Remly.it homepage" width="1265" height="712" loading="lazy" decoding="async" /></a>
+          <div class="card-b">
+            <div class="card-t"><h3>Remly</h3><span class="kind">Product · current</span></div>
+            <p>The context layer for Mac and AI. Search and Ask across local files and connected apps, with citations. I build the retrieval, cited Q&amp;A, connector, and cross-platform layers.</p>
+            <dl class="kv"><div><dt>Role</dt><dd>Founding AI Engineer</dd></div><div><dt>Surface</dt><dd>Next.js web + Swift macOS</dd></div></dl>
+            <div class="links"><a class="btn btn-sm" href="https://www.remly.it/" target="_blank" rel="noopener noreferrer">remly.it<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
           </div>
+        </article>
+
+        <article class="card rise">
+          <a class="shot" href="https://github.com/BohdanChuprynka/Persona-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Persona-RAG on GitHub"><img src="./persona-rag.png" alt="Persona-RAG side-by-side comparison of the local model and the API" width="1200" height="627" loading="lazy" decoding="async" /></a>
+          <div class="card-b">
+            <div class="card-t"><h3>Persona-RAG</h3><span class="kind">Research + product</span></div>
+            <p>Can a free local fine-tune match a paid RAG stack on voice? A Qwen2.5-3B LoRA against a gpt-4o-mini hybrid-retrieval product, scored on a leak-free hold-out after I caught a 90% train/test leak in my own eval.</p>
+            <dl class="kv"><div><dt>Cost</dt><dd>$0 local vs $0.37 per 1k replies</dd></div><div><dt>Hold-out</dt><dd>n = 300, ~11× fewer tokens</dd></div></dl>
+            <div class="links">
+              <a class="btn btn-sm" href="https://github.com/BohdanChuprynka/Persona-RAG" target="_blank" rel="noopener noreferrer">GitHub<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <a class="btn btn-sm" href="https://github.com/BohdanChuprynka/Persona-RAG/blob/main/report/persona-rag-report.pdf" target="_blank" rel="noopener noreferrer">Paper<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+            <details class="gal">
+              <summary>Gallery · 4<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <div class="strip">
+                <figure><a class="zoom" href="./persona-demo.gif"><img src="./persona-demo.gif" alt="Live comparison: the cloud API on the left, the local model on the right" width="900" height="744" loading="lazy" decoding="async" /></a><figcaption>Live comparison, real model output</figcaption></figure>
+                <figure><a class="zoom" href="./persona-headline.png"><img src="./persona-headline.png" alt="Headline result chart" width="1170" height="546" loading="lazy" decoding="async" /></a><figcaption>Headline result, 95% intervals</figcaption></figure>
+                <figure><a class="zoom" href="./persona-voice-tics.png"><img src="./persona-voice-tics.png" alt="Voice-register metrics chart" width="1300" height="624" loading="lazy" decoding="async" /></a><figcaption>Register tics vs my real baseline</figcaption></figure>
+                <figure><a class="zoom" href="./persona-leak-guard.png"><img src="./persona-leak-guard.png" alt="Retrieval leak guard chart" width="702" height="546" loading="lazy" decoding="async" /></a><figcaption>Leak guard, 28% removed to 0</figcaption></figure>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card rise">
+          <div class="shot"><img src="./aximon.png" alt="Aximon adaptive Python tutor interface" width="1200" height="627" loading="lazy" decoding="async" /></div>
+          <div class="card-b">
+            <div class="card-t"><h3>Aximon</h3><span class="kind">AI product</span></div>
+            <p>The AI foundation for an adaptive Python tutor: multi-step tutoring, pgvector retrieval, model routing, evaluation, and asynchronous course generation.</p>
+            <dl class="kv kv-3"><div><dt>Downloads</dt><dd>1.7K</dd></div><div><dt>Beta testers</dt><dd>1,000+</dd></div><div><dt>Partnerships</dt><dd>6</dd></div></dl>
+            <details class="gal">
+              <summary>Gallery · 3<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <div class="strip">
+                <figure><a class="zoom" href="./aximon-theory.png"><img src="./aximon-theory.png" alt="Theory lesson with the tutor" width="3840" height="1982" loading="lazy" decoding="async" /></a><figcaption>Theory lesson + tutor</figcaption></figure>
+                <figure><a class="zoom" href="./aximon-practice.png"><img src="./aximon-practice.png" alt="Practice feedback screen" width="3840" height="1986" loading="lazy" decoding="async" /></a><figcaption>Practice feedback</figcaption></figure>
+                <figure><a class="zoom" href="./aximon-tree.png"><img src="./aximon-tree.png" alt="Curriculum sequencing tree" width="3838" height="1982" loading="lazy" decoding="async" /></a><figcaption>Curriculum sequencing</figcaption></figure>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <article class="card rise">
+          <a class="shot contain" href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Policy RAG on GitHub"><img src="./policy-rag.png" alt="Policy RAG system architecture" width="5728" height="2560" loading="lazy" decoding="async" /></a>
+          <div class="card-b">
+            <div class="card-t"><h3>Policy RAG</h3><span class="kind">Retrieval</span></div>
+            <p>Citation-grounded Q&amp;A over policy documents. Hybrid dense and BM25 retrieval with weighted fusion, written in Python and NumPy without LangChain, behind a FastAPI backend with session-scoped indexing.</p>
+            <dl class="kv"><div><dt>Retrieval</dt><dd>Dense + BM25, from scratch</dd></div><div><dt>Shape</dt><dd>FastAPI · Redis · Docker · CI</dd></div></dl>
+            <div class="links"><a class="btn btn-sm" href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noopener noreferrer">GitHub<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rows">
+        <div class="row rise">
+          <img class="thumb" src="./vertebrae.jpg" alt="Vertebral segmentation overview" width="1357" height="720" loading="lazy" decoding="async" />
+          <span><span class="row-t">Vertebral segmentation</span><span class="row-d">nnU-Net pipeline for spinal X-rays, built at Cleveland Clinic. Private work, shown without protected data.</span></span>
+          <span class="row-m">Medical imaging · 2025</span>
+        </div>
+        <a class="row rise" href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noopener noreferrer">
+          <img class="thumb" src="./stock-sales.png" alt="Sales forecasting results" width="2084" height="923" loading="lazy" decoding="async" />
+          <span><span class="row-t">Sales forecasting</span><span class="row-d">Five model families across 3M+ retail rows and 54 stores. Best R² 0.83.</span></span>
+          <span class="row-m">GitHub<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="row rise" href="https://github.com/BohdanChuprynka/Sentiment-Analysis-Model" target="_blank" rel="noopener noreferrer">
+          <img class="thumb" src="./sentiment.png" alt="Sentiment analysis model comparison" width="2766" height="1367" loading="lazy" decoding="async" />
+          <span><span class="row-t">Sentiment analysis</span><span class="row-d">Classical ML against deep learning on 1.6M tweets. Best accuracy 80.6%.</span></span>
+          <span class="row-m">GitHub<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="row rise" href="https://public.tableau.com/app/profile/bohdan.chuprynka/viz/BusinessSummary_17527722001530/BusinessSummary" target="_blank" rel="noopener noreferrer">
+          <img class="thumb" src="./tableau.png" alt="Tableau business dashboard" width="2592" height="1234" loading="lazy" decoding="async" />
+          <span><span class="row-t">Business dashboard</span><span class="row-d">Interactive sales, margin, and regional performance in Tableau.</span></span>
+          <span class="row-m">Tableau<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <div class="hatch bleed" aria-hidden="true"></div>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="sec-head"><h2 id="skills-title">Skills</h2></div>
+      <div class="stack">
+        <div class="stack-row rise">
+          <span class="stack-k"><span class="n">01</span>LLM apps + retrieval<small>RAG, hybrid search, agents, model routing, fine-tuning</small></span>
+          <span class="stack-v"><span class="tag">LangGraph</span><span class="tag">Hugging Face</span><span class="tag">Qdrant</span><span class="tag">pgvector</span><span class="tag">BM25</span><span class="tag">LoRA</span><span class="tag">OpenAI API</span><span class="tag">MCP</span></span>
+        </div>
+        <div class="stack-row rise">
+          <span class="stack-k"><span class="n">02</span>Production AI + evaluation<small>Backend services, test harnesses, observability, cost and latency control</small></span>
+          <span class="stack-v"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">MLflow</span><span class="tag">pytest</span><span class="tag">GitHub Actions</span></span>
+        </div>
+        <div class="stack-row rise">
+          <span class="stack-k"><span class="n">03</span>Machine learning<small>Deep learning, computer vision, NLP, model training</small></span>
+          <span class="stack-v"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">nnU-Net</span><span class="tag">OpenCV</span></span>
+        </div>
+        <div class="stack-row rise">
+          <span class="stack-k"><span class="n">04</span>Data + analytics<small>Pipelines, SQL, evaluation, dashboards</small></span>
+          <span class="stack-v"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">SQL</span><span class="tag">Redis</span><span class="tag">Tableau</span></span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="shell">
-        <div class="section-head reveal">
-          <h2>Experience</h2>
+    <!-- "Beyond the résumé" is parked for now (hidden, with its divider and the two links pointing at it). Drop the hidden attributes to show it. -->
+    <div class="hatch bleed" aria-hidden="true" hidden></div>
+
+    <section id="about" aria-labelledby="about-title" hidden>
+      <div class="sec-head"><h2 id="about-title">Beyond the résumé</h2><p class="sub">More about me.</p></div>
+      <div class="story">
+        <div class="story-b rise">
+          <span class="k">Origin</span>
+          <p>I was born in Ukraine and grew up between two languages before adding a third. Cleveland, Ohio is home now.</p>
+          <p>I taught myself to code through small projects and a lot of failed attempts. Somewhere in there I burned out for close to a year and stopped writing code entirely. What brought me back was an internship at Cleveland Clinic, where a model I'd trained ended up in front of surgeons. That's when AI stopped being a subject and became the thing I build.</p>
         </div>
-        <div class="experience-list">
-          <button class="experience-row reveal" type="button" data-experience-detail="remly">
-            <span class="company-logo remly"><img src="./remly-official.png" alt="Remly logo" /></span>
-            <span class="company-block"><h3>Founding AI Engineer</h3><p>Remly</p></span>
-            <span class="experience-result">Built cited search and Q&amp;A across web and macOS, with connector retrieval, ranking, ingestion, and access controls.</span>
-            <time>Jun 2026 — Now</time>
-          </button>
-          <button class="experience-row reveal" type="button" data-experience-detail="clinic-2026">
-            <span class="company-logo cc"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" /></span>
-            <span class="company-block"><h3>Cybersecurity Intern</h3><p>Cleveland Clinic</p></span>
-            <span class="experience-result">Reviewed 17 sensitive-data classifiers and built 13 custom classifiers; synthetic tests covered six file formats.</span>
-            <time>Summer 2026</time>
-          </button>
-          <button class="experience-row reveal" type="button" data-experience-detail="protege">
-            <span class="company-logo protege"><img src="./protege.svg" alt="Protégé logo" /></span>
-            <span class="company-block"><h3>Co-Founder &amp; CTO</h3><p>Protégé</p></span>
-            <span class="experience-result">Built the AI coding mentor, backend, model routing, and product infrastructure.</span>
-            <time>Mar — May 2026</time>
-          </button>
-          <button class="experience-row reveal" type="button" data-experience-detail="clinic-2025">
-            <span class="company-logo cc"><img src="./cleveland-clinic-logo.png" alt="Cleveland Clinic logo" /></span>
-            <span class="company-block"><h3>AI Engineer Intern</h3><p>Cleveland Clinic</p></span>
-            <span class="experience-result">Built an nnU-Net vertebral segmentation pipeline for spinal X-rays with clinical collaborators.</span>
-            <time>Summer 2025</time>
-          </button>
+        <div class="story-b rise">
+          <span class="k">How I work</span>
+          <p>I build retrieval from scratch before I reach for a framework, because I want to know what's underneath. I'd rather publish the eval that caught a 90% train/test leak in my own work than a demo that hides it.</p>
+          <p>Along the way I've co-founded a startup, shipped inside a hospital's security team, and run Discord communities for the products I've worked on. Each one taught me something a course couldn't.</p>
+        </div>
+        <div class="quote rise">
+          <span class="k">What I believe</span>
+          <p>Shipping isn't finishing. Shipping is proving something works once.</p>
+        </div>
+        <div class="story-b rise">
+          <span class="k">Off the keyboard</span>
+          <p>Guitar, and I'll be playing it for the rest of my life. The gym most evenings. Long conversations in English, Ukrainian, or Russian, whichever one the other person thinks in.</p>
+        </div>
+        <div class="story-b rise">
+          <span class="k">What's next</span>
+          <p>I'm looking for an AI engineering role or contract where I own retrieval, evaluation, or agent infrastructure end to end. If that sounds like your team, <a href="mailto:bohdan.chuprynka@gmail.com">email me</a> or read the <a href="./Bohdan-Chuprynka-Resume.pdf" target="_blank" rel="noopener noreferrer">résumé</a>.</p>
         </div>
       </div>
     </section>
 
-    <section class="section projects-section" id="projects">
-      <div class="shell">
-        <div class="section-head reveal">
-          <h2>Projects</h2>
-          <div class="section-aside">
-            <button class="route-button" type="button" data-open="projects-dialog">View all projects ↗</button>
-          </div>
-        </div>
-      </div>
+    <div class="hatch bleed" aria-hidden="true"></div>
 
-      <div class="project-runway" id="project-runway">
-        <div class="project-sticky" id="project-sticky">
-          <div class="project-proof" id="project-proof" aria-hidden="true">
-            <span class="project-proof-value" id="project-proof-value">CURRENT</span>
-            <span class="project-proof-label" id="project-proof-label">Founding AI Engineer</span>
-          </div>
-          <div class="project-progress" aria-hidden="true"><span></span></div>
-          <div class="project-rail" id="project-rail" aria-label="Projects">
-            <article class="project-exhibit active" data-exhibit="remly-project" data-proof-value="CURRENT" data-proof-label="Founding AI Engineer">
-              <span class="exhibit-letter" aria-hidden="true">R</span>
-              <div class="exhibit-frame">
-                <a href="https://www.remly.it/" target="_blank" rel="noopener noreferrer" aria-label="Open Remly.it">
-                  <img src="./remly-landing.jpg" alt="Remly.it homepage" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Current product</span></div>
-                <h3 class="exhibit-title">Remly.it</h3>
-                <p class="exhibit-result">The context layer for Mac and AI. I build the retrieval, cited Q&amp;A, connector, and cross-platform product layers.</p>
-                <dl class="exhibit-meta"><dt>Role</dt><dd>Founding AI Engineer</dd><dt>Surface</dt><dd>Next.js web + Swift macOS</dd></dl>
-                <div class="exhibit-actions">
-                  <a class="route-button" href="https://www.remly.it/" target="_blank" rel="noopener noreferrer">Visit Remly.it ↗</a>
-                  <button class="route-button" type="button" data-project-detail="remly-project">Results + gallery ↗</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="persona" data-proof-value="$0" data-proof-label="Local inference">
-              <span class="exhibit-letter" aria-hidden="true">P</span>
-              <div class="exhibit-frame">
-                <a href="https://github.com/BohdanChuprynka/Persona-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Persona-RAG on GitHub">
-                  <img src="./persona-rag.png" alt="Persona-RAG comparison interface" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Research + product</span></div>
-                <h3 class="exhibit-title">Persona-RAG</h3>
-                <p class="exhibit-result">Caught a major evaluation leak, rebuilt the test, and showed a local fine-tune could match the paid RAG stack on voice.</p>
-                <dl class="exhibit-meta"><dt>Proof</dt><dd>90% → 0 train/test leak</dd><dt>Result</dt><dd>$0 local inference · n = 300 hold-out</dd></dl>
-                <button class="route-button" type="button" data-project-detail="persona">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="aximon" data-proof-value="1,000+" data-proof-label="Beta testers">
-              <span class="exhibit-letter" aria-hidden="true">A</span>
-              <div class="exhibit-frame">
-                <button class="exhibit-thumb" type="button" data-project-detail="aximon" aria-label="Open Aximon project details">
-                  <img src="./aximon.png" alt="Aximon adaptive Python tutor interface" loading="lazy" decoding="async" />
-                </button>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">AI product</span></div>
-                <h3 class="exhibit-title">Aximon</h3>
-                <p class="exhibit-result">Built the AI foundation for an adaptive Python tutor: routed models, pgvector retrieval, evaluation, and course generation.</p>
-                <dl class="exhibit-meta"><dt>Reach</dt><dd>1,000+ beta testers</dd><dt>Distribution</dt><dd>6 partnerships · 30K ICP · 1.6K downloads</dd></dl>
-                <button class="route-button" type="button" data-project-detail="aximon">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="policy" data-proof-value="HYBRID" data-proof-label="Dense + keyword retrieval">
-              <span class="exhibit-letter" aria-hidden="true">R</span>
-              <div class="exhibit-frame">
-                <a href="https://github.com/BohdanChuprynka/Policy-RAG" target="_blank" rel="noopener noreferrer" aria-label="Open Policy RAG on GitHub">
-                  <img class="contain" src="./policy-rag.png" alt="Policy RAG system architecture" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Retrieval</span></div>
-                <h3 class="exhibit-title">Policy RAG</h3>
-                <p class="exhibit-result">Built citation-grounded policy search from scratch with dense and keyword retrieval, weighted fusion, and a FastAPI backend.</p>
-                <dl class="exhibit-meta"><dt>Build</dt><dd>Retrieval written directly in Python + NumPy</dd><dt>Result</dt><dd>Hybrid search with cited answers</dd></dl>
-                <button class="route-button" type="button" data-project-detail="policy">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="vertebrae" data-proof-value="nnU-Net" data-proof-label="Medical imaging">
-              <span class="exhibit-letter" aria-hidden="true">V</span>
-              <div class="exhibit-frame">
-                <button class="exhibit-thumb" type="button" data-project-detail="vertebrae" aria-label="Open vertebral segmentation project details">
-                  <img src="./vertebrae.jpg" alt="Vertebral segmentation project overview" loading="lazy" decoding="async" />
-                </button>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Medical imaging</span></div>
-                <h3 class="exhibit-title">Vertebral segmentation</h3>
-                <p class="exhibit-result">Built an nnU-Net pipeline for segmenting vertebrae in spinal X-rays during my Cleveland Clinic internship.</p>
-                <dl class="exhibit-meta"><dt>Model</dt><dd>nnU-Net</dd><dt>Scope</dt><dd>Preprocessing through evaluation</dd></dl>
-                <button class="route-button" type="button" data-project-detail="vertebrae">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="stock" data-proof-value="0.83" data-proof-label="Best R²">
-              <span class="exhibit-letter" aria-hidden="true">S</span>
-              <div class="exhibit-frame">
-                <a href="https://github.com/BohdanChuprynka/Stock-Sales-Prediction" target="_blank" rel="noopener noreferrer" aria-label="Open sales forecasting on GitHub">
-                  <img src="./stock-sales.png" alt="Sales forecasting results" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Machine learning</span></div>
-                <h3 class="exhibit-title">Sales forecasting</h3>
-                <p class="exhibit-result">Compared five model families across more than three million retail rows and 54 stores.</p>
-                <dl class="exhibit-meta"><dt>Scale</dt><dd>3M+ rows · 54 stores</dd><dt>Best</dt><dd>R² 0.83</dd></dl>
-                <button class="route-button" type="button" data-project-detail="stock">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="sentiment" data-proof-value="1.6M" data-proof-label="Tweets evaluated">
-              <span class="exhibit-letter" aria-hidden="true">N</span>
-              <div class="exhibit-frame">
-                <a href="https://github.com/BohdanChuprynka/Sentiment-Analysis-Model" target="_blank" rel="noopener noreferrer" aria-label="Open sentiment analysis on GitHub">
-                  <img src="./sentiment.png" alt="Sentiment analysis model comparison" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Natural language processing</span></div>
-                <h3 class="exhibit-title">Sentiment analysis</h3>
-                <p class="exhibit-result">Compared classical machine learning and deep learning across 1.6 million tweets.</p>
-                <dl class="exhibit-meta"><dt>Data</dt><dd>1.6M tweets</dd><dt>Best</dt><dd>80.6% accuracy</dd></dl>
-                <button class="route-button" type="button" data-project-detail="sentiment">Results + gallery ↗</button>
-              </div>
-            </article>
-
-            <article class="project-exhibit" data-exhibit="tableau" data-proof-value="LIVE" data-proof-label="Interactive dashboard">
-              <span class="exhibit-letter" aria-hidden="true">D</span>
-              <div class="exhibit-frame">
-                <a href="https://public.tableau.com/app/profile/bohdan.chuprynka/viz/BusinessSummary_17527722001530/BusinessSummary" target="_blank" rel="noopener noreferrer" aria-label="Open business dashboard on Tableau">
-                  <img src="./tableau.png" alt="Tableau business dashboard" loading="lazy" decoding="async" />
-                </a>
-              </div>
-              <div class="exhibit-body">
-                <div class="exhibit-top"><span class="exhibit-number">Data visualization</span></div>
-                <h3 class="exhibit-title">Business dashboard</h3>
-                <p class="exhibit-result">Built an interactive view of sales, margins, regional performance, and business-unit trends.</p>
-                <dl class="exhibit-meta"><dt>Tool</dt><dd>Tableau</dd><dt>Focus</dt><dd>Sales + margin decisions</dd></dl>
-                <button class="route-button" type="button" data-project-detail="tableau">Results + gallery ↗</button>
-              </div>
-            </article>
-          </div>
-        </div>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Let's talk</h2>
+      <p class="lead">Roles, offers, contracts, or just a thought. I'm open to all of it.</p>
+      <a class="big-mail" href="mailto:bohdan.chuprynka@gmail.com">bohdan.chuprynka@gmail.com</a>
+      <div class="links">
+        <a class="btn btn-sm" href="https://github.com/BohdanChuprynka" target="_blank" rel="noopener noreferrer">GitHub<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-sm" href="https://www.linkedin.com/in/bohdanchuprynka/" target="_blank" rel="noopener noreferrer">LinkedIn<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="btn btn-sm" href="./Bohdan-Chuprynka-Resume.pdf" target="_blank" rel="noopener noreferrer">Résumé<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="shell">
-        <div class="section-head skills-head reveal">
-          <h2>Skills</h2>
-        </div>
-        <div class="skills-list">
-          <div class="skill-row reveal">
-            <h3>AI integration + automation</h3>
-            <p class="skill-capability">API integrations, tool calling, structured outputs, workflow orchestration</p>
-            <p class="skill-tools">OpenAI API · MCP · REST APIs · OAuth · webhooks</p>
-          </div>
-          <div class="skill-row reveal">
-            <h3>LLM applications + retrieval</h3>
-            <p class="skill-capability">RAG, hybrid search, agent workflows, model routing, fine-tuning</p>
-            <p class="skill-tools">LangGraph · Hugging Face · Qdrant · pgvector · BM25 · LoRA</p>
-          </div>
-          <div class="skill-row reveal">
-            <h3>Production AI + evaluation</h3>
-            <p class="skill-capability">Backend services, test harnesses, observability, privacy, latency and cost control</p>
-            <p class="skill-tools">Python · FastAPI · TypeScript · PostgreSQL · Docker · MLflow · pytest</p>
-          </div>
-          <div class="skill-row reveal">
-            <h3>Machine learning</h3>
-            <p class="skill-capability">Deep learning, computer vision, NLP, model training</p>
-            <p class="skill-tools">PyTorch · TensorFlow · scikit-learn · nnU-Net · OpenCV</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="close">
-      <div class="shell reveal">
-        <h2>Let's connect</h2>
-        <div class="close-email-row">
-          <span class="close-proof-dot" aria-hidden="true"></span>
-          <a class="close-email" href="mailto:bohdan.chuprynka@gmail.com">bohdan.chuprynka@gmail.com</a>
-        </div>
-        <div class="close-foot"><span>Cleveland, Ohio</span><span>© 2026 Bohdan Chuprynka</span></div>
-      </div>
-    </section>
+    <footer class="foot">
+      <span>Cleveland, Ohio</span>
+      <span>© 2026 Bohdan Chuprynka</span>
+    </footer>
   </main>
 
-  <dialog id="role-dialog" aria-labelledby="role-title">
-    <div class="dialog-shell shell">
-      <div class="dialog-top"><span>Experience detail</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
-      <div class="dialog-content">
-        <p class="eyebrow" id="role-company">Company</p>
-        <h2 class="dialog-title" id="role-title">Role</h2>
-        <p class="dialog-dek" id="role-dek"></p>
-        <div class="case-meta" id="role-meta"></div>
-        <div class="timeline" id="role-details"></div>
-      </div>
-    </div>
+  <dialog class="lb" id="lightbox" aria-label="Image preview">
+    <button class="lb-close" type="button" aria-label="Close">×</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p class="lb-cap" id="lightbox-cap"></p>
   </dialog>
-
-  <dialog id="projects-dialog" aria-labelledby="projects-dialog-title">
-    <div class="dialog-shell shell">
-      <div class="dialog-top"><span>All projects</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
-      <div class="dialog-content">
-        <p class="eyebrow">Project index</p>
-        <h2 class="dialog-title" id="projects-dialog-title">The broader body of work.</h2>
-        <p class="dialog-dek">A compact index of the same projects shown in the horizontal story.</p>
-        <div class="all-projects-grid">
-          <button class="all-project-card" type="button" data-project-detail="remly-project"><img src="./remly-landing.jpg" alt="Remly.it homepage" loading="lazy" decoding="async" /><h3>Remly.it</h3><p>The context layer for Mac and AI, with retrieval, cited Q&amp;A, connectors, and cross-platform product work.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="persona"><img src="./persona-rag.png" alt="Persona-RAG" loading="lazy" decoding="async" /><h3>Persona-RAG</h3><p>Local fine-tuning, RAG, leak-audited evaluation, and a working Telegram product.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="aximon"><img src="./aximon.png" alt="Aximon" loading="lazy" decoding="async" /><h3>Aximon</h3><p>Adaptive tutoring with routed models, retrieval, evaluation, and course generation.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="policy"><img class="contain" src="./policy-rag.png" alt="Policy RAG" loading="lazy" decoding="async" /><h3>Policy RAG</h3><p>Hybrid retrieval and citation-grounded answers built from scratch.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="vertebrae"><img src="./vertebrae.jpg" alt="Vertebral segmentation" loading="lazy" decoding="async" /><h3>Vertebral segmentation</h3><p>nnU-Net medical-imaging pipeline developed during a Cleveland Clinic internship.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="stock"><img src="./stock-sales.png" alt="Stock sales prediction" loading="lazy" decoding="async" /><h3>Sales forecasting</h3><p>Five-model forecasting pipeline on more than three million rows; best R² 0.83.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="sentiment"><img src="./sentiment.png" alt="Sentiment analysis" loading="lazy" decoding="async" /><h3>Sentiment analysis</h3><p>Classical and deep-learning comparison on 1.6 million tweets; best accuracy 80.6%.</p></button>
-          <button class="all-project-card" type="button" data-project-detail="tableau"><img src="./tableau.png" alt="Tableau sales dashboard" loading="lazy" decoding="async" /><h3>Business dashboard</h3><p>Interactive sales, margin, and regional-performance analysis in Tableau.</p></button>
-        </div>
-      </div>
-    </div>
-  </dialog>
-
-  <dialog id="case-dialog" aria-labelledby="case-title">
-    <div class="dialog-shell shell">
-      <div class="dialog-top"><span id="case-kicker">Project case study</span><button class="close-dialog" type="button" data-close-dialog aria-label="Close">×</button></div>
-      <div class="dialog-content">
-        <p class="eyebrow" id="case-type">Project</p>
-        <div class="case-title-row">
-          <h2 class="dialog-title" id="case-title">Project title</h2>
-          <a class="route-button case-source-link" id="case-source" href="#case-gallery">View gallery ↓</a>
-        </div>
-        <p class="dialog-dek" id="case-dek"></p>
-        <div class="case-meta" id="case-meta"></div>
-        <div class="case-gallery" id="case-gallery"></div>
-      </div>
-    </div>
-  </dialog>
-
   <script>
     (function () {
-      var root = document.documentElement;
-      var themeColor = document.querySelector('meta[name="theme-color"]');
-      var savedTheme = null;
-      try { savedTheme = localStorage.getItem('bohdan-portfolio-theme'); } catch (error) { savedTheme = null; }
-      var initialTheme = savedTheme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-
-      function applyTheme(theme, persist) {
-        root.setAttribute('data-theme', theme);
-        if (themeColor) themeColor.setAttribute('content', theme === 'light' ? '#eee9dd' : '#090908');
-        document.querySelectorAll('[data-set-theme]').forEach(function (button) {
-          button.setAttribute('aria-pressed', String(button.getAttribute('data-set-theme') === theme));
-        });
-        if (persist) {
-          try { localStorage.setItem('bohdan-portfolio-theme', theme); } catch (error) { /* Theme still works without storage. */ }
-        }
-      }
-
-      applyTheme(initialTheme, false);
-
-      document.querySelectorAll('[data-set-theme]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var theme = button.getAttribute('data-set-theme');
-          applyTheme(theme, true);
-        });
+      var lb = document.getElementById('lightbox');
+      if (!lb || typeof lb.showModal !== 'function') return;
+      var img = document.getElementById('lightbox-img');
+      var cap = document.getElementById('lightbox-cap');
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('a.zoom');
+        if (!link) return;
+        event.preventDefault();
+        var source = link.querySelector('img');
+        var figure = link.closest('figure');
+        var caption = figure && figure.querySelector('figcaption');
+        img.src = link.getAttribute('href');
+        img.alt = source ? source.alt : '';
+        cap.textContent = caption ? caption.textContent : '';
+        lb.showModal();
       });
-
-      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var runway = document.getElementById('project-runway');
-      var sticky = document.getElementById('project-sticky');
-      var rail = document.getElementById('project-rail');
-      var progressLine = sticky.querySelector('.project-progress');
-      var proofLine = document.querySelector('.proof-thread-line');
-      var exhibits = Array.from(document.querySelectorAll('[data-exhibit]'));
-      var heroName = document.querySelector('.hero-name');
-      var portraitWrap = document.querySelector('.portrait-wrap');
-      var projectProof = document.getElementById('project-proof');
-      var projectProofValue = document.getElementById('project-proof-value');
-      var projectProofLabel = document.getElementById('project-proof-label');
-      var experienceRows = Array.from(document.querySelectorAll('.experience-row'));
-      var skillRows = Array.from(document.querySelectorAll('.skill-row'));
-      var closeSection = document.querySelector('.close');
-      var proofThread = document.querySelector('.proof-thread');
-      var proofDot = document.querySelector('.proof-thread-dot');
-      var proofSections = [
-        { name: 'hero', element: document.querySelector('.hero') },
-        { name: 'experience', element: document.getElementById('experience') },
-        { name: 'projects', element: document.getElementById('projects') },
-        { name: 'skills', element: document.getElementById('skills') },
-        { name: 'close', element: document.querySelector('.close') }
-      ];
-      var railTravel = 0;
-      var railProgress = 0;
-      var ticking = false;
-      var activeExhibitIndex = 0;
-      var proofLineLength = 0;
-      var sectionSpans = [];
-      var lightPhases = [];
-      var lightHead = { x: 0, y: 0, s: 1, a: .4, rot: 0, ready: false };
-      var lightTrail = { x: 0, y: 0, s: 1, a: .4, rot: 0 };
-      var lightStamp = 0;
-      var pageSpan = 1;
-
-      function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
-
-      // Reads no layout: pageSpan is cached by measureProofGeometry.
-      function pageProgress() {
-        return clamp(window.scrollY / pageSpan, 0, 1);
-      }
-
-      function updateProjectProof(index) {
-        if (index === activeExhibitIndex || !exhibits[index]) return;
-        activeExhibitIndex = index;
-        projectProofValue.textContent = exhibits[index].getAttribute('data-proof-value') || '';
-        projectProofLabel.textContent = exhibits[index].getAttribute('data-proof-label') || '';
-        projectProof.classList.remove('is-changing');
-      }
-
-      function activateClosestExhibit() {
-        var viewportCenter = window.innerWidth / 2;
-        var closest = 0;
-        var closestDistance = Infinity;
-        exhibits.forEach(function (exhibit, index) {
-          var rect = exhibit.getBoundingClientRect();
-          var distance = Math.abs(rect.left + rect.width / 2 - viewportCenter);
-          if (distance < closestDistance) { closestDistance = distance; closest = index; }
-        });
-        exhibits.forEach(function (exhibit, index) { exhibit.classList.toggle('active', index === closest); });
-        updateProjectProof(closest);
-        return closest;
-      }
-
-      function activateClosestRow(rows, enabled, targetY) {
-        var closest = -1;
-        var closestDistance = Infinity;
-        if (enabled) {
-          var anchorY = Number.isFinite(targetY) ? targetY : window.innerHeight * .54;
-          rows.forEach(function (row, index) {
-            var rect = row.getBoundingClientRect();
-            if (Number.isFinite(targetY) && (anchorY < rect.top || anchorY > rect.bottom)) return;
-            var distance = Math.abs(rect.top + rect.height / 2 - anchorY);
-            if (distance < closestDistance) { closestDistance = distance; closest = index; }
-          });
-        }
-        rows.forEach(function (row, index) { row.classList.toggle('is-proof-active', enabled && index === closest); });
-      }
-
-      function railPinned() { return window.innerWidth > 900 && !reducedMotion; }
-
-      function measureProofGeometry() {
-        var height = window.innerHeight;
-        var maxScroll = Math.max(1, document.documentElement.scrollHeight - height);
-        pageSpan = maxScroll;
-        var bounds = proofSections.filter(function (section) { return section.element; }).map(function (section) {
-          var rect = section.element.getBoundingClientRect();
-          var top = rect.top + window.scrollY;
-          return { name: section.name, top: top, bottom: top + rect.height };
-        });
-
-        // Which section owns the row highlighting and the live close dot. Sections are
-        // stacked, so cutting at each bottom partitions the entire scroll range.
-        var cursor = 0;
-        sectionSpans = bounds.map(function (bound, index) {
-          var end = index === bounds.length - 1 ? maxScroll : clamp(bound.bottom - height * .52, 0, maxScroll);
-          var span = { name: bound.name, end: Math.max(cursor + 1, end) };
-          cursor = span.end;
-          return span;
-        });
-
-        /* The light is cut on the moments that actually change the screen: the hero
-           clearing, the projects panel pinning and releasing, and the close arriving.
-           Cutting on section edges instead parks the light through the projects
-           heading and again through the panel's tail, which is a viewport and a half
-           of scroll where nothing in the background moves. */
-        var railStart = runway.getBoundingClientRect().top + window.scrollY;
-        var railSpan = railPinned() ? runway.offsetHeight - height : runway.offsetHeight;
-        var closer = bounds[bounds.length - 1];
-        var stops = [
-          (bounds[0] ? bounds[0].bottom : height) - height * .6,
-          railStart,
-          railStart + Math.max(1, railSpan),
-          (closer ? closer.top : maxScroll) - height * .85
-        ];
-        var edge = 0;
-        lightPhases = ['open', 'approach', 'rail', 'release', 'rest'].map(function (key, index) {
-          var end = index < stops.length ? clamp(stops[index], 0, maxScroll) : maxScroll;
-          var phase = { key: key, start: edge, end: Math.max(edge + 1, end) };
-          edge = phase.end;
-          return phase;
-        });
-        proofLineLength = proofLine ? proofLine.getBoundingClientRect().height : 0;
-      }
-
-      /* One light crosses the whole page in five continuous runs. Each run hands the
-         light off at exactly the position the next one starts from, so the travel
-         never cuts. The projects panel is opaque and paints its own copy of the light
-         at --rail-glow-x, so the path arrives at 14% as the panel pins and picks the
-         light back up at 86% as it releases: the same light, passing behind. The
-         direction reverses at the panel, which is what stops a page this long from
-         reading as one slow drift in a single direction. */
-      var lightPath = {
-        open: { x: [.80, .92], y: [.42, .66], s: [1.16, 1.06], a: [.40, .46] },
-        approach: { x: [.92, .14], y: [.66, .55], s: [1.06, .96], a: [.46, .46] },
-        rail: { x: [.14, .86], y: [.55, .55], s: [.96, .92], a: [.46, .70] },
-        release: { x: [.86, .20], y: [.55, .62], s: [.92, 1.04], a: [.70, .48] },
-        rest: { x: [.20, .34], y: [.62, .78], s: [1.04, 1.18], a: [.48, .62] }
-      };
-
-      function mix(pair, t) { return pair[0] + (pair[1] - pair[0]) * t; }
-
-      // Mostly linear, so travel stays locked to the wheel the way the project rail
-      // is, with just enough ease at the ends that handoffs do not change speed.
-      function glide(t) { return t + (t * t * (3 - 2 * t) - t) * .55; }
-
-      function pick(list) {
-        if (!list.length) measureProofGeometry();
-        var scrolled = window.scrollY;
-        for (var index = 0; index < list.length; index += 1) {
-          if (scrolled < list[index].end) return list[index];
-        }
-        return list[list.length - 1];
-      }
-
-      function activeSectionName() { return pick(sectionSpans).name; }
-
-      function lightTarget() {
-        var phase = pick(lightPhases);
-        var path = lightPath[phase.key];
-        var t = glide(clamp((window.scrollY - phase.start) / Math.max(1, phase.end - phase.start), 0, 1));
-        // On the pinned rail the panel paints its own copy of this light from
-        // railProgress, so x comes off the same number instead of off phase time.
-        var travel = phase.key === 'rail' && railPinned() ? railProgress : t;
-        return {
-          x: mix(path.x, travel) * window.innerWidth,
-          y: mix(path.y, t) * window.innerHeight,
-          s: mix(path.s, t),
-          a: mix(path.a, travel)
-        };
-      }
-
-      // Returns true once both bodies have settled, which is how the frame loop knows
-      // it can stop instead of burning a rAF on a page nobody is scrolling.
-      function stepLight(stamp) {
-        if (reducedMotion) return true;
-        var target = lightTarget();
-        var delta = lightStamp ? Math.min(.064, (stamp - lightStamp) / 1000) : .016;
-        lightStamp = stamp;
-        if (!lightHead.ready) {
-          lightHead.x = lightTrail.x = target.x;
-          lightHead.y = lightTrail.y = target.y;
-          lightHead.s = lightTrail.s = target.s;
-          lightHead.a = lightTrail.a = target.a;
-          lightHead.ready = true;
-        }
-        // Frame-rate independent easing, so a 120Hz display and a 60Hz one settle over
-        // the same wall-clock time rather than the same number of frames.
-        var headPull = 1 - Math.exp(-delta / .1);
-        var trailPull = 1 - Math.exp(-delta / .3);
-        var nextX = lightHead.x + (target.x - lightHead.x) * headPull;
-        var nextY = lightHead.y + (target.y - lightHead.y) * headPull;
-        var moveX = nextX - lightHead.x;
-        var moveY = nextY - lightHead.y;
-        var speed = Math.sqrt(moveX * moveX + moveY * moveY) / Math.max(delta, .001);
-        if (speed > 70) lightHead.rot = Math.atan2(moveY, moveX) * 180 / Math.PI;
-        lightHead.x = nextX;
-        lightHead.y = nextY;
-        lightHead.s += (target.s - lightHead.s) * headPull;
-        lightHead.a += (target.a - lightHead.a) * headPull;
-        lightTrail.x += (target.x - lightTrail.x) * trailPull;
-        lightTrail.y += (target.y - lightTrail.y) * trailPull;
-        lightTrail.s += (target.s - lightTrail.s) * trailPull;
-        lightTrail.a += (target.a - lightTrail.a) * trailPull;
-
-        var gapX = lightHead.x - lightTrail.x;
-        var gapY = lightHead.y - lightTrail.y;
-        var gap = Math.sqrt(gapX * gapX + gapY * gapY);
-        if (gap > 26) lightTrail.rot = Math.atan2(gapY, gapX) * 180 / Math.PI;
-        var smear = clamp(speed / 3000, 0, 1);
-        var drag = clamp(gap / 460, 0, 1);
-
-        root.style.setProperty('--pw-x', lightHead.x.toFixed(1) + 'px');
-        root.style.setProperty('--pw-y', lightHead.y.toFixed(1) + 'px');
-        root.style.setProperty('--pw-sx', (lightHead.s * (1 + smear * .46)).toFixed(3));
-        root.style.setProperty('--pw-sy', (lightHead.s * (1 - smear * .17)).toFixed(3));
-        root.style.setProperty('--pw-rot', lightHead.rot.toFixed(1) + 'deg');
-        root.style.setProperty('--pw-a', (lightHead.a * (1 + smear * .24)).toFixed(3));
-        root.style.setProperty('--pt-x', lightTrail.x.toFixed(1) + 'px');
-        root.style.setProperty('--pt-y', lightTrail.y.toFixed(1) + 'px');
-        root.style.setProperty('--pt-sx', (lightTrail.s * (1 + drag * .55)).toFixed(3));
-        root.style.setProperty('--pt-sy', (lightTrail.s * (1 - drag * .2)).toFixed(3));
-        root.style.setProperty('--pt-rot', lightTrail.rot.toFixed(1) + 'deg');
-        root.style.setProperty('--pt-a', (lightTrail.a * .42 * (1 + drag * .45)).toFixed(3));
-
-        return speed < 8 && gap < 2 && Math.abs(target.a - lightHead.a) < .002 && Math.abs(target.s - lightHead.s) < .003;
-      }
-
-      function updateProofSystem() {
-        var name = activeSectionName();
-        var height = window.innerHeight;
-        var progress = pageProgress();
-        var lineLengthPx = proofLineLength || Math.min(height * .52, 560);
-        var proofDotViewportY = proofThread ? proofThread.getBoundingClientRect().top + lineLengthPx * progress : height * .54;
-        root.setAttribute('data-proof-section', name);
-        root.style.setProperty('--proof-length', lineLengthPx.toFixed(1) + 'px');
-        root.style.setProperty('--proof-progress', progress.toFixed(4));
-        root.style.setProperty('--proof-dot-y', (lineLengthPx * progress).toFixed(1) + 'px');
-        closeSection.classList.toggle('is-live', name === 'close');
-        activateClosestRow(experienceRows, name === 'experience', name === 'experience' ? proofDotViewportY : undefined);
-        activateClosestRow(skillRows, name === 'skills');
-      }
-
-      function sizeRail() {
-        if (window.innerWidth <= 900 || reducedMotion) {
-          runway.style.height = 'auto';
-          rail.style.paddingLeft = '';
-          rail.style.paddingRight = '';
-          rail.style.transform = '';
-          measureProofGeometry();
-          var mobileIndex = activateClosestExhibit();
-          railProgress = exhibits.length > 1 ? mobileIndex / (exhibits.length - 1) : 0;
-          requestMotion();
-          return;
-        }
-        var firstWidth = exhibits[0].getBoundingClientRect().width;
-        var edge = Math.max(34, (window.innerWidth - firstWidth) / 2);
-        rail.style.paddingLeft = edge + 'px';
-        rail.style.paddingRight = edge + 'px';
-        railTravel = Math.max(0, rail.scrollWidth - window.innerWidth);
-        runway.style.height = (window.innerHeight + railTravel * .45) + 'px';
-        // Measured only after the runway is sized, because the runway sets the page
-        // height that every light segment below it is keyed to.
-        measureProofGeometry();
-        updateMotion();
-      }
-
-      function updateMotion(stamp) {
-        ticking = false;
-        var heroProgress = reducedMotion ? 0 : clamp(window.scrollY / Math.max(1, window.innerHeight * .9), 0, 1);
-        heroName.style.transform = 'translate3d(0,' + (heroProgress * 34) + 'px,0)';
-        portraitWrap.style.transform = 'translate3d(0,' + (heroProgress * -24) + 'px,0) scale(' + (1 + heroProgress * .035) + ')';
-
-        var runwayRect = runway.getBoundingClientRect();
-        if (window.innerWidth > 900 && !reducedMotion) {
-          var total = Math.max(1, runway.offsetHeight - window.innerHeight);
-          railProgress = clamp(-runwayRect.top / total, 0, 1);
-          sticky.style.setProperty('--rail-progress', railProgress.toFixed(4));
-          sticky.style.setProperty('--rail-glow-x', (14 + railProgress * 72).toFixed(2) + '%');
-          sticky.style.setProperty('--rail-dot-x', (Math.max(0, progressLine.clientWidth - 7) * railProgress).toFixed(1) + 'px');
-          rail.style.transform = 'translate3d(' + (-railTravel * railProgress) + 'px,0,0)';
-        }
-        var projectVisible = runwayRect.top < window.innerHeight && runwayRect.bottom > 0;
-        var closestIndex = activeExhibitIndex;
-        if (projectVisible || window.innerWidth <= 900 || reducedMotion) {
-          closestIndex = activateClosestExhibit();
-        }
-        if (window.innerWidth <= 900 || reducedMotion) {
-          railProgress = exhibits.length > 1 ? closestIndex / (exhibits.length - 1) : 0;
-        }
-        updateProofSystem();
-        if (!stepLight(typeof stamp === 'number' ? stamp : performance.now())) requestMotion();
-      }
-
-      function requestMotion() {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(updateMotion);
-      }
-
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(function (item) { revealObserver.observe(item); });
-
-      window.addEventListener('scroll', requestMotion, { passive: true });
-      window.addEventListener('resize', sizeRail);
-      window.addEventListener('load', sizeRail);
-      rail.addEventListener('scroll', requestMotion, { passive: true });
-      sizeRail();
-      requestMotion();
-
-      var caseData = {
-        'remly-project': {
-          type: 'Current product', title: 'Remly.it',
-          source: 'https://www.remly.it/', sourceLabel: 'Visit Remly.it ↗',
-          dek: 'The context layer for Mac and AI. I build the retrieval, cited Q&A, connector, and cross-platform product layers as Founding AI Engineer.',
-          meta: [['Current', 'active product work'], ['Two apps', 'Next.js web + Swift macOS'], ['Role', 'Founding AI Engineer']],
-          gallery: [['./remly-landing.jpg', 'Remly.it homepage']]
-        },
-        persona: {
-          type: 'Research + product', title: 'Persona-RAG',
-          source: 'https://github.com/BohdanChuprynka/Persona-RAG', sourceLabel: 'View GitHub ↗',
-          dek: 'A local Qwen2.5-3B LoRA and a paid RAG product, compared through a leak-audited evaluation instead of a polished demo alone.',
-          meta: [['90% → 0', 'train/test leak caught and removed'], ['n = 300', 'leak-free hold-out'], ['$0 local', 'versus $0.37 per 1k API replies']],
-          gallery: [['./persona-rag.png', 'Working product comparison'], ['./persona-headline.png', 'Headline result'], ['./persona-voice-tics.png', 'Voice-register metrics'], ['./persona-leak-guard.png', 'Retrieval leak guard']]
-        },
-        aximon: {
-          type: 'Closed beta', title: 'Aximon',
-          source: '#case-gallery', sourceLabel: 'View gallery ↓',
-          dek: 'The AI foundation for an adaptive Python tutor: multi-step tutoring, pgvector retrieval, model routing, evaluation, and asynchronous course generation.',
-          meta: [['1,000+', 'beta testers'], ['6', 'partnerships · 30K ICP'], ['1.6K', 'downloads']],
-          gallery: [['./aximon.png', 'Product overview'], ['./aximon-theory.png', 'Theory lesson + tutor'], ['./aximon-practice.png', 'Practice feedback'], ['./aximon-tree.png', 'Curriculum sequencing']]
-        },
-        policy: {
-          type: 'Applied AI', title: 'Policy RAG',
-          source: 'https://github.com/BohdanChuprynka/Policy-RAG', sourceLabel: 'View GitHub ↗',
-          dek: 'A citation-grounded Q&A system using hybrid dense and BM25 retrieval with weighted fusion, built directly in Python and NumPy.',
-          meta: [['Hybrid search', 'dense + BM25 retrieval'], ['From scratch', 'no LangChain or LlamaIndex'], ['Production shape', 'FastAPI, cache, session state, Docker']],
-          gallery: [['./policy-rag.png', 'System architecture and retrieval flow']]
-        },
-        vertebrae: {
-          type: 'Medical imaging', title: 'Vertebral segmentation',
-          source: '#case-gallery', sourceLabel: 'View gallery ↓',
-          dek: 'An nnU-Net-based vertebral segmentation workflow for spinal X-rays, including preprocessing, training, post-processing, and evaluation with clinical collaborators.',
-          meta: [['nnU-Net', 'segmentation model'], ['Clinical setting', 'Cleveland Clinic internship'], ['Private work', 'shown without protected data']],
-          gallery: [['./vertebrae.jpg', 'Project-safe overview']]
-        },
-        stock: {
-          type: 'Machine learning', title: 'Sales forecasting',
-          source: 'https://github.com/BohdanChuprynka/Stock-Sales-Prediction', sourceLabel: 'View GitHub ↗',
-          dek: 'An end-to-end retail forecasting pipeline comparing five model families across more than three million rows and 54 stores.',
-          meta: [['3M+', 'rows'], ['54', 'stores'], ['R² 0.83', 'best model']],
-          gallery: [['./stock-sales.png', 'Forecasting results']]
-        },
-        sentiment: {
-          type: 'NLP', title: 'Sentiment analysis',
-          source: 'https://github.com/BohdanChuprynka/Sentiment-Analysis-Model', sourceLabel: 'View GitHub ↗',
-          dek: 'A comparison of classical machine learning and deep learning on 1.6 million tweets, with preprocessing tuned to each model family.',
-          meta: [['1.6M', 'tweets'], ['80.6%', 'best accuracy'], ['4 approaches', 'classical + deep learning']],
-          gallery: [['./sentiment.png', 'Model comparison']]
-        },
-        tableau: {
-          type: 'Data visualization', title: 'Business dashboard',
-          source: 'https://public.tableau.com/app/profile/bohdan.chuprynka/viz/BusinessSummary_17527722001530/BusinessSummary', sourceLabel: 'View Tableau ↗',
-          dek: 'An interactive Tableau dashboard for sales, profit margins, regional performance, and business-unit trends.',
-          meta: [['Interactive', 'filterable dashboard'], ['Business KPIs', 'sales + margin'], ['Tableau', 'public visualization']],
-          gallery: [['./tableau.png', 'Dashboard overview']]
-        }
-      };
-
-      var roleData = {
-        remly: {
-          company: 'Remly', title: 'Founding AI Engineer',
-          dek: 'Building the retrieval and product layers behind cited search and Q&A across web and macOS.',
-          meta: [['Current', 'June 2026 — present'], ['Two apps', 'Next.js web + Swift macOS'], ['Core work', 'search, retrieval, evaluation']],
-          details: ['Built semantic and exact-name search, citation-backed Q&A, and connector retrieval across the product.', 'Implemented OAuth 2.1 MCP retrieval, ingestion batching, ranking, access controls, and cross-platform tests.'],
-          stack: 'Next.js · Swift · Python · PostgreSQL · pgvector · MCP'
-        },
-        'clinic-2026': {
-          company: 'Cleveland Clinic', title: 'Cybersecurity Intern · Data Protection',
-          dek: 'Applied data-protection work focused on detecting sensitive information reliably across real document formats.',
-          meta: [['17', 'classifiers reviewed'], ['13', 'custom classifiers built'], ['6 formats', 'synthetic evaluation coverage']],
-          details: ['Reviewed sensitive-data classifiers and engineered custom regex classifiers for privacy and compliance workflows.', 'Built a privacy-safe test harness; synthetic evaluations reached approximately 100% precision and recall.'],
-          stack: 'Python · regex · data protection · synthetic evaluation'
-        },
-        protege: {
-          company: 'Protégé', title: 'Co-Founder & CTO',
-          dek: 'Built and maintained the AI coding mentor and the product behind it.',
-          meta: [['~2 months', 'zero to closed beta'], ['2 people', 'founding product team'], ['AI stack', 'tutor, retrieval, evaluation']],
-          details: ['Built the AI coding mentor, backend, model routing, and product infrastructure.', 'Shipped the working product with a two-person team.'],
-          stack: 'TypeScript · Next.js · NestJS · PostgreSQL · pgvector · BullMQ'
-        },
-        'clinic-2025': {
-          company: 'Cleveland Clinic', title: 'AI Engineer Intern',
-          dek: 'Developed an nnU-Net vertebral segmentation workflow for spinal X-rays in a clinical research setting.',
-          meta: [['Medical AI', 'vertebral segmentation'], ['Full pipeline', 'preprocess to evaluation'], ['Clinical work', 'radiology + neurosurgery context']],
-          details: ['Built preprocessing, training, post-processing, and evaluation for the segmentation pipeline.', 'Worked with clinical collaborators to evaluate the medical-imaging workflow without exposing private data.'],
-          stack: 'Python · PyTorch · nnU-Net · medical imaging'
-        }
-      };
-
-      var caseDialog = document.getElementById('case-dialog');
-      var roleDialog = document.getElementById('role-dialog');
-      function openDialog(dialog) {
-        document.querySelectorAll('dialog[open]').forEach(function (open) { if (open !== dialog) open.close(); });
-        dialog.showModal();
-        document.body.classList.add('modal-open');
-      }
-      function closeDialog(dialog) {
-        dialog.close();
-        if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
-      }
-
-      document.querySelectorAll('[data-open]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var dialog = document.getElementById(button.getAttribute('data-open'));
-          if (dialog) openDialog(dialog);
-        });
+      lb.addEventListener('click', function (event) {
+        if (event.target === lb || event.target.closest('.lb-close')) lb.close();
       });
-
-      document.querySelectorAll('[data-experience-detail]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var item = roleData[button.getAttribute('data-experience-detail')];
-          if (!item) return;
-          document.getElementById('role-company').textContent = item.company;
-          document.getElementById('role-title').textContent = item.title;
-          document.getElementById('role-dek').textContent = item.dek;
-          document.getElementById('role-meta').innerHTML = item.meta.map(function (cell) { return '<div><strong>' + cell[0] + '</strong><span>' + cell[1] + '</span></div>'; }).join('');
-          document.getElementById('role-details').innerHTML = '<article class="timeline-item"><time>' + item.company + '</time><h3>' + item.title + '<span>Selected work</span></h3><div><p>' + item.details[0] + '</p><p>' + item.details[1] + '</p><span class="stack">' + item.stack + '</span></div></article>';
-          openDialog(roleDialog);
-        });
+      lb.addEventListener('close', function () { img.removeAttribute('src'); });
+    })();
+    (function () {
+      var graph = document.querySelector('.contrib svg');
+      if (!graph) return;
+      var tip = document.createElement('div');
+      tip.className = 'tip';
+      tip.setAttribute('role', 'tooltip');
+      document.body.appendChild(tip);
+      graph.querySelectorAll('rect > title').forEach(function (title) {
+        title.parentNode.setAttribute('data-tip', title.textContent);
+        title.remove();
       });
-
-      document.querySelectorAll('[data-project-detail]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var key = button.getAttribute('data-project-detail');
-          var item = caseData[key];
-          if (!item) return;
-          document.getElementById('case-type').textContent = item.type;
-          document.getElementById('case-title').textContent = item.title;
-          var sourceLink = document.getElementById('case-source');
-          sourceLink.textContent = item.sourceLabel;
-          sourceLink.setAttribute('href', item.source);
-          if (/^https?:\/\//.test(item.source)) {
-            sourceLink.setAttribute('target', '_blank');
-            sourceLink.setAttribute('rel', 'noopener noreferrer');
-          } else {
-            sourceLink.removeAttribute('target');
-            sourceLink.removeAttribute('rel');
-          }
-          document.getElementById('case-dek').textContent = item.dek;
-          document.getElementById('case-meta').innerHTML = item.meta.map(function (cell) { return '<div><strong>' + cell[0] + '</strong><span>' + cell[1] + '</span></div>'; }).join('');
-          document.getElementById('case-gallery').innerHTML = item.gallery.map(function (figure) { return '<figure><img src="' + figure[0] + '" alt="' + figure[1] + '" loading="lazy" decoding="async"><figcaption>' + figure[1] + '</figcaption></figure>'; }).join('');
-          openDialog(caseDialog);
-        });
+      var current = null;
+      function show(rect) {
+        var box = rect.getBoundingClientRect();
+        tip.textContent = rect.getAttribute('data-tip');
+        tip.style.left = (box.left + box.width / 2).toFixed(1) + 'px';
+        tip.style.top = box.top.toFixed(1) + 'px';
+        tip.classList.add('on');
+        current = rect;
+      }
+      function hide() { tip.classList.remove('on'); current = null; }
+      graph.addEventListener('pointerover', function (event) {
+        var rect = event.target.closest('rect[data-tip]');
+        if (rect) show(rect);
       });
-
-      document.querySelectorAll('[data-close-dialog]').forEach(function (button) {
-        button.addEventListener('click', function () { closeDialog(button.closest('dialog')); });
+      graph.addEventListener('pointerout', function (event) {
+        if (event.pointerType !== 'touch' && !event.relatedTarget?.closest?.('rect[data-tip]')) hide();
       });
-      document.querySelectorAll('dialog').forEach(function (dialog) {
-        dialog.addEventListener('click', function (event) { if (event.target === dialog) closeDialog(dialog); });
-        dialog.addEventListener('close', function () { if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open'); });
+      document.addEventListener('pointerdown', function (event) {
+        var rect = event.target.closest('.contrib svg rect[data-tip]');
+        if (rect) show(rect); else hide();
       });
-    }());
+      window.addEventListener('scroll', hide, { passive: true });
+    })();
   </script>
 </body>
 </html>
