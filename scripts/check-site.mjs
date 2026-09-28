@@ -17,7 +17,7 @@ function walk(directory) {
   });
 }
 
-const requiredFiles = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.ico'];
+const requiredFiles = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'favicon.ico', 'CNAME'];
 for (const file of requiredFiles) {
   if (!existsSync(join(site, file))) fail(`Missing required file: site/${file}`);
 }
@@ -28,7 +28,7 @@ if (!existsSync(join(site, 'index.html'))) {
 }
 
 const html = readFileSync(join(site, 'index.html'), 'utf8');
-const expectedUrl = 'https://bohdanchuprynka.github.io/Website-Portfolio/';
+const expectedUrl = 'https://bohdanchuprynka.com/';
 
 if (!/<title>Bohdan Chuprynka \| AI Engineer<\/title>/.test(html)) {
   fail('Production page title is missing or incorrect.');
@@ -71,6 +71,7 @@ const forbidden = [
 for (const [pattern, label] of forbidden) {
   if (pattern.test(publicText)) fail(`Sensitive or development-only content found: ${label}.`);
 }
+if (/(?:github\.io|["'=])\/Website-Portfolio\//i.test(publicText)) fail('Old /Website-Portfolio/ base path found; the site is served from the domain root.');
 
 const localReferences = new Set();
 for (const match of html.matchAll(/(?:src|href)=["'](\.\.?\/[^"'#?]+)["']/gi)) {
